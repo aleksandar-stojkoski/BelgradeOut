@@ -9,7 +9,7 @@
 	margin: 0;
 }
 
-/* Clearfix hack by Nicolas Gallagher: http://nicolasgallagher.com/micro-clearfix-hack/ */
+
 .clearfix:before,
 .clearfix:after {
     content: " ";
