@@ -88,20 +88,7 @@
           <div id="navbar" class="navbar-collapse collapse">
             <ul id="top-menu" class="nav navbar-nav navbar-right main_nav">
               <li class="active"><a href="#">Početna</a></li> 
-              <!-- OVDE DODAJEM KARTICE ZA GLAVNI MENI -->
-			 
-			  <!-- 
-			  <li><a href="#works">Works</a></li> 
-              <li><a href="#team">Team</a></li> 
-              <li><a href="#pricing">Pricing</a></li> 
-              <li><a href="#service">Service</a></li> 
-			  <li><a href="#subscribe">Prijava</a></li>              
-              -->
-			  
-			  <!--<li><a href="#subscribe"><img src="img/logo_small.png" alt="logo"></a></li>
-			  -->
-			  
-			  
+             
             </ul>           
           </div><!--/.nav-collapse -->
           </div>     
@@ -131,6 +118,10 @@
 						Kratak opis objekta: ....
 					</p>
 					<p>	
+						<br>
+						Ocena (od 1 do 5): &nbsp;&nbsp;&nbsp;
+						<input type="number" name="Ocena" min="1" max="5" required>
+						<br>
 						<input class="submit_btn" type="button" value="Oceni objekat">				
 					</p>
 				</div>
@@ -271,12 +262,6 @@
     </section>
     <!--=========== END BLOG SECTION ================-->
 
-
-    <!--=========== BEGIN TESTIMONIAL SECTION ================-->
-    
-    <!--=========== END TESTIMONIAL SECTION ================-->
-
-
     <!--=========== BEGIN CLIENTS SECTION ================-->
     <section id="clients">
       <div class="container">
@@ -359,6 +344,8 @@
             <div class="heading">
               <h2 class="wow fadeInLeftBig">Komentari</h2>
 				<p>	
+					<textarea class="form-control" cols="30" rows="5" placeholder="Vaš komentar.." required></textarea>
+					
 					<input class="submit_btn" type="button" value="Dodaj komentar">				
 				</p>
             </div>

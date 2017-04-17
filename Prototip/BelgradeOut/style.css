@@ -158,7 +158,7 @@ img{
 }
 
 .navbar-default .navbar-nav > li > a {
-  color: #fff;
+  color: #2da2c8;	/* this was #fff */
   font-size: 15px;
   font-weight: 600;
   text-transform: uppercase;
@@ -168,7 +168,7 @@ img{
 }
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
   background-color: transparent;
-  color: #fff;
+  color: #939597;	/* this was #fff */
 }
 
 /*--------/menu_area-------- */
@@ -593,7 +593,7 @@ div[data-dimension] {
 /*--------------------*/
 
 #works {
-  background-color: #4f535e;
+  background-color: #2da2c8;
   display: inline;
   float: left;
   padding: 0 0 80px;
