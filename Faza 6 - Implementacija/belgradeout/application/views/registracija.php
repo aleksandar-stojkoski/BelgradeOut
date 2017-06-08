@@ -51,8 +51,9 @@
 			  <br><br><br>
 			  </p>
 			  <div>
-				<input class="subscr_btn" type="button" value="Autor">
-				<input class="subscr_btn" type="button" value="Korisnik">
+				<input class="subscr_btn" type="button" value="Autor" onclick="location.href='<?php echo base_url();?>RegistracijaAutorController'">
+				<input class="subscr_btn" type="button" value="Korisnik" onclick="location.href='<?php echo base_url();?>RegistracijaKorisnikController'">
+
 			  </div>
 			  <p>
 			  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>

@@ -20,7 +20,7 @@
             <!--a class="navbar-brand" href="#">Belgrade<span>Out</span></a> -->
             
             <!-- IMG BASED LOGO  -->
-            <a class="navbar-brand" href="#"><img src="img/logo.png" alt="logo"></a> 
+            <a class="navbar-brand" href="#"><img src="<?php echo base_url(); ?>img/logo.png" alt="logo"></a> 
 			
                    
           </div>
@@ -46,7 +46,7 @@
             <!-- START CONTACT HEADING -->
             <div class="heading">
               <h2 class="wow fadeInLeftBig">Registracija</h2>
-              <p>Popunite sledeće podatke:
+              <p>Popunite sledeće podatke:  <?php echo "$greska"; ?>
 			  </p>
             </div>
           </div>
@@ -61,21 +61,21 @@
                 <!-- FOR CONTACT FORM MESSAGE -->
                 <div id="form-messages"></div>
 
-                <form>
+                  <?php echo form_open('RegistracijaKorisnikController/register'); ?>
 				  
-                  <input class="form-control" type="text" placeholder="Korisničko ime" required>
-				  <input class="form-control" type="text" placeholder="Ime i prezime" required>
-                  <input class="form-control" type="email" placeholder="Email adresa" required>
-                  <input class="form-control" type="password" placeholder="Lozinka" required>
-				  <input class="form-control" type="password" placeholder="Potvrda lozinke" required>
+                  <input class="form-control" type="text" placeholder="Korisničko ime" required name = "username">
+				  <input class="form-control" type="text" placeholder="Ime i prezime" required name="NameSurname">
+                  <input class="form-control" type="email" placeholder="Email adresa" required name="email">
+                  <input class="form-control" type="password" placeholder="Lozinka" required name = "pass">
+				  <input class="form-control" type="password" placeholder="Potvrda lozinke" name = "confpass">
 				  &nbsp;&nbsp;Slika:
-				  <input class="form-control" type="file" placeholder="Slika" required>
+				  <input class="form-control" type="file" placeholder="Slika"  name = "picture">
 				  &nbsp;&nbsp;Prijava na mailing listu:
-				  <input class="form-control" type="checkbox" value="Mailing lista">
+				  <input class="form-control" type="checkbox" value="Mailing lista" name = "check1">
 					<input class="submit_btn" type="submit" value="Pošalji">
 					<input class="submit_btn" type="reset" value="Obriši">
 					<input class="submit_btn" type="button" value="Odustani">
-                </form>
+                <?php echo form_close(); ?>  
               </div>
             </div>         
           </div>
