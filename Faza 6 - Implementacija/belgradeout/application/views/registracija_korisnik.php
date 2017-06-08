@@ -20,13 +20,13 @@
             <!--a class="navbar-brand" href="#">Belgrade<span>Out</span></a> -->
             
             <!-- IMG BASED LOGO  -->
-            <a class="navbar-brand" href="#"><img src="<?php echo base_url(); ?>img/logo.png" alt="logo"></a> 
+            <a class="navbar-brand" href='<?php echo base_url();?>IndexController'><img src="<?php echo base_url(); ?>img/logo.png" alt="logo"></a> 
 			
                    
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul id="top-menu" class="nav navbar-nav navbar-right main_nav">
-              <li class="active"><a href="#">Početna</a></li>
+              <li class="active"><a href='<?php echo base_url();?>IndexController'>Početna</a></li>
               
             </ul>           
           </div><!--/.nav-collapse -->
@@ -74,7 +74,7 @@
 				  <input class="form-control" type="checkbox" value="Mailing lista" name = "check1">
 					<input class="submit_btn" type="submit" value="Pošalji">
 					<input class="submit_btn" type="reset" value="Obriši">
-					<input class="submit_btn" type="button" value="Odustani">
+					<input class="submit_btn" type="button" value="Odustani" onclick="location.href='<?php echo base_url();?>IndexController'">
                 <?php echo form_close(); ?>  
               </div>
             </div>         
