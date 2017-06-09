@@ -1,5 +1,5 @@
 <?php
-
+// izrada koda: Milica Tanasković 0360/2014
 class RegistracijaKorisnikController extends CI_Controller{
     
     
@@ -44,9 +44,10 @@ class RegistracijaKorisnikController extends CI_Controller{
                                               
                                          $this->load->model('RegistracijaKorisnikModel');
                                          $result =  $this->RegistracijaKorisnikModel->unesiUBazu($name, $picture, $username, $pass, $email, $zeliVesti);
-                                             if($result = true){ $result = null;
+                                             if($result == true){ $result = null;
                                            //  $this->load->view('index'); }
-                                     redirect('IndexController');
+                                    redirect('IndexController');
+                                     //       redirect('Welcome'); 
                                   }}
                               else {
                

@@ -1,6 +1,6 @@
 <?php
 
-
+// izrada koda: Milica Tanasković 0360/2014
 class RegistracijaKorisnikModel extends CI_Model{
     
         public function unesiUBazu($name, $picture, $username, $pass, $email, $zeliVesti){

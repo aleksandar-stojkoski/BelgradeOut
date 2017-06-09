@@ -30,7 +30,7 @@
               <li><a href="#about">Pretraga</a></li>
 			  <li><a href="#contact">Kontakt</a></li>
 			  <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
-			  <li><a href="#">&nbsp;&nbsp;&nbsp;Moj profil</a></li>
+			  <li><a href='<?php echo base_url();?>MojProfilAutorController'>&nbsp;&nbsp;&nbsp;Moj profil</a></li>
 			  
             </ul>           
           </div>

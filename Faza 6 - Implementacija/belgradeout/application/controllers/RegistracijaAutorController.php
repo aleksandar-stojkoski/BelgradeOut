@@ -1,5 +1,5 @@
 <?php
-
+// izrada koda: Milica Tanasković 0360/2014
 class RegistracijaAutorController extends CI_Controller{
     
     
@@ -52,7 +52,7 @@ class RegistracijaAutorController extends CI_Controller{
                                         
                                          $this->load->model('RegistracijaAutorModel');
                                          $result =  $this->RegistracijaAutorModel->unesiUBazu($name, $picture, $username, $pass, $email, $phone, $nobjekat, $adr, $time, $tip, $kap, $opis);
-                                             if($result = true)
+                                             if($result == true)
                                         //  $this->load->view('index');
                                                      redirect('IndexController');
                                       }

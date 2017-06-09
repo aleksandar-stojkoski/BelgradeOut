@@ -20,13 +20,13 @@
             <!--a class="navbar-brand" href="#">Belgrade<span>Out</span></a> -->
             
             <!-- IMG BASED LOGO  -->
-            <a class="navbar-brand" href="#"><img src="img/logo.png" alt="logo"></a> 
+            <a class="navbar-brand" href='<?php echo base_url();?>IndexAutorController'><img src="img/logo.png" alt="logo"></a> 
 			
                    
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul id="top-menu" class="nav navbar-nav navbar-right main_nav">
-              <li class="active"><a href="#">Početna</a></li> 
+              <li class="active"><a href='<?php echo base_url();?>IndexAutorController'>Početna</a></li> 
               
 			  
             </ul>           
@@ -49,24 +49,22 @@
 					<div class="team_img">
 						  <img src="img/team-1.jpg" alt="img">
 					</div>
-					<p>	1. Korisničko ime: marko44 <br>
-						2. Ime i prezime: Marko Marković <br>
-						3. Email adresa: marko@gmail.com <br>
-						4. Naziv objekta: KST <br>
-						5. Adresa objekta: Bulevar 4 <br>
-						6. Radno vreme objekta: 00:00 - 24:00 <br>
-						7. Kapacitet objekta: 250 <br>
-						8. Tip objekta: klub <br>
-						6. Prosečna ocena: 4 <br><br>
-						Kratak opis objekta: ....
+					<p>	1. Korisničko ime:  <?php echo "$UserName"; ?> <br>
+						2. Ime i prezime:  <?php echo "$ImePrezime"; ?> <br>
+						3. Email adresa:  <?php echo "$email"; ?><br>
+						4. Naziv objekta:  <?php echo "$Naziv"; ?><br>
+						5. Adresa objekta: <?php echo "$Adresa"; ?> <br>
+						6. Radno vreme objekta:<?php echo "$radnoVreme"; ?> <br>
+						7. Kapacitet objekta: <?php echo "$kapacitet"; ?> <br>
+						8. Tip objekta: <?php echo "$TipObjekta"; ?> <br>
+                                                9. Telefon: <?php echo "$telefon"; ?> <br>
+						10. Prosečna ocena:  <?php echo "$email"; ?><br><br>
+						Kratak opis objekta: <?php echo "$opis"; ?>
 					</p>
 					<div>
-						<input class="submit_btn" type="button" value="Izmeni podatke">
+						<input class="submit_btn" type="button" value="Izmeni podatke" onclick="location.href='<?php echo base_url();?>IzmeniProfilAutorController'">
 					</div>
-					<br><br>
-					<p>	Niste/jeste prijavljeni na mailing listu: <br>
-						<input class="submit_btn" type="button" value="Prijavi se na listu">
-					</p>
+					
 				</div>
             </div>
           </div>

@@ -1,11 +1,13 @@
 <?php
+
 // izrada koda: Milica Tanasković 0360/2014
-class RegistracijaAutorModel extends CI_Model{
+
+class IzmeniProfilAutorModel extends CI_Model{
     
-        public function unesiUBazu($name, $picture, $username, $pass, $email, $phone, $nobjekat, $adr, $time, $tip, $kap, $opis){
+        public function izmenaProfila($id,$name, $picture, $username, $pass, $email, $phone, $nobjekat, $adr, $time, $tip, $kap, $opis){
             $this->load->database();
-            //ubacivanje u tabelu korisnik
-              $data = array(
+            
+             $data = array(
                  'ImePrezime' => $name,
                  'email' => $email,
                  'UserName' => $username,
@@ -15,25 +17,27 @@ class RegistracijaAutorModel extends CI_Model{
                 );
             
             
-            $this->db->insert('korisnik', $data);
+             
+              $this->db->where('idKorisnika', $id);
+            $this->db->update('korisnik', $data);
             
-
-            
-                  $id=$this->db->insert_id();
+                
+          
                   
-          //povezivanje sa tabelom autro  
+          //povezivanje sa tabelom autor  
             $data2 = array(
-                'idAutor' => $id,
+               // 'idAutor' => $id,
                 'telefon' => $phone
             );
             
-            $this->db->insert('autor', $data2);
+             $this->db->where('idAutor', $id);
+            $this->db->update('autor', $data2);
             
             //ubacivanje u tavelu objekat
             
             
             $data3 = array(
-                 'IdAutor' => $id,
+               //  'IdAutor' => $id,
                  'Naziv' => $nobjekat,
                  'Adresa' => $adr,
                  'TipObjekta' => $tip,
@@ -43,17 +47,17 @@ class RegistracijaAutorModel extends CI_Model{
                 'opis' => $opis
                    
                 );
-                    $this->db->insert('Objekat', $data3);
+                     $this->db->where('idAutor', $id);
+                    $this->db->update('Objekat', $data3);
                     
                     
                     
                 $query1= $this->db->get('korisnik');
 
-                if ($query1->num_rows()==1){
-                    return true;
-                }
-                else 
-                    return false;
-            }
-        
-}
+             return true;
+        }
+            
+           
+     }
+     
+       
