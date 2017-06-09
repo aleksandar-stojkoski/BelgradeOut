@@ -31,7 +31,7 @@
 			  <li><a href="#contact">Kontakt</a></li>
 			  <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
 			  <li><a href='<?php echo base_url();?>MojProfilAutorController'>&nbsp;&nbsp;&nbsp;Moj profil</a></li>
-			  
+			  <li><a href="<?php echo base_url();?>LogoutController">Odjavi se</a></li>
             </ul>           
           </div>
           </div>     

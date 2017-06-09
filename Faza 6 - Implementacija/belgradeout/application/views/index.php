@@ -355,6 +355,7 @@
             <!-- BEGIN CALL US FEATURE -->
             <div class="col-lg-3 col-md-3 col-sm-6">
               <div class="single_contact_feaured wow fadeInUp">
+                <i class="fa fa-phone"></i>
                 <h4>Pozovite nas</h4>
                 <p>+381641157007</p>                
               </div>
@@ -362,6 +363,7 @@
             
             <div class="col-lg-3 col-md-3 col-sm-6">
               <div class="single_contact_feaured wow fadeInUp">
+                <i class="fa fa-envelope-o"></i>
                 <h4>Email Adresa</h4>
                 <p>egressus@gmail.com</p>
               </div>
@@ -369,6 +371,7 @@
            
             <div class="col-lg-3 col-md-3 col-sm-6">
               <div class="single_contact_feaured wow fadeInUp">
+                <i class="fa fa-map-marker"></i>
                 <h4>Lokacija</h4>
                 <p>Bulevar kralja Aleksandra 73</p>
               </div>
@@ -376,6 +379,7 @@
            
             <div class="col-lg-3 col-md-3 col-sm-6">
               <div class="single_contact_feaured wow fadeInUp">
+                <i class="fa fa-clock-o"></i>
                 <h4>Radno vreme</h4>
                 <p>00:00-24:00h</p>
               </div>

@@ -20,18 +20,17 @@
             <!--a class="navbar-brand" href="#">Belgrade<span>Out</span></a> -->
             
             <!-- IMG BASED LOGO  -->
-            <a class="navbar-brand" href="#"><img src="img/logo.png" alt="logo"></a> 
+            <a class="navbar-brand" href="<?php echo base_url();?>IndexController"><img src="img/logo.png" alt="logo"></a> 
 			
                    
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul id="top-menu" class="nav navbar-nav navbar-right main_nav">
-              <li><a href="#">Početna</a></li>
-			  <li class="active"><a href="#">Zahtevi</a></li> 
-			  <li><a href="#blog">Dogadjaji</a></li> 
-              <li><a href="#team">Korisnici</a></li>
-			  <!--<li><a href="#"><img src="img/logo_small.png" alt="logo">&nbsp;&nbsp;&nbsp;</a></li>
-			  -->
+               <li><a href='<?php echo base_url();?>IndexController'>Početna</a></li>
+			         <li class="active"><a href="#">Zahtevi</a></li> 
+			         <li><a href="#blog">Dogadjaji</a></li> 
+               <li><a href="#team">Korisnici</a></li>
+               <li><a href="<?php echo base_url();?>LogoutController">Odjavi se</a></li>
             </ul>           
           </div><!--/.nav-collapse -->
           </div>     
