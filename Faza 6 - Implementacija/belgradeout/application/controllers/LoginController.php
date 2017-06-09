@@ -7,6 +7,12 @@ class LoginController extends CI_Controller{
         $this->load->helper(array('url','form'));
         $this->load->library(array('session','form_validation','email'));
         $this->load->database();
+        
+        $valid_login=$this->session->userdata('valid_login');
+        if ($valid_login==1) {
+            redirect(IndexController);
+        }
+        
     }
 
     private $tipkorisnika=0;
@@ -15,7 +21,7 @@ class LoginController extends CI_Controller{
     private $idkorisnika=0;
 
     public function index() {
-    	// $data['podaci']='';	//podaci koji se salju pocetnom view-u ako treba
+    	$data['skok']=0;	//podaci koji se salju pocetnom view-u ako treba
         //prototip: set_rules('ime_iz_forme','ime_za_ispis','pravila')
         
         $this->form_validation->set_rules('username','KorisnickoIme','trim|required');
@@ -33,6 +39,7 @@ class LoginController extends CI_Controller{
             $this->session->set_userdata('username', $this->korisnickoime);
             $this->session->set_userdata('id',$this->idkorisnika);
             $this->session->set_userdata('tip',$this->tipkorisnika);
+            $this->session->set_userdata('valid_login',1);
 
             if ($this->tipkorisnika==1){
                 $this->load->view('admin');    
