@@ -79,7 +79,8 @@ class IzmeniProfilAutorController extends CI_Controller{
                                         
                                          $this->load->model('IzmeniProfilAutorModel');
                                          $result =  $this->IzmeniProfilAutorModel->izmenaProfila($id,$name, $picture, $username, $pass, $email, $phone, $nobjekat, $adr, $time, $tip, $kap, $opis);
-                                             if($result == true)
+                                             $this->session->set_userdata('username', $username);
+                                         if($result == true)
                                        
                                                      redirect('MojProfilAutorController');
                                          else{                 // ako je username zauzet

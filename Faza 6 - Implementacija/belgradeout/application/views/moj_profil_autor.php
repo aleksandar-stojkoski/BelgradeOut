@@ -203,7 +203,7 @@
               </div>
             </div>
 			<p>	
-				<input class="submit_btn" type="button" value="Dodaj novi događaj">				
+				<input class="submit_btn" type="button" value="Dodaj novi događaj" onclick="location.href='<?php echo base_url();?>KreiranjeDogadjajaController'">				
 			</p>
           </div>
         </div>
@@ -211,81 +211,7 @@
     </section>
     <!--=========== END BLOG SECTION ================-->
 
-    <!--=========== BEGIN CLIENTS SECTION ================-->
-    <section id="clients">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 col-md-12 col-sm-12">
-            <!-- START BLOG HEADING -->
-            <div class="heading">
-              <h2 class="wow fadeInLeftBig">Slike objekta</h2>
-              <p>Ovde stoje neke slike objekta.</p>
-			  <p>	
-				<input class="submit_btn" type="button" value="Izmeni slike">				
-			</p>
-            </div>
-          </div>
-          <div class="col-lg-12 col-md-12 col-sm-12">
-            <div class="clients_content">
-              <div class="row">
-                <!-- BEGIN CLIENTS SLIDER -->
-                <div class="clients_slider">
-                  <!-- BEGIN SINGLE CLIENT SLIDE#1 -->
-                  <div class="col-lg-3 col-md-3 col-sm-3">
-                    <div class="single_client">
-                      <img src="img/clients_img1.png" alt="clients Brand">
-                    </div>
-                  </div>
-                  <!-- BEGIN SINGLE CLIENT SLIDE#2 -->
-                  <div class="col-lg-3 col-md-3 col-sm-3">
-                    <div class="single_client">
-                      <img src="img/clients_img1.png" alt="clients Brand">
-                    </div>
-                  </div>
-                  <!-- BEGIN SINGLE CLIENT SLIDE#3 -->
-                  <div class="col-lg-3 col-md-3 col-sm-3">
-                    <div class="single_client">
-                      <img src="img/clients_img1.png" alt="clients Brand">
-                    </div>
-                  </div>
-                  <!-- BEGIN SINGLE CLIENT SLIDE#4 -->
-                  <div class="col-lg-3 col-md-3 col-sm-3">
-                    <div class="single_client">
-                      <img src="img/clients_img1.png" alt="clients Brand">
-                    </div>
-                  </div>
-                   <!-- BEGIN SINGLE CLIENT SLIDE#5 -->
-                  <div class="col-lg-3 col-md-3 col-sm-3">
-                    <div class="single_client">
-                      <img src="img/clients_img1.png" alt="clients Brand">
-                    </div>
-                  </div>
-                  <!-- BEGIN SINGLE CLIENT SLIDE#6 -->
-                  <div class="col-lg-3 col-md-3 col-sm-3">
-                    <div class="single_client">
-                      <img src="img/clients_img1.png" alt="clients Brand">
-                    </div>
-                  </div>
-                  <!-- BEGIN SINGLE CLIENT SLIDE#7 -->
-                  <div class="col-lg-3 col-md-3 col-sm-3">
-                    <div class="single_client">
-                      <img src="img/clients_img1.png" alt="clients Brand">
-                    </div>
-                  </div>
-                  <!-- BEGIN SINGLE CLIENT SLIDE#8 -->
-                  <div class="col-lg-3 col-md-3 col-sm-3">
-                    <div class="single_client">
-                      <img src="img/clients_img1.png" alt="clients Brand">
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!--=========== END CLIENTS SECTION ================-->
+    
 
 	<!--=========== BEGIN COMMENTS SECTION ================-->
 	<section id="clients">

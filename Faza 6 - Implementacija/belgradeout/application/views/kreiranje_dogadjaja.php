@@ -20,13 +20,13 @@
             <!--a class="navbar-brand" href="#">Belgrade<span>Out</span></a> -->
             
             <!-- IMG BASED LOGO  -->
-            <a class="navbar-brand" href="#"><img src="img/logo.png" alt="logo"></a> 
+            <a class="navbar-brand" href='<?php echo base_url();?>IndexAutorController'>><img src="img/logo.png" alt="logo"></a> 
 			
                    
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul id="top-menu" class="nav navbar-nav navbar-right main_nav">
-              <li class="active"><a href="#">Početna</a></li>
+              <li class="active"><a href='<?php echo base_url();?>IndexAutorController'>Početna</a></li>
               
             </ul>           
           </div><!--/.nav-collapse -->
@@ -61,21 +61,21 @@
                 <!-- FOR CONTACT FORM MESSAGE -->
                 <div id="form-messages"></div>
 
-                <form>
+                <?php echo form_open('KreiranjeDogadjajaController/kreirajDogadjaj'); ?>
 				  
-                  <input class="form-control" type="text" placeholder="Naziv događaja" required>
-				  <input class="form-control" type="text" placeholder="Tip događaja" required>
-                  <input class="form-control" type="text" placeholder="Muzički žanr" required>
-				  <input class="form-control" type="text" placeholder="Naziv pevača/benda/DJa" required>
-				  <input class="form-control" type="text" placeholder="Datum" required>
-				  <input class="form-control" type="text" placeholder="Trajanje događaja" required>
+                  <input class="form-control" type="text" placeholder="Naziv događaja" required name="naziv">
+				  <input class="form-control" type="text" placeholder="Tip događaja" required name="tip">
+                  <input class="form-control" type="text" placeholder="Muzički žanr" required name = "zanr">
+				  <input class="form-control" type="text" placeholder="Naziv pevača/benda/DJa" required name="nazivIzvodjaca">
+				  <input class="form-control" type="text" placeholder="Datum" required name="datum">
+				  <input class="form-control" type="text" placeholder="Trajanje događaja" required name="trajanje">
 				  &nbsp;&nbsp;Slika:
-				  <input class="form-control" type="file" placeholder="Slika" required>
-                  <textarea class="form-control" cols="30" rows="5" placeholder="Kratak opis događaja" required></textarea>
+				  <input class="form-control" type="file" placeholder="Slika" required name ="slika">
+                  <textarea class="form-control" cols="30" rows="5" placeholder="Kratak opis događaja" required name="dogadjaj"></textarea>
 					<input class="submit_btn" type="submit" value="Kreiraj">
 					<input class="submit_btn" type="reset" value="Obriši">
-					<input class="submit_btn" type="button" value="Odustani">
-                </form>
+					<input class="submit_btn" type="button" value="Odustani" onclick="location.href='<?php echo base_url();?>MojProfilAutorController'">
+                 <?php echo form_close(); ?>  
               </div>
             </div>         
           </div>
