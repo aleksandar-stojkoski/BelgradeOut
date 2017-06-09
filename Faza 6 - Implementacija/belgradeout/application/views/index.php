@@ -400,22 +400,25 @@
             </div>
             
 			
-			<!-- BEGIN LOGIN FORM -->		
-            <form class="subscribe_form">
-              <div class="subscrive_group wow fadeInUp">
-                <input class="form-control subscribe_mail" type="email" placeholder="Enter your email address" required>
-				<br><br><br>
-				<input class="form-control subscribe_mail" type="" placeholder="Enter your password" required>
-				<br><br><br>
-			  </div>
-				<input class="subscr_btn" type="submit" value="Prijavi se">
-                                <input class="subscr_btn" type="button" value="Registruj se" onclick="location.href='<?php echo base_url();?>RegistracijaController'">
-              </div>
-            </form>
-			
-			
+			<!-- BEGIN LOGIN FORM -->	
+
+            <?php echo form_open('LoginController','class="subscribe_form"');?>
+                <div class="subscrive_group wow fadeInUp">
+                    <input class="form-control subscribe_mail" name="username" type="text" placeholder="Unesite korisničko ime" required>
+                    <br><br><br>
+                    <input class="form-control subscribe_mail" name="pass" type="password" placeholder="Unesite lozinku" required>
+                    <br><br><br>
+                    <?php echo validation_errors(); ?>
+                     
+                </div>
+                    <input class="subscr_btn" type="submit" value="Prijavi se">
+                    <input class="subscr_btn" type="button" value="Registruj se" onclick="location.href='<?php echo base_url();?>RegistracijaController'">
+            <?php echo form_close();?>  
+          </div>
+           
           </div>
         </div>
       </div>
     </section>
+
     <!--=========== END LOGIN SECTION ================-->
