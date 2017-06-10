@@ -45,22 +45,20 @@
             <div class="about_area">
               <!-- START ABOUT HEADING -->
                            <div class="heading">
-					<h2 class="wow fadeInLeftBig">Naziv događaja</h2>
+					<h2 class="wow fadeInLeftBig"><?php echo "$naziv"; ?></h2>
 					<div class="team_img">
 						  <img src="img/team-1.jpg" alt="img">
 					</div>
-					<p>	1. Naziv događaja: Svirka - ETF bend <br>
-						2. Tip događaja: svirka <br>
-						3. Muzički žanr: rock <br>
-						4. Naziv benda: ETF bend <br>
-						5. Datum: 20.03.2017. <br>
-						6. Trajanje događaja: 21:00 - 01:00 <br><br>
-						Kratak opis događaja: ....
+					<p>	1. Naziv događaja:  <?php echo "$naziv"; ?> <br>
+						2. Tip događaja:  <?php echo "$tip"; ?> <br>
+						3. Muzički žanr:  <?php echo "$zanr"; ?> <br>
+						4. Izvođač:  <?php echo "$izvodjac"; ?> <br>
+						5. Datum:  <?php echo "$datum"; ?> <br>
+						6. Trajanje događaja:  <?php echo "$trajanje"; ?> <br><br>
+						Kratak opis događaja:  <?php echo "$opis"; ?>
 						<br>
-                                            
-					</p>
 					<div>
-						<input class="submit_btn" type="button" value="Izmeni podatke">
+						<input class="submit_btn" type="button" value="Izmeni podatke" onclick="location.href='<?php echo base_url() ?>/IzmenaDogadjajaController/Index/<?php echo $idDogadjaj ?>'">
 						<input class="submit_btn" type="button" value="Obriši događaj" onclick="location.href='<?php echo base_url() ?>/DogadjajAutorController/ObrisiDogadjaj/<?php echo $idDogadjaj ?>'">
 					</div>
 					

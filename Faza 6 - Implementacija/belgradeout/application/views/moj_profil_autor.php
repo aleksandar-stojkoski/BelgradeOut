@@ -99,7 +99,7 @@
                       <img src="img/blog_img1.jpg" alt="img">
                     </div>
                     <h3><?php echo $naz = $dogadjaji[$i]->Naziv;?> - <?php      $this->load->model('MojProfilAutorModel'); $status = $this->MojProfilAutorModel->statusDogadjaja($dogadjaji[$i]->IdDogadjaj);
-                                                             if($status == 0) echo  "pending";
+                                                             if($status == 0) echo  "nije odobren";
                                                               else echo "odobren";?>  </h3>
                     <div class="post_commentbox">
                       <a href="#"><i class="fa fa-user"></i><?php echo $this->session->userdata('username');   ?></a>
@@ -107,9 +107,9 @@
                       <a href="#"><i class="fa fa-tags"></i><?php echo $naz = $dogadjaji[$i]->TipDogadjaja;   ?></a>
                     </div>
                     <p><?php echo $naz = $dogadjaji[$i]->Opis;   ?></p>
-                    <a href="<?php echo base_url() ?>/DogadjajAutorController/Index/<?php echo $dogadjaji[$i]->IdDogadjaj ?>" class="read_more">Otvori događaj <i class="fa fa-angle-double-right"></i></a>
-					<a href= "#" class="read_more">Izmeni događaj <i class="fa fa-angle-double-right"></i></a>
-					<a href="<?php echo base_url() ?>/DogadjajAutorController/ObrisiDogadjaj/<?php echo $dogadjaji[$i]->IdDogadjaj ?>" class="read_more">Obriši događaj <i class="fa fa-angle-double-right"></i></a>
+                   <a href="<?php echo base_url() ?>/DogadjajAutorController/Index/<?php echo $dogadjaji[$i]->IdDogadjaj ?>" class="read_more">Otvori događaj <i class="fa fa-angle-double-right"></i></a>
+		   <a href= "<?php echo base_url() ?>/IzmenaDogadjajaController/Index/<?php echo $dogadjaji[$i]->IdDogadjaj ?>" class="read_more">Izmeni događaj <i class="fa fa-angle-double-right"></i></a>
+                   <a href="<?php echo base_url() ?>/DogadjajAutorController/ObrisiDogadjaj/<?php echo $dogadjaji[$i]->IdDogadjaj ?>" class="read_more">Obriši događaj <i class="fa fa-angle-double-right"></i></a>
 					                   
                   </div>
                 </div>

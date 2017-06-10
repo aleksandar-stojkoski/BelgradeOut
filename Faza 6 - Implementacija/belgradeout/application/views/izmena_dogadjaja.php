@@ -20,7 +20,7 @@
             <!--a class="navbar-brand" href="#">Belgrade<span>Out</span></a> -->
             
             <!-- IMG BASED LOGO  -->
-            <a class="navbar-brand" href="<?php echo base_url();?>IndexController"><img src="img/logo.png" alt="logo"></a> 
+            <a class="navbar-brand" href="<?php echo base_url();?>IndexController"><img src="<?php echo base_url();?>img/logo.png" alt="logo"></a> 
 			
                    
           </div>
@@ -62,23 +62,23 @@
                 <!-- FOR CONTACT FORM MESSAGE -->
                 <div id="form-messages"></div>
 
-                <form>
-				  
-                  <input class="form-control" type="text" placeholder="Naziv događaja" required>
-				  <input class="form-control" type="text" placeholder="Tip događaja" required>
-                  <input class="form-control" type="text" placeholder="Muzički žanr" required>
-				  <input class="form-control" type="text" placeholder="Naziv pevača/benda/DJa" required>
-				  <input class="form-control" type="text" placeholder="Datum" required>
-				  <input class="form-control" type="text" placeholder="Trajanje događaja" required>
+                <?php echo form_open('DogadjajAutorController/IzmeniDogadjaj'); ?>
+				  <input class="form-control" type="hidden"  value=<?php echo "$idDogadjaj" ?>  required name="idD">
+                  <input class="form-control" type="text" placeholder="Naziv događaja" value=<?php echo "$naziv" ?>  required name="naziv">
+				  <input class="form-control" type="text" placeholder="Tip događaja" value=<?php echo "$tip" ?> required name="tip">
+                  <input class="form-control" type="text" placeholder="Muzički žanr" value=<?php echo "$zanr" ?> required name="zanr">
+				  <input class="form-control" type="text" placeholder="Naziv pevača/benda/DJa" value=<?php echo "$izvodjac" ?> required name="izvodjac">
+				  <input class="form-control" type="text" placeholder="Datum" value=<?php echo "$datum" ?> required name="datum">
+				  <input class="form-control" type="text" placeholder="Trajanje događaja" value=<?php echo "$trajanje" ?> required name="trajanje">
 				  &nbsp;&nbsp;Slika:
-				  <input class="form-control" type="file" placeholder="Slika" required>
-                  <textarea class="form-control" cols="30" rows="5" placeholder="Kratak opis događaja" required></textarea>
+				  <input class="form-control" type="file" placeholder="Slika" required name="slika">
+                  <textarea class="form-control" cols="30" rows="5" placeholder="Kratak opis događaja" required name="opis"> <?php echo "$opis" ?> </textarea>
 					<input class="submit_btn" type="submit" value="Izmeni">
 					<input class="submit_btn" type="reset" value="Obriši">
-					<input class="submit_btn" type="button" value="Odustani">
-                </form>
+					<input class="submit_btn" type="button" value="Odustani" onclick="location.href='<?php echo base_url();?>IndexController'">
+                 <?php echo form_close(); ?>  
 				<p>
-					<input class="submit_btn" type="button" value="Obriši događaj"><br><br>
+					<input class="submit_btn" type="button" value="Obriši događaj" onclick="location.href='<?php echo base_url() ?>/DogadjajAutorController/ObrisiDogadjaj/<?php echo $idDogadjaj ?>'"><br><br>
 				</p>
               </div>
             </div>         
