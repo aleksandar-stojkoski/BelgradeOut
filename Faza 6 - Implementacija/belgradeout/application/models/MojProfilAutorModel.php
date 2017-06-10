@@ -77,5 +77,34 @@ class MojProfilAutorModel extends CI_Model{
         
         return $array;
     }
+    
+    
+    
+    
+    public function dohvatiPodatkeDogadjaj($id){
+            $podaci = array();
+            
+            $this->load->database();
+            
+         $this->db->start_cache();
+         $this->db->where('idAutor',$id);
+         $query=$this->db->get('objekat');
+          $row=$query->row();
+          $idObjekta = $row->IdObjekta;
+           $this->db->flush_cache();
+           
+           $this->db->where('idObjekta',$idObjekta);
+        $query1= $this->db->get('dogadjaj');
+        
+          
+        $res= array();
+        $i=0;
+        foreach ($query1->result() as $row){
+           $res[$i]=$row; 
+             $i++;
+       }
+       return $res;
 
-}
+    }
+
+ }

@@ -14,11 +14,14 @@ class MojProfilAutorController extends CI_Controller{
       //  $data['username'] = $this->session->userdata('username');
         $id =  $this->session->userdata('id');
         $this->load->model('MojProfilAutorModel');
-        $rez=$this->MojProfilAutorModel->dohvatiPodatke($id);
+        $data=$this->MojProfilAutorModel->dohvatiPodatke($id);
         
-        
+        $this->load->model('MojProfilAutorModel');
+        $res=$this->MojProfilAutorModel->dohvatiPodatkeDogadjaj($id);
+        $data['br'] = count($res);
+        $data['dogadjaji'] = $res;
         $this->load->view('templates/header');
-        $this->load->view('moj_profil_autor',$rez);
+        $this->load->view('moj_profil_autor',$data);
         $this->load->view('templates/footer');
     }
     

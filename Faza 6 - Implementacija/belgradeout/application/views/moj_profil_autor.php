@@ -72,7 +72,7 @@
       </div>
     </section>
 	
-
+ 
     <!--=========== BEGIN BLOG SECTION ================-->
     <section id="blog">
       <div class="container">
@@ -90,19 +90,21 @@
 
               <!-- BEGIN BLOG SLIDER -->
               <div class="blog_slider">
+                  
+                     <?php for ($i = 0; $i < $br; $i++) { ?>
                 <!-- BEGIN SINGLE BLOG -->
                 <div class="col-lg-4 col-md-4 col-sm-4">
                   <div class="single_post wow fadeInUp">
                     <div class="blog_img">
                       <img src="img/blog_img1.jpg" alt="img">
                     </div>
-                    <h3>Događaj 1</h3>
+                    <h3><?php echo $naz = $dogadjaji[$i]->Naziv;   ?> </h3>
                     <div class="post_commentbox">
-                      <a href="#"><i class="fa fa-user"></i>Autor</a>
-                      <span><i class="fa fa-calendar"></i>00:00 AM vreme</span>
-                      <a href="#"><i class="fa fa-tags"></i>Tip događaja</a>
+                      <a href="#"><i class="fa fa-user"></i><?php echo $this->session->userdata('username');   ?></a>
+                      <span><i class="fa fa-calendar"></i><?php echo $naz = $dogadjaji[$i]->trajanje;   ?></span>
+                      <a href="#"><i class="fa fa-tags"></i><?php echo $naz = $dogadjaji[$i]->TipDogadjaja;   ?></a>
                     </div>
-                    <p>Ovde kratak opis i ispod link ka tom događaju</p>
+                    <p><?php echo $naz = $dogadjaji[$i]->Opis;   ?></p>
                     <a href="#" class="read_more">Otvori događaj <i class="fa fa-angle-double-right"></i></a>
 					<a href="#" class="read_more">Izmeni događaj <i class="fa fa-angle-double-right"></i></a>
 					<a href="#" class="read_more">Obriši događaj <i class="fa fa-angle-double-right"></i></a>
@@ -110,97 +112,9 @@
                   </div>
                 </div>
 
-                <!-- BEGIN SINGLE BLOG -->
-                <div class="col-lg-4 col-md-4 col-sm-4">
-                  <div class="single_post wow fadeInUp">
-                    <div class="blog_img">
-                      <img src="img/blog_img1.jpg" alt="img">
-                    </div>
-                    <h3>Događaj 2</h3>
-                    <div class="post_commentbox">
-                      <a href="#"><i class="fa fa-user"></i>Autor</a>
-                      <span><i class="fa fa-calendar"></i>00:00 AM vreme</span>
-                      <a href="#"><i class="fa fa-tags"></i>Tip događaja</a>
-                    </div>
-                    <p>Ovde kratak opis i ispod link ka tom događaju</p>
-                    <a href="#" class="read_more">Otvori događaj <i class="fa fa-angle-double-right"></i></a>
-					<a href="#" class="read_more">Izmeni događaj <i class="fa fa-angle-double-right"></i></a>
-					<a href="#" class="read_more">Obriši događaj <i class="fa fa-angle-double-right"></i></a>
-                  </div>
-                </div>
-                <!-- BEGIN SINGLE BLOG -->
-                <div class="col-lg-4 col-md-4 col-sm-4">
-                  <div class="single_post wow fadeInUp">
-                    <div class="blog_img">
-                      <img src="img/blog_img1.jpg" alt="img">
-                    </div>
-                    <h3>Događaj 3</h3>
-                    <div class="post_commentbox">
-                      <a href="#"><i class="fa fa-user"></i>Autor</a>
-                      <span><i class="fa fa-calendar"></i>00:00 AM vreme</span>
-                      <a href="#"><i class="fa fa-tags"></i>Tip događaja</a>
-                    </div>
-                    <p>Ovde kratak opis i ispod link ka tom događaju</p>
-                    <a href="#" class="read_more">Otvori događaj <i class="fa fa-angle-double-right"></i></a>
-					<a href="#" class="read_more">Izmeni događaj <i class="fa fa-angle-double-right"></i></a>
-					<a href="#" class="read_more">Obriši događaj <i class="fa fa-angle-double-right"></i></a>
-                  </div>
-                </div>
-                <!-- BEGIN SINGLE BLOG -->
-                <div class="col-lg-4 col-md-4 col-sm-4">
-                  <div class="single_post wow fadeInUp">
-                    <div class="blog_img">
-                      <img src="img/blog_img1.jpg" alt="img">
-                    </div>
-                    <h3>Događaj 4</h3>
-                    <div class="post_commentbox">
-                      <a href="#"><i class="fa fa-user"></i>Autor</a>
-                      <span><i class="fa fa-calendar"></i>00:00 AM vreme</span>
-                      <a href="#"><i class="fa fa-tags"></i>Tip događaja</a>
-                    </div>
-                    <p>Ovde kratak opis i ispod link ka tom događaju</p>
-                    <a href="#" class="read_more">Otvori događaj <i class="fa fa-angle-double-right"></i></a>
-					<a href="#" class="read_more">Izmeni događaj <i class="fa fa-angle-double-right"></i></a>
-					<a href="#" class="read_more">Obriši događaj <i class="fa fa-angle-double-right"></i></a>
-                  </div>
-                </div>
-                <!-- BEGIN SINGLE BLOG -->
-                <div class="col-lg-4 col-md-4 col-sm-4">
-                  <div class="single_post wow fadeInUp">
-                    <div class="blog_img">
-                      <img src="img/blog_img1.jpg" alt="img">
-                    </div>
-                    <h3>Događaj 5</h3>
-                    <div class="post_commentbox">
-                      <a href="#"><i class="fa fa-user"></i>Autor</a>
-                      <span><i class="fa fa-calendar"></i>00:00 AM vreme</span>
-                      <a href="#"><i class="fa fa-tags"></i>Tip događaja</a>
-                    </div>
-                    <p>Ovde kratak opis i ispod link ka tom događaju</p>
-                    <a href="#" class="read_more">Otvori događaj <i class="fa fa-angle-double-right"></i></a>
-					<a href="#" class="read_more">Izmeni događaj <i class="fa fa-angle-double-right"></i></a>
-					<a href="#" class="read_more">Obriši događaj <i class="fa fa-angle-double-right"></i></a>
-                  </div>
-                </div>
-                <!-- BEGIN SINGLE BLOG -->
-                <div class="col-lg-4 col-md-4 col-sm-4">
-                  <div class="single_post wow fadeInUp">
-                    <div class="blog_img">
-                      <img src="img/blog_img1.jpg" alt="img">
-                    </div>
-                    <h3>Događaj 6</h3>
-                    <div class="post_commentbox">
-                      <a href="#"><i class="fa fa-user"></i>Autor</a>
-                      <span><i class="fa fa-calendar"></i>00:00 AM vreme</span>
-                      <a href="#"><i class="fa fa-tags"></i>Tip događaja</a>
-                    </div>
-                    <p>Ovde kratak opis i ispod link ka tom događaju</p>
-                    <a href="#" class="read_more">Otvori događaj <i class="fa fa-angle-double-right"></i></a>
-					<a href="#" class="read_more">Izmeni događaj <i class="fa fa-angle-double-right"></i></a>
-					<a href="#" class="read_more">Obriši događaj <i class="fa fa-angle-double-right"></i></a>
-                  </div>
-                </div>                
-              </div>
+               <?php } ?>
+
+    		 </div>
             </div>
 			<p>	
 				<input class="submit_btn" type="button" value="Dodaj novi događaj" onclick="location.href='<?php echo base_url();?>KreiranjeDogadjajaController'">				
@@ -208,11 +122,7 @@
           </div>
         </div>
       </div>
-    </section>
-    <!--=========== END BLOG SECTION ================-->
-
-    
-
+         </section>
 	<!--=========== BEGIN COMMENTS SECTION ================-->
 	<section id="clients">
       <div class="container">
