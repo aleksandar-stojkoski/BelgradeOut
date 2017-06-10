@@ -5,6 +5,7 @@ class LoginModel extends CI_Model{
     public function provera_baze($name, $pass){
         $this->load->database();
         
+        $this->db->flush_cache();
         $this->db->start_cache();
         $this->db->where('UserName',$name);
         $this->db->where('Lozinka',$pass);

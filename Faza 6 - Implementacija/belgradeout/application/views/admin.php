@@ -75,7 +75,6 @@
                             </div>
                           </div>
                         </div>
-
                         <?php } ?>
 
                         <?php for($j=0; $j<$brojzahtevamod; $j++) {?>
@@ -129,110 +128,29 @@
 
               <!-- BEGIN BLOG SLIDER -->
               <div class="blog_slider">
+                <?php for($i=0; $i<$brojdogadjaja; $i++) { ?>
                 <!-- BEGIN SINGLE BLOG -->
                 <div class="col-lg-4 col-md-4 col-sm-4">
                   <div class="single_post wow fadeInUp">
                     <div class="blog_img">
                       <img src="img/blog_img1.jpg" alt="img">
                     </div>
-                    <h3>Događaj 1</h3>
+                    <h3><?php echo $dogadjaji[$i]->Naziv; ?> - <?php 
+                    $this->load->model('AdminModel'); 
+                    $status = $this->AdminModel->status_dogadjaja($dogadjaji[$i]->IdDogadjaj);
+                    if($status == 0) echo  "nije odobren";
+                    else echo "odobren";?></h3>
                     <div class="post_commentbox">
-                      <a href="#"><i class="fa fa-user"></i>Autor</a>
-                      <span><i class="fa fa-calendar"></i>00:00 AM vreme</span>
-                      <a href="#"><i class="fa fa-tags"></i>Tip događaja</a>
+                      <!-- <a href="#"><i class="fa fa-user"></i>Autor</a> -->
+                      <span><i class="fa fa-calendar"></i>Trajanje: <?php echo $dogadjaji[$i]->trajanje; ?></span>
+                      <a href="#"><i class="fa fa-tags"></i>Tip: <?php echo $dogadjaji[$i]->TipDogadjaja; ?></a>
                     </div>
-                    <p>Ovde kratak opis i ispod link ka tom događaju</p>
-                    <a href="#" class="read_more">Otvori događaj <i class="fa fa-angle-double-right"></i></a>
-					<a href="#" class="read_more">Obriši događaj <i class="fa fa-angle-double-right"></i></a>
-					                   
+                    <p><?php echo $dogadjaji[$i]->Opis; ?></p>
+                    <a href="<?php echo base_url() ?>/DogadjajAdminModeratorController/index/<?php echo $dogadjaji[$i]->IdDogadjaj ?>" class="read_more">Otvori događaj <i class="fa fa-angle-double-right"></i></a>
+					          <a href="<?php echo base_url() ?>/DogadjajAdminModeratorController/obrisi_dogadjaj/<?php echo $dogadjaji[$i]->IdDogadjaj ?>" class="read_more">Obriši događaj <i class="fa fa-angle-double-right"></i></a>          
                   </div>
                 </div>
-
-                <!-- BEGIN SINGLE BLOG -->
-                <div class="col-lg-4 col-md-4 col-sm-4">
-                  <div class="single_post wow fadeInUp">
-                    <div class="blog_img">
-                      <img src="img/blog_img1.jpg" alt="img">
-                    </div>
-                    <h3>Događaj 2</h3>
-                    <div class="post_commentbox">
-                      <a href="#"><i class="fa fa-user"></i>Autor</a>
-                      <span><i class="fa fa-calendar"></i>00:00 AM vreme</span>
-                      <a href="#"><i class="fa fa-tags"></i>Tip događaja</a>
-                    </div>
-                    <p>Ovde kratak opis i ispod link ka tom događaju</p>
-                    <a href="#" class="read_more">Otvori događaj <i class="fa fa-angle-double-right"></i></a>
-					<a href="#" class="read_more">Obriši događaj <i class="fa fa-angle-double-right"></i></a>
-                  </div>
-                </div>
-                <!-- BEGIN SINGLE BLOG -->
-                <div class="col-lg-4 col-md-4 col-sm-4">
-                  <div class="single_post wow fadeInUp">
-                    <div class="blog_img">
-                      <img src="img/blog_img1.jpg" alt="img">
-                    </div>
-                    <h3>Događaj 3</h3>
-                    <div class="post_commentbox">
-                      <a href="#"><i class="fa fa-user"></i>Autor</a>
-                      <span><i class="fa fa-calendar"></i>00:00 AM vreme</span>
-                      <a href="#"><i class="fa fa-tags"></i>Tip događaja</a>
-                    </div>
-                    <p>Ovde kratak opis i ispod link ka tom događaju</p>
-                    <a href="#" class="read_more">Otvori događaj <i class="fa fa-angle-double-right"></i></a>
-					<a href="#" class="read_more">Obriši događaj <i class="fa fa-angle-double-right"></i></a>
-                  </div>
-                </div>
-                <!-- BEGIN SINGLE BLOG -->
-                <div class="col-lg-4 col-md-4 col-sm-4">
-                  <div class="single_post wow fadeInUp">
-                    <div class="blog_img">
-                      <img src="img/blog_img1.jpg" alt="img">
-                    </div>
-                    <h3>Događaj 4</h3>
-                    <div class="post_commentbox">
-                      <a href="#"><i class="fa fa-user"></i>Autor</a>
-                      <span><i class="fa fa-calendar"></i>00:00 AM vreme</span>
-                      <a href="#"><i class="fa fa-tags"></i>Tip događaja</a>
-                    </div>
-                    <p>Ovde kratak opis i ispod link ka tom događaju</p>
-                    <a href="#" class="read_more">Otvori događaj <i class="fa fa-angle-double-right"></i></a>
-					<a href="#" class="read_more">Obriši događaj <i class="fa fa-angle-double-right"></i></a>
-                  </div>
-                </div>
-                <!-- BEGIN SINGLE BLOG -->
-                <div class="col-lg-4 col-md-4 col-sm-4">
-                  <div class="single_post wow fadeInUp">
-                    <div class="blog_img">
-                      <img src="img/blog_img1.jpg" alt="img">
-                    </div>
-                    <h3>Događaj 5</h3>
-                    <div class="post_commentbox">
-                      <a href="#"><i class="fa fa-user"></i>Autor</a>
-                      <span><i class="fa fa-calendar"></i>00:00 AM vreme</span>
-                      <a href="#"><i class="fa fa-tags"></i>Tip događaja</a>
-                    </div>
-                    <p>Ovde kratak opis i ispod link ka tom događaju</p>
-                    <a href="#" class="read_more">Otvori događaj <i class="fa fa-angle-double-right"></i></a>
-					<a href="#" class="read_more">Obriši događaj <i class="fa fa-angle-double-right"></i></a>
-                  </div>
-                </div>
-                <!-- BEGIN SINGLE BLOG -->
-                <div class="col-lg-4 col-md-4 col-sm-4">
-                  <div class="single_post wow fadeInUp">
-                    <div class="blog_img">
-                      <img src="img/blog_img1.jpg" alt="img">
-                    </div>
-                    <h3>Događaj 6</h3>
-                    <div class="post_commentbox">
-                      <a href="#"><i class="fa fa-user"></i>Autor</a>
-                      <span><i class="fa fa-calendar"></i>00:00 AM vreme</span>
-                      <a href="#"><i class="fa fa-tags"></i>Tip događaja</a>
-                    </div>
-                    <p>Ovde kratak opis i ispod link ka tom događaju</p>
-                    <a href="#" class="read_more">Otvori događaj <i class="fa fa-angle-double-right"></i></a>					
-					<a href="#" class="read_more">Obriši događaj <i class="fa fa-angle-double-right"></i></a>
-                  </div>
-                </div>                
+                <?php } ?>
               </div>
             </div>
           </div>
@@ -254,110 +172,34 @@
               <!-- BEGIN TEAM SLIDER -->
               <div class="team_slider">  
                 <!-- BEGIN SINGLE TEAM SLIDE#1 -->              
+                
+                <?php for($i=0; $i<$brojkorisnika; $i++) { ?>
                 <div class="col-lg-3 col-md-3 col-sm-4">
                   <div class="single_team wow fadeInUp">
                     <div class="team_img">
                       <img src="img/team-1.jpg" alt="img">
                     </div>
-                    <h5 class="">Ime Prezime</h5>
-                    <span>Korisničko ime</span>                        
-                    <p>Tip korisnika: registrovani korisnik/autor/moderator</p>
+                    <h5 class=""><?php echo $korisnici[$i]->ImePrezime; ?></h5>
+                    <span><?php echo $korisnici[$i]->UserName; ?></span>
+                    <p>Tip korisnika: 
+                    <?php 
+                    $this->load->model('AdminModel'); 
+                    $tip = $this->AdminModel->tip_korisnika($korisnici[$i]->IdKorisnika);
+                    if($tip == 0) echo  "Greska!";
+                    if($tip == 1) echo  "Administrator";
+                    if($tip == 2) echo  "Moderator";
+                    if($tip == 3) echo  "Autor";
+                    if($tip == 4) echo  "Registrovani Korisnik";
+                    ?>
+                    </p>
                     <div>
-                      <a href="#" class="read_more">Više informacija<i class="fa fa-angle-double-right"></i></a>
-					  <input class="submit_btn" type="button" value="Ukloni">
+                      <a href="<?php echo base_url() ?>/KorisnikAdminController/index/<?php echo $korisnici[$i]->IdKorisnika ?>" class="read_more">Više informacija<i class="fa fa-angle-double-right"></i></a>
+					             <input class="submit_btn" type="button" value="Ukloni" onclick="location.href='<?php echo base_url();?>/KorisnikAdminController/obrisi_korisnika/<?php echo $korisnici[$i]->IdKorisnika ?>'">
                     </div>
                   </div>
                 </div>
-                <!-- BEGIN SINGLE TEAM SLIDE#2 -->
-                <div class="col-lg-3 col-md-3 col-sm-4">
-                  <div class="single_team wow fadeInUp">
-                    <div class="team_img">
-                      <img src="img/team-1.jpg" alt="img">
-                    </div>
-                    <h5 class="">Ime Prezime</h5>
-                    <span>Korisničko ime</span>                        
-                    <p>Tip korisnika: registrovani korisnik/autor/moderator</p>
-                    <div>
-                      <a href="#" class="read_more">Više informacija<i class="fa fa-angle-double-right"></i></a>
-					  <input class="submit_btn" type="button" value="Ukloni">
-                    </div>
-                  </div>
-                </div>
-                <!-- BEGAIN SINGLE TEAM SLIDE#3 -->
-                <div class="col-lg-3 col-md-3 col-sm-4">
-                  <div class="single_team wow fadeInUp">
-                    <div class="team_img">
-                      <img src="img/team-1.jpg" alt="img">
-                    </div>
-                    <h5 class="">Ime Prezime</h5>
-                    <span>Korisničko ime</span>                        
-                    <p>Tip korisnika: registrovani korisnik/autor/moderator</p>
-                    <div>
-                      <a href="#" class="read_more">Više informacija<i class="fa fa-angle-double-right"></i></a>
-					  <input class="submit_btn" type="button" value="Ukloni">
-                    </div>
-                  </div>
-                </div>
-                <!-- BEGIN SINGLE TEAM SLIDE#4 -->
-                <div class="col-lg-3 col-md-3 col-sm-4">
-                  <div class="single_team wow fadeInUp">
-                    <div class="team_img">
-                      <img src="img/team-1.jpg" alt="img">
-                    </div>
-                    <h5 class="">Ime Prezime</h5>
-                    <span>Korisničko ime</span>                        
-                    <p>Tip korisnika: registrovani korisnik/autor/moderator</p>
-                    <div>
-                      <a href="#" class="read_more">Više informacija<i class="fa fa-angle-double-right"></i></a>
-					  <input class="submit_btn" type="button" value="Ukloni">
-                    </div>
-                  </div>
-                </div>
-                <!-- BEGIN SINGLE TEAM SLIDE#5 -->
-                <div class="col-lg-3 col-md-3 col-sm-4">
-                  <div class="single_team wow fadeInUp">
-                    <div class="team_img">
-                      <img src="img/team-1.jpg" alt="img">
-                    </div>
-                    <h5 class="">Ime Prezime</h5>
-                    <span>Korisničko ime</span>                        
-                    <p>Tip korisnika: registrovani korisnik/autor/moderator</p>
-                    <div>
-                      <a href="#" class="read_more">Više informacija<i class="fa fa-angle-double-right"></i></a>
-					  <input class="submit_btn" type="button" value="Ukloni">
-                    </div>
-                  </div>
-                </div>
-                <!-- BEGIN SINGLE TEAM SLIDE#6 -->
-                <div class="col-lg-3 col-md-3 col-sm-4">
-                  <div class="single_team wow fadeInUp">
-                    <div class="team_img">
-                      <img src="img/team-1.jpg" alt="img">
-                    </div>
-                    <h5 class="">Ime Prezime</h5>
-                    <span>Korisničko ime</span>                        
-                    <p>Tip korisnika: registrovani korisnik/autor/moderator</p>
-                    <div>
-                      <a href="#" class="read_more">Više informacija<i class="fa fa-angle-double-right"></i></a>
-					  <input class="submit_btn" type="button" value="Ukloni">
-                    </div>
-                  </div>
-                </div>
-                <!-- BEGIN SINGLE TEAM SLIDE#7 -->
-                <div class="col-lg-3 col-md-3 col-sm-4">
-                  <div class="single_team wow fadeInUp">
-                    <div class="team_img">
-                      <img src="img/team-1.jpg" alt="img">
-                    </div>
-                    <h5 class="">Ime Prezime</h5>
-                    <span>Korisničko ime</span>                        
-                    <p>Tip korisnika: registrovani korisnik/autor/moderator</p>
-                    <div>
-                      <a href="#" class="read_more">Više informacija<i class="fa fa-angle-double-right"></i></a>
-					  <input class="submit_btn" type="button" value="Ukloni">
-                    </div>
-                  </div>
-                </div>                              
+
+                <?php } ?>
               </div>
             </div>
           </div>
