@@ -58,7 +58,7 @@
 						7. Kapacitet objekta: <?php echo "$kapacitet"; ?> <br>
 						8. Tip objekta: <?php echo "$TipObjekta"; ?> <br>
                                                 9. Telefon: <?php echo "$telefon"; ?> <br>
-						10. Prosečna ocena:  <?php echo "$email"; ?><br><br>
+						10. Prosečna ocena:  <?php echo "$ocena"; ?><br><br>
 						Kratak opis objekta: <?php echo "$opis"; ?>
 					</p>
 					<div>
@@ -133,9 +133,7 @@
             <!-- START BLOG HEADING -->
             <div class="heading">
               <h2 class="wow fadeInLeftBig">Komentari</h2>
-              <p>	
-				<input class="submit_btn" type="button" value="Obriši komentare">				
-				</p>
+            
             </div>
           </div>
           <div class="col-lg-12 col-md-12 col-sm-12">
@@ -144,53 +142,15 @@
                 <!-- BEGIN CLIENTS SLIDER -->
                 <div class="clients_slider">
                   <!-- BEGIN SINGLE CLIENT SLIDE#1 -->
+                  
+                   <?php for ($j = 0; $j < $brKom; $j++) { ?>
                   <div class="col-lg-3 col-md-3 col-sm-3">
                     <div class="single_client">
-                      <p>"Komentar taj i taj" <br>- Korisničko ime korisnika</p>
+                      <p><?php echo $naz = $komentari[$j]->Tekst;?> <br>- <?php $this->load->model('MojProfilAutorModel');
+                            echo $res1 = $this->MojProfilAutorModel->usernameKomentara($komentari[$j]->IdKorisnika); ?></p>
                     </div>
-                  </div>
-                  <!-- BEGIN SINGLE CLIENT SLIDE#2 -->
-                  <div class="col-lg-3 col-md-3 col-sm-3">
-                    <div class="single_client">
-                      <p>"Komentar taj i taj" <br>- Korisničko ime korisnika</p>
-                    </div>
-                  </div>
-                  <!-- BEGIN SINGLE CLIENT SLIDE#3 -->
-                  <div class="col-lg-3 col-md-3 col-sm-3">
-                    <div class="single_client">
-                      <p>"Komentar taj i taj" <br>- Korisničko ime korisnika</p>
-                    </div>
-                  </div>
-                  <!-- BEGIN SINGLE CLIENT SLIDE#4 -->
-                  <div class="col-lg-3 col-md-3 col-sm-3">
-                    <div class="single_client">
-                      <p>"Komentar taj i taj" <br>- Korisničko ime korisnika</p>
-                    </div>
-                  </div>
-                   <!-- BEGIN SINGLE CLIENT SLIDE#5 -->
-                  <div class="col-lg-3 col-md-3 col-sm-3">
-                    <div class="single_client">
-                      <p>"Komentar taj i taj" <br>- Korisničko ime korisnika</p>
-                    </div>
-                  </div>
-                  <!-- BEGIN SINGLE CLIENT SLIDE#6 -->
-                  <div class="col-lg-3 col-md-3 col-sm-3">
-                    <div class="single_client">
-                     <p>"Komentar taj i taj" <br>- Korisničko ime korisnika</p>
-                    </div>
-                  </div>
-                  <!-- BEGIN SINGLE CLIENT SLIDE#7 -->
-                  <div class="col-lg-3 col-md-3 col-sm-3">
-                    <div class="single_client">
-                      <p>"Komentar taj i taj" <br>- Korisničko ime korisnika</p>
-                    </div>
-                  </div>
-                  <!-- BEGIN SINGLE CLIENT SLIDE#8 -->
-                  <div class="col-lg-3 col-md-3 col-sm-3">
-                    <div class="single_client">
-                     <p>"Komentar taj i taj" <br>- Korisničko ime korisnika</p>
-                    </div>
-                  </div>
+                  </div>  <?php } ?>
+                 
                 </div>
               </div>
             </div>

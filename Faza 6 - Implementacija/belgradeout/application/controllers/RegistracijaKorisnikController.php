@@ -44,11 +44,10 @@ class RegistracijaKorisnikController extends CI_Controller{
                                               
                                          $this->load->model('RegistracijaKorisnikModel');
                                          $result =  $this->RegistracijaKorisnikModel->unesiUBazu($name, $picture, $username, $pass, $email, $zeliVesti);
-                                             if($result == true){ $result = null;
-                                           //  $this->load->view('index'); }
+                                          
                                     redirect('IndexController');
-                                     //       redirect('Welcome'); 
-                                  }}
+                                    
+                                  }
                               else {
                
                                  $data['greska'] = "potvrda lozinke nije dobra, pokusajte ponovo";

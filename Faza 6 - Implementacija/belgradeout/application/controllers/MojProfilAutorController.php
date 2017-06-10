@@ -16,10 +16,15 @@ class MojProfilAutorController extends CI_Controller{
         $this->load->model('MojProfilAutorModel');
         $data=$this->MojProfilAutorModel->dohvatiPodatke($id);
         
-        $this->load->model('MojProfilAutorModel');
+        $this->load->model('MojProfilAutorModel');  
         $res=$this->MojProfilAutorModel->dohvatiPodatkeDogadjaj($id);
         $data['br'] = count($res);
         $data['dogadjaji'] = $res;
+        
+        $this->load->model('MojProfilAutorModel'); 
+        $res1 = $this->MojProfilAutorModel->dohvatiKomentareZaProfilAutora($id);
+        $data['brKom'] = count($res1);
+        $data['komentari'] = $res1;
         $this->load->view('templates/header');
         $this->load->view('moj_profil_autor',$data);
         $this->load->view('templates/footer');

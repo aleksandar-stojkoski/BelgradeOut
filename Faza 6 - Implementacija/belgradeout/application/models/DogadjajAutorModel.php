@@ -27,7 +27,7 @@ class DogadjajAutorModel extends CI_Model{
                  $this->db->where('IdDogadjaj',$idDogadjaj);
                  $query=$this->db->get('ZahtevZaDogadjaj');
                       if ($query->num_rows()==1){  //brisemo iz zahteva
-                           $this->db->where('idDogadjaj', $idDogadjaj);   
+                           $this->db->where('IdDogadjaj', $idDogadjaj);   
                            $this->db->delete('zahtevzadogadjaj');
                           
                           
@@ -38,7 +38,7 @@ class DogadjajAutorModel extends CI_Model{
         
                       }   // svakako brisemo i iz tabele dogadjaji
                         
-                       $this->db->where('idDogadjaj', $idDogadjaj);   
+                       $this->db->where('IdDogadjaj', $idDogadjaj);   
                        $this->db->delete('Dogadjaj');
                       return 0;
               }else { //autor ne moze da izbrise dogadjaj
