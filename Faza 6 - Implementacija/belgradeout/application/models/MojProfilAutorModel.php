@@ -92,10 +92,10 @@ class MojProfilAutorModel extends CI_Model{
           $row=$query->row();
           $idObjekta = $row->IdObjekta;
            $this->db->flush_cache();
-           
+            $this->db->start_cache();
            $this->db->where('idObjekta',$idObjekta);
         $query1= $this->db->get('dogadjaj');
-        
+         $this->db->flush_cache();
           
         $res= array();
         $i=0;
@@ -105,6 +105,20 @@ class MojProfilAutorModel extends CI_Model{
        }
        return $res;
 
+    }
+    
+    
+    public function statusDogadjaja($idDogadjaj){
+          $this->load->database();
+           $this->db->start_cache();
+         $this->db->where('idDogadjaj',$idDogadjaj);
+         $query=$this->db->get('zahtevzadogadjaj'); //da li se nalazi medju zahtevima
+                  if ($query->num_rows()==1)  //nije jos odobren status = 'pending';
+                        $status = 0;
+                  else $status = 1; //ako nije u zahtevima sigurno je odobren
+                       $this->db->flush_cache();
+               return $status;
+        
     }
 
  }

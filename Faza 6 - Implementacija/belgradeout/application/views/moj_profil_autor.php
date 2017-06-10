@@ -98,16 +98,18 @@
                     <div class="blog_img">
                       <img src="img/blog_img1.jpg" alt="img">
                     </div>
-                    <h3><?php echo $naz = $dogadjaji[$i]->Naziv;   ?> </h3>
+                    <h3><?php echo $naz = $dogadjaji[$i]->Naziv;?> - <?php      $this->load->model('MojProfilAutorModel'); $status = $this->MojProfilAutorModel->statusDogadjaja($dogadjaji[$i]->IdDogadjaj);
+                                                             if($status == 0) echo  "pending";
+                                                              else echo "odobren";?>  </h3>
                     <div class="post_commentbox">
                       <a href="#"><i class="fa fa-user"></i><?php echo $this->session->userdata('username');   ?></a>
                       <span><i class="fa fa-calendar"></i><?php echo $naz = $dogadjaji[$i]->trajanje;   ?></span>
                       <a href="#"><i class="fa fa-tags"></i><?php echo $naz = $dogadjaji[$i]->TipDogadjaja;   ?></a>
                     </div>
                     <p><?php echo $naz = $dogadjaji[$i]->Opis;   ?></p>
-                    <a href="#" class="read_more">Otvori događaj <i class="fa fa-angle-double-right"></i></a>
-					<a href="#" class="read_more">Izmeni događaj <i class="fa fa-angle-double-right"></i></a>
-					<a href="#" class="read_more">Obriši događaj <i class="fa fa-angle-double-right"></i></a>
+                    <a href="<?php echo base_url() ?>/DogadjajAutorController/Index/<?php echo $dogadjaji[$i]->IdDogadjaj ?>" class="read_more">Otvori događaj <i class="fa fa-angle-double-right"></i></a>
+					<a href= "#" class="read_more">Izmeni događaj <i class="fa fa-angle-double-right"></i></a>
+					<a href="<?php echo base_url() ?>/DogadjajAutorController/ObrisiDogadjaj/<?php echo $dogadjaji[$i]->IdDogadjaj ?>" class="read_more">Obriši događaj <i class="fa fa-angle-double-right"></i></a>
 					                   
                   </div>
                 </div>

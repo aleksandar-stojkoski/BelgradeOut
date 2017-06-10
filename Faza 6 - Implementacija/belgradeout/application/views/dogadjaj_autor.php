@@ -20,7 +20,7 @@
             <!--a class="navbar-brand" href="#">Belgrade<span>Out</span></a> -->
             
             <!-- IMG BASED LOGO  -->
-            <a class="navbar-brand" href="<?php echo base_url();?>IndexController"><img src="img/logo.png" alt="logo"></a> 
+            <a class="navbar-brand" href="<?php echo base_url();?>IndexController"><img src="<?php echo base_url();?>img/logo.png" alt="logo"></a> 
 			
                    
           </div>
@@ -57,10 +57,11 @@
 						6. Trajanje događaja: 21:00 - 01:00 <br><br>
 						Kratak opis događaja: ....
 						<br>
+                                            
 					</p>
 					<div>
 						<input class="submit_btn" type="button" value="Izmeni podatke">
-						<input class="submit_btn" type="button" value="Obriši događaj">
+						<input class="submit_btn" type="button" value="Obriši događaj" onclick="location.href='<?php echo base_url() ?>/DogadjajAutorController/ObrisiDogadjaj/<?php echo $idDogadjaj ?>'">
 					</div>
 					
 				</div>
