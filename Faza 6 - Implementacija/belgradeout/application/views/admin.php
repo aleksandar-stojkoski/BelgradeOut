@@ -48,7 +48,7 @@
               <!-- START ABOUT HEADING -->
               <div class="heading">
                 <h2 class="wow fadeInLeftBig">Zahtevi</h2>
-                <p>Ovde se nalazi lista svih zahteva koji su upućeni administratoru:</p>
+                <p>Odaberite zahtev koji želite da otvorite:</p>
 				
               <!-- START ABOUT CONTENT -->
               <div class="about_content">
@@ -56,126 +56,49 @@
                   <div class="col-lg-6 col-md-6 col-sm-12">
                     <div class="about_featured">
                       <div class="panel-group" id="accordion">
-                        <!-- START SINGLE FEATURED ITEM #1-->
+                        <?php for($i=0; $i<$brojzahtevadog; $i++) {?>
+                        <!-- START SINGLE FEATURED ITEM -->
                         <div class="panel panel-default wow fadeInLeft">
                           <div class="panel-heading">
                             <h4 class="panel-title">
-                              <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-                                 <span class="fa fa-check-square-o"></span>Zahtev 1
+                              <a data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo $i ?>">
+                                 <span class="fa fa-check-square-o"></span>Zahtev <?php echo $i+1 ?>
                               </a>
                             </h4>
                           </div>
-                          <div id="collapseOne" class="panel-collapse collapse in">
+                          <div id="collapse<?php echo $i ?>" class="panel-collapse collapse">
                             <div class="panel-body">
-                             Tip zahteva: zahtev za moderatora/zahtev za registrovanog korisnika <br>
-							 Još neke osnovne informacije..<br>
-							 <a href="#" class="read_more">Otvori zahtev <i class="fa fa-angle-double-right"></i></a> 
-							 
+                             Tip zahteva: <b>Zahtev za događaj</b><br>
+							               Id autora koji je podneo zahtev: <b><?php echo $zahtevidog[$i]->IdAutor; ?></b><br>
+                             Id dogadjaja: <b><?php echo $zahtevidog[$i]->IdDogadjaj; ?></b><br>
+							               <a href="#" class="read_more">Otvori zahtev <i class="fa fa-angle-double-right"></i></a> 
                             </div>
                           </div>
                         </div>
-                        <!-- START SINGLE FEATURED ITEM #2 -->
+
+                        <?php } ?>
+
+                        <?php for($j=0; $j<$brojzahtevamod; $j++) {?>
+                        <!-- START SINGLE FEATURED ITEM -->
                         <div class="panel panel-default wow fadeInLeft">
                           <div class="panel-heading">
                             <h4 class="panel-title">
-                              <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-                                 <span class="fa fa-check-square-o"></span>Zahtev 2
+                              <a data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo $brojzahtevadog+$j ?>">
+                                 <span class="fa fa-check-square-o"></span>Zahtev <?php echo $brojzahtevadog+$j+1 ?>
                               </a>
                             </h4>
                           </div>
-                          <div id="collapseTwo" class="panel-collapse collapse">
+                          <div id="collapse<?php echo $brojzahtevadog+$j ?>" class="panel-collapse collapse">
                             <div class="panel-body">
-                            Tip zahteva: zahtev za moderatora/zahtev za registrovanog korisnika <br>
-							 Još neke osnovne informacije..<br>
-							 <a href="#" class="read_more">Otvori zahtev <i class="fa fa-angle-double-right"></i></a> 
+                              Tip zahteva: <b>Zahtev za moderatora</b><br>
+                							Id korisnika koji je podneo zahtev: <b><?php echo $zahtevimod[$j]->IdKorisnika; ?></b><br>
+                              Status: <b><?php echo $zahtevimod[$j]->Status_odobreno_nije_; ?></b><br>
+                							<a href="#" class="read_more">Otvori zahtev <i class="fa fa-angle-double-right"></i></a> 
                             </div>
                           </div>
                         </div>
-                        <!-- START SINGLE FEATURED ITEM #3 -->
-                        <div class="panel panel-default wow fadeInLeft">
-                          <div class="panel-heading">
-                            <h4 class="panel-title">
-                              <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-                                <span class="fa fa-check-square-o"></span>Zahtev 3
-                              </a>
-                            </h4>
-                          </div>
-                          <div id="collapseThree" class="panel-collapse collapse">
-                            <div class="panel-body">
-                             Tip zahteva: zahtev za moderatora/zahtev za registrovanog korisnika <br>
-							 Još neke osnovne informacije..<br>
-							 <a href="#" class="read_more">Otvori zahtev <i class="fa fa-angle-double-right"></i></a> 
-                            </div>
-                          </div>
-                        </div>
-                        <!-- START SINGLE FEATURED ITEM #4 -->
-                        <div class="panel panel-default wow fadeInLeft">
-                          <div class="panel-heading">
-                            <h4 class="panel-title">
-                              <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
-                                <span class="fa fa-check-square-o"></span>Zahtev 4
-                              </a>
-                            </h4>
-                          </div>
-                          <div id="collapseFour" class="panel-collapse collapse">
-                            <div class="panel-body">
-                             Tip zahteva: zahtev za moderatora/zahtev za registrovanog korisnika <br>
-							 Još neke osnovne informacije..<br>
-							 <a href="#" class="read_more">Otvori zahtev <i class="fa fa-angle-double-right"></i></a> 
-                            </div>
-                          </div>
-                        </div>
-						<!-- START SINGLE FEATURED ITEM #5 -->
-                        <div class="panel panel-default wow fadeInLeft">
-                          <div class="panel-heading">
-                            <h4 class="panel-title">
-                              <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive">
-                                <span class="fa fa-check-square-o"></span>Zahtev 5
-                              </a>
-                            </h4>
-                          </div>
-                          <div id="collapseFive" class="panel-collapse collapse">
-                            <div class="panel-body">
-                             Tip zahteva: zahtev za moderatora/zahtev za registrovanog korisnika <br>
-							 Još neke osnovne informacije..<br>
-							 <a href="#" class="read_more">Otvori zahtev <i class="fa fa-angle-double-right"></i></a> 
-                            </div>
-                          </div>
-                        </div>
-						<!-- START SINGLE FEATURED ITEM #6 -->
-                        <div class="panel panel-default wow fadeInLeft">
-                          <div class="panel-heading">
-                            <h4 class="panel-title">
-                              <a data-toggle="collapse" data-parent="#accordion" href="#collapseSix">
-                                <span class="fa fa-check-square-o"></span>Zahtev 6
-                              </a>
-                            </h4>
-                          </div>
-                          <div id="collapseSix" class="panel-collapse collapse">
-                            <div class="panel-body">
-                             Tip zahteva: zahtev za moderatora/zahtev za registrovanog korisnika <br>
-							 Još neke osnovne informacije..<br>
-							 <a href="#" class="read_more">Otvori zahtev <i class="fa fa-angle-double-right"></i></a> 
-                            </div>
-                          </div>
-                        </div>
-						<!-- START SINGLE FEATURED ITEM #7 -->
-                        <div class="panel panel-default wow fadeInLeft">
-                          <div class="panel-heading">
-                            <h4 class="panel-title">
-                              <a data-toggle="collapse" data-parent="#accordion" href="#collapseSeven">
-                                <span class="fa fa-check-square-o"></span>Zahtev 7
-                              </a>
-                            </h4>
-                          </div>
-                          <div id="collapseSeven" class="panel-collapse collapse">
-                            <div class="panel-body">
-                             Tip zahteva: zahtev za moderatora/zahtev za registrovanog korisnika <br>
-							 Još neke osnovne informacije..<br>
-							 <a href="#" class="read_more">Otvori zahtev <i class="fa fa-angle-double-right"></i></a> 
-                            </div>
-                          </div>
-                        </div>
+                        <?php } ?>
+
                       </div>
                     </div>
                   </div>
@@ -197,7 +120,7 @@
             <!-- START BLOG HEADING -->
             <div class="heading">
               <h2 class="wow fadeInLeftBig">Događaji</h2>
-              <p>Ovde se nalazi spisak svih događaja:</p>
+              <p>Odaberite događaj koji želite da otvorite ili obrišete:</p>
             </div>
           </div>
           <div class="col-lg-12 col-md-12">

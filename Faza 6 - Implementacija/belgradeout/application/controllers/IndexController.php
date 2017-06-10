@@ -18,23 +18,24 @@ class IndexController extends CI_Controller{
     }
 
     public function index() {
-        $this->load->view('templates/header');
         if ($this->flag==1){
-        	$this->load->view('admin');
+        	redirect('AdminController');
         }
         else if ($this->flag==2){
-        	$this->load->view('moderator');
+        	redirect('ModeratorController');
         }
         else if ($this->flag==3){
-        	$this->load->view('index_autor');
+        	redirect('IndexAutorController');
         }
         else if ($this->flag==4){
-        	$this->load->view('index_registrovani_korisnik');
+        	redirect('IndexRegistrovaniKorisnikController');
         }
         else {
+            $this->load->view('templates/header');
         	$this->load->view('index');	
+            $this->load->view('templates/footer');
         }
-        $this->load->view('templates/footer');
+        
 
         // 1 - administrator
         // 2 - moderator
