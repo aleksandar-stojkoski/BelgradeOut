@@ -28,11 +28,13 @@ class LoginController extends CI_Controller{
         $this->form_validation->set_rules('pass','Lozinka','trim|required'); 
         $this->form_validation->set_rules('pass','Lozinka','callback_login_provera');
 
-        $this->load->view('templates/header');
+        
         //odmah ucitam header jer je on isti za sve view-ove
         if ($this->form_validation->run()==FALSE){
             //neuspesno prijavljivanje
-            $this->load->view('index');        
+            $this->load->view('templates/header');
+            $this->load->view('index');
+            $this->load->view('templates/footer');        
         }
         else{
             //uspesno prijavljivanje - zapocinjem sesiju
@@ -42,20 +44,20 @@ class LoginController extends CI_Controller{
             $this->session->set_userdata('valid_login',1);
 
             if ($this->tipkorisnika==1){
-                $this->load->view('admin');    
+                redirect('AdminController');    
             }
             else if($this->tipkorisnika==2){
-                 $this->load->view('moderator');
+                 redirect('ModeratorController');
             }
             else if($this->tipkorisnika==3){
-                 $this->load->view('index_autor');
+                 redirect('IndexAutorController');
             }
             else{
-                 $this->load->view('index_registrovani_korisnik');
+                 redirect('IndexRegistrovaniKorisnikController');
             }
         }
         //na kraju se u svakom slucaju ucita footer jer je i on isti za sve view-ove
-        $this->load->view('templates/footer');
+        
     }  
 
     public function login_provera() {
