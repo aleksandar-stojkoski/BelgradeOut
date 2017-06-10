@@ -203,7 +203,7 @@ CREATE TABLE IF NOT EXISTS `ocena` (
 --
 
 INSERT INTO `ocena` (`IdObjekta`, `BrGlasova`, `Ocena`) VALUES
-(1, 1, '5.00');
+(1, 1, 5.00);
 
 -- --------------------------------------------------------
 
@@ -214,18 +214,16 @@ INSERT INTO `ocena` (`IdObjekta`, `BrGlasova`, `Ocena`) VALUES
 CREATE TABLE IF NOT EXISTS `odobrenjedogadjaja` (
   `IdAutor` int(11) NOT NULL,
   `IdDogadjaj` int(11) NOT NULL,
-  `IdModeratora` int(11) NOT NULL,
   PRIMARY KEY (`IdDogadjaj`),
-  KEY `R_18` (`IdAutor`),
-  KEY `R_17` (`IdModeratora`)
+  KEY `R_18` (`IdAutor`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `odobrenjedogadjaja`
 --
 
-INSERT INTO `odobrenjedogadjaja` (`IdAutor`, `IdDogadjaj`, `IdModeratora`) VALUES
-(4, 1, 3);
+INSERT INTO `odobrenjedogadjaja` (`IdAutor`, `IdDogadjaj`) VALUES
+(4, 1);
 
 -- --------------------------------------------------------
 
@@ -252,10 +250,14 @@ CREATE TABLE IF NOT EXISTS `omiljeniparametri` (
 --
 
 CREATE TABLE IF NOT EXISTS `postanimoderator` (
-  `IdAdmin` int(11) NOT NULL,
-  `Status_odobreno_nije_` tinyint(1) DEFAULT NULL,
   `IdKorisnika` int(11) NOT NULL,
-  PRIMARY KEY (`IdAdmin`,`IdKorisnika`),
+  `JMBG` varchar(20) DEFAULT NULL,
+  `Adresa` varchar(400) DEFAULT NULL,
+  `Telefon` int(11) DEFAULT NULL,
+  `Pol` varchar(20) DEFAULT NULL,
+  `CV` varchar(40) DEFAULT NULL,
+  `MotPismo` mediumtext,
+  PRIMARY KEY (`IdKorisnika`),
   KEY `R_35` (`IdKorisnika`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
