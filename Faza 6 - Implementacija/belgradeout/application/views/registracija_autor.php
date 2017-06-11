@@ -1,4 +1,4 @@
-
+ <!--==Izmene u kodu: Milica Tanaskovic 0360/2014 ==-->
     <!--=========== BEGIN HEADER SECTION ================-->
     <header id="header">
       <!-- BEGIN MENU -->
@@ -76,7 +76,7 @@
 				  <input class="form-control" type="text" placeholder="Kapacitet objekta" required name = "kap">
 				  <input class="form-control" type="text" placeholder="Tip objekta" required name = "tip">
 				  &nbsp;&nbsp;Slika:
-				  <input class="form-control" type="file" placeholder="Slika" required name = "picture">
+				  <input class="form-control" type="file" placeholder="Slika" size = 40 required name = "picture">
                   <textarea class="form-control" cols="30" rows="5" placeholder="Kratak opis objekta" name ='opis' required></textarea>
 				
 					<input class="submit_btn" type="submit" value="Pošalji">

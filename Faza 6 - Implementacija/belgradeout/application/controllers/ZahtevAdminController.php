@@ -1,4 +1,6 @@
 <?php
+// poslednje dve funkcije: Milica Tanasković 0360/2014
+
 
 class ZahtevAdminController extends CI_Controller{
     public function index(){ 

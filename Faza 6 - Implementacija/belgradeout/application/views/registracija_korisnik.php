@@ -1,4 +1,4 @@
-
+ <!--==Izmene u kodu: Milica Tanaskovic 0360/2014 ==-->
     <!--=========== BEGIN HEADER SECTION ================-->
     <header id="header">
       <!-- BEGIN MENU -->

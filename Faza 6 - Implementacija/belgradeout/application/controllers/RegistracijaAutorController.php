@@ -47,10 +47,25 @@ class RegistracijaAutorController extends CI_Controller{
                                          $tip =  $this->input->post('tip');
                                          $kap =  $this->input->post('kap');
                                         $opis = $this->input->post('opis');
-                                         $picture= $this->input->post('picture');
+                                        $picture= $this->input->post('picture');
                                          //   echo "$name, $username. $pass, $email";
                                         
-                                         $this->load->model('RegistracijaAutorModel');
+               /*     if ($_FILES['picture']['size'] > 0) {   //ovako bi trebalo da se uploaduje slika
+                    $config['upload_path'] = './img/';
+                 //   $config['allowed_types'] = 'gif|jpg|png';
+                    $this->load->library('upload', $config);
+                    if (!$this->upload->do_upload('picture')) {
+                       $data['greska']= "slika nije dobro ";
+                       $this->load->view('templates/header');
+                       $this->load->view('registracija_autor', $data);
+                       $this->load->view('templates/footer');
+                      
+                   } else {
+                        $picture = $this->upload->data();
+                    }
+                }  */
+
+                $this->load->model('RegistracijaAutorModel');
                                          $result =  $this->RegistracijaAutorModel->unesiUBazu($name, $picture, $username, $pass, $email, $phone, $nobjekat, $adr, $time, $tip, $kap, $opis);
                                                     redirect('IndexController');
                                   }

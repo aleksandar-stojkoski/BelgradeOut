@@ -1,4 +1,5 @@
 <?php
+// izrada koda Milica Tanasković 0360/2014
 
 class DogadjajAutorModel extends CI_Model{
     

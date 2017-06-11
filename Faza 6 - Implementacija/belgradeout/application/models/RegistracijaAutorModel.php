@@ -5,12 +5,21 @@ class RegistracijaAutorModel extends CI_Model{
         public function unesiUBazu($name, $picture, $username, $pass, $email, $phone, $nobjekat, $adr, $time, $tip, $kap, $opis){
             $this->load->database();
             //ubacivanje u tabelu korisnik
+            
+            
+           
+             
+             
+           /*  $path=$picture['full_path']; //apsolutna putanja slike        
+             $picture = file_get_contents($path);  //vadi binarni sadrzaj slike ali nesto nece, ucita samo 1B u bazu
+             unlink($path); 
+           */     
               $data = array(
                  'ImePrezime' => $name,
                  'email' => $email,
                  'UserName' => $username,
                  'Lozinka' => $pass,
-                //'Slika' => $picture
+                 'Slika' => $picture
                    
                 );
             
@@ -39,13 +48,15 @@ class RegistracijaAutorModel extends CI_Model{
                  'TipObjekta' => $tip,
                 'kapacitet' => $kap,
                 'radnoVreme' => $time,
-                'Slika' => $picture,
+                'Slika' => $picture ,
                 'opis' => $opis
                    
                 );
                     $this->db->insert('Objekat', $data3);
                     
+                 
                     
+                   
                     
                 $query1= $this->db->get('korisnik');
 

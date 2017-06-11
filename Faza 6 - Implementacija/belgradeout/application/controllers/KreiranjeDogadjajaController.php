@@ -1,4 +1,5 @@
 <?php
+// izrada koda: Milica Tanasković 0360/2014
 
 class KreiranjeDogadjajaController extends CI_Controller{
     
