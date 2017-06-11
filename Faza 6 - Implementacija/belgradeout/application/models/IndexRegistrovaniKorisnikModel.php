@@ -28,9 +28,16 @@ class IndexRegistrovaniKorisnikModel extends CI_Model{
         $this->db->flush_cache();
         $this->db->start_cache();
         
-//        if ($TipProstora != "Svi") { $this->db->where('TipProstora', $TipProstora); }
-        if ($TipDogadjaja != "Svi") { $this->db->where('TipDogadjaja', $TipDogadjaja); }
-        if ($Zanr != "Svi") { $this->db->where('Muzicki_Zanr', $Zanr); }
+        if($Zanr == "Rock") { $this->db->where('Muzicki_Zanr', 'Rock'); }
+        else if ($Zanr == "Pop") { $this->db->where('Muzicki_Zanr', 'Pop'); }
+        else if ($Zanr == "House") { $this->db->where('Muzicki_Zanr', 'House'); }
+        
+        if($TipDogadjaja == "Zurka") { $this->db->where('TipDogadjaja', 'Zurka'); }
+        else if ($TipDogadjaja == "Svirka") { $this->db->where('TipDogadjaja', 'Svirka'); }
+        
+        if ($TipProstora == "Pub") { $MojTip= 'Pub'; }
+        else if ($TipProstora == "Klub") { $MojTip= 'Klub'; }
+        else if ($TipProstora == "Kafana") { $MojTip= 'Kafana'; }
         
         $i= 0;
         $res= array();
@@ -48,21 +55,26 @@ class IndexRegistrovaniKorisnikModel extends CI_Model{
             $this->db->where('IdObjekta', $row->IdObjekta);
             
             $newquery= $this->db->get('ocena');
+            $MojaOcena= $newquery->row()->Ocena;
+            $BrojGlasova= $newquery->row()->BrGlasova;
+            $MojaOcena /= $BrojGlasova;
             
-            if ($TipProstora != "Svi"){
-                if ($newQuery->row()->TipObjekta == $TipProstora){
-                    if ($newRow->row()->Ocena >= $Ocena){
+            if (($TipProstora == "Pub") ||
+                ($TipProstora == "Klub") ||
+                ($TipProstora == "Kafana")){
+                if ($newQuery->row()->TipObjekta == $MojTip){
+                    if ($MojaOcena >= $prosecnaOcena){
                         $res[$i]= $row;
                         $i++;
                     }      
                 }
             } else {
-                if ($newRow->row()->Ocena >= $Ocena){
+                if ($MojaOcena >= $prosecnaOcena){
                     $res[$i]= $row;
                     $i++;
                 }   
             }
         }
-        
+        return $res;
     }
 }

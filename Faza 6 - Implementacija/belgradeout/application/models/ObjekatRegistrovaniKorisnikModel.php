@@ -49,7 +49,8 @@ class ObjekatRegistrovaniKorisnikModel extends CI_Model{
         if ($row != null){
             $Ocena= $row->Ocena;
             $BrGlasova= $row->BrGlasova;
-
+            $Ocena /= $BrGlasova;
+            
             $data = array(
                      'Ocena' => $Ocena,
                      'BrGlasova' => $BrGlasova,
@@ -154,10 +155,8 @@ class ObjekatRegistrovaniKorisnikModel extends CI_Model{
         $VotesNum= $row->BrGlasova;
         
         $PrOcena= $row->Ocena;
-        $PrOcena *= $VotesNum;
         $VotesNum++;
         $PrOcena += $Ocena;
-        $PrOcena /= $VotesNum;
         
         $data= array(
             'BrGlasova' => $VotesNum,
