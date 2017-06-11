@@ -116,7 +116,7 @@
                 <div class="col-lg-4 col-md-4 col-sm-4">
                   <div class="single_post wow fadeInUp">
                     <div class="blog_img">
-                      <img src="img/blog_img1.jpg" alt="img">
+                      <img src="data:image/jpeg;base64,<?php echo base64_encode($dogadjaji[$i]->Slika); ?>" alt="img">
                     </div>
                     <h3><?php echo $dogadjaji[$i]->Naziv; ?> - <?php 
                     $this->load->model('ModeratorModel'); 
@@ -152,7 +152,7 @@
             <div class="heading">
 				<h2 class="wow fadeInLeftBig">Moj nalog</h2>
 					<div class="team_img">
-						  <img src="<?php echo base_url() ?>img/team-1.jpg" alt="img">
+						  <img src="data:image/jpeg;base64,<?php echo base64_encode($slika); ?>"alt="img">
 					</div>
 					<p>	
             <b>1. Korisničko ime:</b> <?php echo "$username"; ?> <br>

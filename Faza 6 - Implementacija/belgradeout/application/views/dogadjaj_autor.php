@@ -20,13 +20,13 @@
             <!--a class="navbar-brand" href="#">Belgrade<span>Out</span></a> -->
             
             <!-- IMG BASED LOGO  -->
-            <a class="navbar-brand" href="<?php echo base_url();?>IndexController"><img src="<?php echo base_url();?>img/logo.png" alt="logo"></a> 
+            <a class="navbar-brand" href="<?php echo base_url();?>IndexController"> <img src="<?php echo base_url();?>img/logo.png" alt="logo"></a> 
 			
                    
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul id="top-menu" class="nav navbar-nav navbar-right main_nav">
-              <li class="active"><a href="#">Početna</a></li>
+              <li class="active"><a href="<?php echo base_url();?>IndexController">Početna</a></li>
               <li><a href="<?php echo base_url();?>LogoutController">Odjavi se</a></li>
               
             </ul>           
@@ -47,7 +47,7 @@
                            <div class="heading">
 					<h2 class="wow fadeInLeftBig"><?php echo "$naziv"; ?></h2>
 					<div class="team_img">
-						  <img src="img/team-1.jpg" alt="img">
+						  <img src="data:image/jpeg;base64,<?php echo base64_encode($slika); ?>" alt="img">
 					</div>
 					<p>	1. Naziv događaja:  <?php echo "$naziv"; ?> <br>
 						2. Tip događaja:  <?php echo "$tip"; ?> <br>

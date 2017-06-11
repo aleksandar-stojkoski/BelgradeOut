@@ -103,7 +103,7 @@ class ModeratorModel extends CI_Model{
         $podaci['email'] = $row->email;
         $podaci['username'] = $row->UserName;
         $podaci['lozinka'] = $row->Lozinka;
-        
+        $podaci['slika'] = $row->Slika;
         $this->db->flush_cache();
         $this->db->start_cache();
         $this->db->where('idModeratora',$id);

@@ -50,7 +50,7 @@
 				<div class="heading">
 					<h2 class="wow fadeInLeftBig">Korisnik - id(<?php echo "$id_korisnika"; ?>)</h2>
 					<div class="team_img">
-						  <img src="<?php echo base_url();?>img/team-1.jpg" alt="img">
+						  <img src="data:image/jpeg;base64,<?php echo base64_encode($slika); ?>" alt="img">
 					</div>
 					<p>	1. Korisničko ime: <?php echo "$username"; ?> <br>
 						2. Ime i prezime: <?php echo "$imeprezime"; ?> <br>

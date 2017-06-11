@@ -133,7 +133,7 @@
                 <div class="col-lg-4 col-md-4 col-sm-4">
                   <div class="single_post wow fadeInUp">
                     <div class="blog_img">
-                      <img src="img/blog_img1.jpg" alt="img">
+                      <img src="data:image/jpeg;base64,<?php echo base64_encode($dogadjaji[$i]->Slika); ?>" alt="img">
                     </div>
                     <h3><?php echo $dogadjaji[$i]->Naziv; ?> - <?php 
                     $this->load->model('AdminModel'); 
@@ -177,7 +177,7 @@
                 <div class="col-lg-3 col-md-3 col-sm-4">
                   <div class="single_team wow fadeInUp">
                     <div class="team_img">
-                      <img src="img/team-1.jpg" alt="img">
+                      <img src="data:image/jpeg;base64,<?php echo base64_encode($korisnici[$i]->Slika); ?>" alt="img">
                     </div>
                     <h5 class=""><?php echo $korisnici[$i]->ImePrezime; ?></h5>
                     <span><?php echo $korisnici[$i]->UserName; ?></span>

@@ -62,7 +62,7 @@ class KorisnikAdminModel extends CI_Model{
       $array['email']=$row->email;
       $array['username']=$row->UserName;
       $array['lozinka']=$row->Lozinka;
-      // $array['slika']=$row->Slika;
+       $array['slika']=$row->Slika;
 
       $this->db->flush_cache();
 
