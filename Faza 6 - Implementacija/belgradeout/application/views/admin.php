@@ -1,4 +1,4 @@
-
+<!-- @author Aleksandar Stojkoski 14/0266 -->
     <!--=========== BEGIN HEADER SECTION ================-->
     <header id="header">
       <!-- BEGIN MENU -->

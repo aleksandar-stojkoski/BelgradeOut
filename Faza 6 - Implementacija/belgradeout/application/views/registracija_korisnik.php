@@ -1,3 +1,4 @@
+<!-- @author Aleksandar Stojkoski 14/0266 -->
  <!--==Izmene u kodu: Milica Tanaskovic 0360/2014 ==-->
     <!--=========== BEGIN HEADER SECTION ================-->
     <header id="header">

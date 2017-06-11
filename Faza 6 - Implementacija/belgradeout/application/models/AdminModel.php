@@ -1,4 +1,5 @@
 <?php
+// @author Aleksandar Stojkoski 14/0266
 // poslednje dve funkcije: Milica Tanasković 0360/2014
 
 class AdminModel extends CI_Model{

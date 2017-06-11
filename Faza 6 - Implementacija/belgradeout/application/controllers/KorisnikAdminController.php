@@ -1,4 +1,5 @@
 <?php
+// @author Aleksandar Stojkoski 14/0266
 
 class KorisnikAdminController extends CI_Controller{
     public function index($id){

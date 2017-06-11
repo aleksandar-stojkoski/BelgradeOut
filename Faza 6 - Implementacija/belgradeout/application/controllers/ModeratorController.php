@@ -1,4 +1,5 @@
 <?php
+// @author Aleksandar Stojkoski 14/0266
 
 class ModeratorController extends CI_Controller{
 
