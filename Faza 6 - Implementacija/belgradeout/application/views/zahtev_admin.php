@@ -46,42 +46,38 @@
           <div class="col-lg-12 col-md-12">
             <div class="about_area">
               <!-- START ABOUT HEADING -->
-				<div class="heading">
-					<h2 class="wow fadeInLeftBig">Zahtev</h2>
-					<div class="team_img">
-						  <img src="<?php echo base_url();?>img/team-1.jpg" alt="img">
-					</div>
-					<p>	<?php if ($tip==1){ ?>
-            1. Naziv događaja:  <?php echo "$naziv"; ?> <br>
-						2. Tip događaja:  <?php echo "$tip"; ?> <br>
-						3. Muzički žanr:  <?php echo "$zanr"; ?> <br>
-						4. Izvođač:  <?php echo "$izvodjac"; ?> <br>
-						5. Datum:  <?php echo "$datum"; ?> <br>
-						6. Trajanje događaja:  <?php echo "$trajanje"; ?> <br><br>
-						Kratak opis događaja:  <?php echo "$opis"; ?>
-            <?php } else { ?>
-                    1. IdKorisnika koji želi da postane moderator: <?php echo "$idKorisnika"; ?> <br>
-                    2. Ime i prezime: <?php echo "$imeprezime"; ?> <br>
-                    3. Korisničko ime: <?php echo "$username"; ?> <br>
-                    4. Email: <?php echo "$email"; ?> <br>
-                    5. JMBG: <?php echo "$JMBG"; ?> <br>
-                    6. Adresa: <?php echo "$adresa"; ?> <br>
-                    7. Telefon: <?php echo "$telefon"; ?> <br>
-                    8. Pol: <?php echo "$pol"; ?> <br>
-                    9. Motivaciono pismo: <?php echo "motpismo"; ?> 
-            <?php } ?>
-					</p>
-					<div>
-            <?php if ($tip==1){ ?>
-  						<input class="submit_btn" type="button" value="Prihvati" >
-  						<input class="submit_btn" type="button" value="Odbij">
-            <?php } else { ?>
-              <input class="submit_btn" type="button" value="Prihvati" onclick="location.href='<?php echo base_url();?>/ZahtevAdminController/prihvati_zahtev_za_moderatora/<?php echo $idKorisnika ?>'">
-              <input class="submit_btn" type="button" value="Odbij" onclick="location.href='<?php echo base_url();?>/ZahtevAdminController/odbij_zahtev_za_moderatora/<?php echo $idKorisnika ?>'">
-					  <?php } ?> 
-          </div>
-					<br><br><br><br><br><br>
-				</div>
+                <div class="heading">
+                        <h2 class="wow fadeInLeftBig">Zahtev</h2>
+                        <div class="team_img">
+                                  <img src="<?php echo base_url();?>img/team-1.jpg" alt="img">
+                        </div>
+                        <p>	<?php if ($tip==1){ ?>
+                                1. Naziv događaja:  <?php echo "$naziv"; ?> <br>
+                                2. Tip događaja:  <?php echo "$tip"; ?> <br>
+                                3. Muzički žanr:  <?php echo "$zanr"; ?> <br>
+                                4. Izvođač:  <?php echo "$izvodjac"; ?> <br>
+                                5. Datum:  <?php echo "$datum"; ?> <br>
+                                6. Trajanje događaja:  <?php echo "$trajanje"; ?> <br><br>
+                                Kratak opis događaja:  <?php echo "$opis"; ?>
+                        <?php } else { ?>
+                                1. IdKorisnika koji želi da postane moderator: <?php echo "$idKorisnika"; ?> <br>
+                                2. JMBG: <?php echo "$JMBG"; ?> <br>
+                                3. Adresa: <?php echo "$adresa"; ?> <br>
+                                4. Telefon: <?php echo "$telefon"; ?> <br>
+                                5. Pol: <?php echo "$pol"; ?> <br>
+                                6. Motivaciono pismo: <?php echo "motpismo"; ?> 
+                        <?php } ?>
+                        </p>
+                        <?php if ($tip==1){ ?>
+                        <div>
+                                <input class="submit_btn" type="button" value="Prihvati" onclick="location.href='<?php echo base_url() ?>/ZahtevAdminController/PrihvatiZahtevDogadjaj/<?php echo $idDogadjaj ?>'">
+                                <input class="submit_btn" type="button" value="Odbij" onclick="location.href='<?php echo base_url() ?>/ZahtevAdminController/OdbijZahtevDogadjaj/<?php echo $idDogadjaj ?>'">
+                        </div>   <?php } else { ?>  
+                                <input class="submit_btn" type="button" value="Prihvati">
+                                <input class="submit_btn" type="button" value="Odbij">
+                                <?php } ?>
+                        <br><br><br><br><br><br>
+                </div>
 				
 				
               
