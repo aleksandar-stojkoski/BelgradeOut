@@ -18,6 +18,7 @@ class DogadjajAdminModeratorController extends CI_Controller{
     	$this->load->model('DogadjajAdminModeratorModel');
 
     	$this->DogadjajAdminModeratorModel->obrisi_dogadjaj($id_dogadjaja);
-    	redirect('AdminController');
+        
+        redirect('IndexController');
     }
 }

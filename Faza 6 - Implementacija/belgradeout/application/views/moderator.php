@@ -20,7 +20,7 @@
             <!--a class="navbar-brand" href="#">Belgrade<span>Out</span></a> -->
             
             <!-- IMG BASED LOGO  -->
-            <a class="navbar-brand" href="<?php echo base_url();?>IndexController"><img src="img/logo.png" alt="logo"></a> 
+            <a class="navbar-brand" href="<?php echo base_url();?>IndexController"><img src="<?php echo base_url();?>img/logo.png" alt="logo"></a> 
 			
                    
           </div>
@@ -48,7 +48,7 @@
               <!-- START ABOUT HEADING -->
               <div class="heading">
                 <h2 class="wow fadeInLeftBig">Zahtevi</h2>
-                <p>Ovde se nalazi lista svih zahteva koji su upućeni moderatoru:</p>
+                <p>Odaberite zahtev koji želite da otvorite:</p>
 				
               <!-- START ABOUT CONTENT -->
               <div class="about_content">
@@ -56,126 +56,28 @@
                   <div class="col-lg-6 col-md-6 col-sm-12">
                     <div class="about_featured">
                       <div class="panel-group" id="accordion">
-                        <!-- START SINGLE FEATURED ITEM #1-->
+                        
+                        <?php for($i=0; $i<$brojzahtevadog; $i++) {?>
+                        <!-- START SINGLE FEATURED ITEM -->
                         <div class="panel panel-default wow fadeInLeft">
                           <div class="panel-heading">
                             <h4 class="panel-title">
-                              <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-                                 <span class="fa fa-check-square-o"></span>Zahtev 1
+                              <a data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo $i ?>">
+                                 <span class="fa fa-check-square-o"></span>Zahtev <?php echo $i+1 ?>
                               </a>
                             </h4>
                           </div>
-                          <div id="collapseOne" class="panel-collapse collapse in">
+                          <div id="collapse<?php echo $i ?>" class="panel-collapse collapse">
                             <div class="panel-body">
-                             Tip zahteva: zahtev za objavljivanje/izmenu događaja <br>
-							 Još neke osnovne informacije..<br>
-							 <a href="#" class="read_more">Otvori zahtev <i class="fa fa-angle-double-right"></i></a> 
-							 
+                             Tip zahteva: <b>Zahtev za događaj</b><br>
+                             Id autora koji je podneo zahtev: <b><?php echo $zahtevidog[$i]->IdAutor; ?></b><br>
+                             Id dogadjaja: <b><?php echo $zahtevidog[$i]->IdDogadjaj; ?></b><br>
+                             <a href="<?php echo base_url() ?>/ZahtevModeratorController/otvori_zahtev_za_dogadjaj/<?php echo $zahtevidog[$i]->IdDogadjaj ?>" class="read_more">Otvori zahtev <i class="fa fa-angle-double-right"></i></a> 
                             </div>
                           </div>
                         </div>
-                        <!-- START SINGLE FEATURED ITEM #2 -->
-                        <div class="panel panel-default wow fadeInLeft">
-                          <div class="panel-heading">
-                            <h4 class="panel-title">
-                              <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-                                 <span class="fa fa-check-square-o"></span>Zahtev 2
-                              </a>
-                            </h4>
-                          </div>
-                          <div id="collapseTwo" class="panel-collapse collapse">
-                            <div class="panel-body">
-                            Tip zahteva: zahtev za objavljivanje/izmenu događaja <br>
-							 Još neke osnovne informacije..<br>
-							 <a href="#" class="read_more">Otvori zahtev <i class="fa fa-angle-double-right"></i></a> 
-                            </div>
-                          </div>
-                        </div>
-                        <!-- START SINGLE FEATURED ITEM #3 -->
-                        <div class="panel panel-default wow fadeInLeft">
-                          <div class="panel-heading">
-                            <h4 class="panel-title">
-                              <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-                                <span class="fa fa-check-square-o"></span>Zahtev 3
-                              </a>
-                            </h4>
-                          </div>
-                          <div id="collapseThree" class="panel-collapse collapse">
-                            <div class="panel-body">
-                             Tip zahteva: zahtev za objavljivanje/izmenu događaja <br>
-							 Još neke osnovne informacije..<br>
-							 <a href="#" class="read_more">Otvori zahtev <i class="fa fa-angle-double-right"></i></a> 
-                            </div>
-                          </div>
-                        </div>
-                        <!-- START SINGLE FEATURED ITEM #4 -->
-                        <div class="panel panel-default wow fadeInLeft">
-                          <div class="panel-heading">
-                            <h4 class="panel-title">
-                              <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
-                                <span class="fa fa-check-square-o"></span>Zahtev 4
-                              </a>
-                            </h4>
-                          </div>
-                          <div id="collapseFour" class="panel-collapse collapse">
-                            <div class="panel-body">
-                             Tip zahteva: zahtev za objavljivanje/izmenu događaja <br>
-							 Još neke osnovne informacije..<br>
-							 <a href="#" class="read_more">Otvori zahtev <i class="fa fa-angle-double-right"></i></a> 
-                            </div>
-                          </div>
-                        </div>
-						<!-- START SINGLE FEATURED ITEM #5 -->
-                        <div class="panel panel-default wow fadeInLeft">
-                          <div class="panel-heading">
-                            <h4 class="panel-title">
-                              <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive">
-                                <span class="fa fa-check-square-o"></span>Zahtev 5
-                              </a>
-                            </h4>
-                          </div>
-                          <div id="collapseFive" class="panel-collapse collapse">
-                            <div class="panel-body">
-                             Tip zahteva: zahtev za objavljivanje/izmenu događaja <br>
-							 Još neke osnovne informacije..<br>
-							 <a href="#" class="read_more">Otvori zahtev <i class="fa fa-angle-double-right"></i></a> 
-                            </div>
-                          </div>
-                        </div>
-						<!-- START SINGLE FEATURED ITEM #6 -->
-                        <div class="panel panel-default wow fadeInLeft">
-                          <div class="panel-heading">
-                            <h4 class="panel-title">
-                              <a data-toggle="collapse" data-parent="#accordion" href="#collapseSix">
-                                <span class="fa fa-check-square-o"></span>Zahtev 6
-                              </a>
-                            </h4>
-                          </div>
-                          <div id="collapseSix" class="panel-collapse collapse">
-                            <div class="panel-body">
-                             Tip zahteva: zahtev za objavljivanje/izmenu događaja <br>
-							 Još neke osnovne informacije..<br>
-							 <a href="#" class="read_more">Otvori zahtev <i class="fa fa-angle-double-right"></i></a> 
-                            </div>
-                          </div>
-                        </div>
-						<!-- START SINGLE FEATURED ITEM #7 -->
-                        <div class="panel panel-default wow fadeInLeft">
-                          <div class="panel-heading">
-                            <h4 class="panel-title">
-                              <a data-toggle="collapse" data-parent="#accordion" href="#collapseSeven">
-                                <span class="fa fa-check-square-o"></span>Zahtev 7
-                              </a>
-                            </h4>
-                          </div>
-                          <div id="collapseSeven" class="panel-collapse collapse">
-                            <div class="panel-body">
-                             Tip zahteva: zahtev za objavljivanje/izmenu događaja <br>
-							 Još neke osnovne informacije..<br>
-							 <a href="#" class="read_more">Otvori zahtev <i class="fa fa-angle-double-right"></i></a> 
-                            </div>
-                          </div>
-                        </div>
+                        <?php } ?>
+
                       </div>
                     </div>
                   </div>
@@ -199,7 +101,7 @@
             <!-- START BLOG HEADING -->
             <div class="heading">
               <h2 class="wow fadeInLeftBig">Događaji</h2>
-              <p>Ovde se nalazi spisak svih događaja:</p>
+              <p>Odaberite događaj koji želite da otvorite ili obrišete:</p>
             </div>
           </div>
           <div class="col-lg-12 col-md-12">
@@ -208,110 +110,31 @@
 
               <!-- BEGIN BLOG SLIDER -->
               <div class="blog_slider">
+                
+                <?php for($i=0; $i<$brojdogadjaja; $i++) { ?>
                 <!-- BEGIN SINGLE BLOG -->
                 <div class="col-lg-4 col-md-4 col-sm-4">
                   <div class="single_post wow fadeInUp">
                     <div class="blog_img">
                       <img src="img/blog_img1.jpg" alt="img">
                     </div>
-                    <h3>Događaj 1</h3>
+                    <h3><?php echo $dogadjaji[$i]->Naziv; ?> - <?php 
+                    $this->load->model('ModeratorModel'); 
+                    $status = $this->ModeratorModel->status_dogadjaja($dogadjaji[$i]->IdDogadjaj);
+                    if($status == 0) echo  "nije odobren";
+                    else echo "odobren";?></h3>
                     <div class="post_commentbox">
-                      <a href="#"><i class="fa fa-user"></i>Autor</a>
-                      <span><i class="fa fa-calendar"></i>00:00 AM vreme</span>
-                      <a href="#"><i class="fa fa-tags"></i>Tip događaja</a>
+                      <!-- <a href="#"><i class="fa fa-user"></i>Autor</a> -->
+                      <span><i class="fa fa-calendar"></i>Trajanje: <?php echo $dogadjaji[$i]->trajanje; ?></span>
+                      <a href="#"><i class="fa fa-tags"></i>Tip: <?php echo $dogadjaji[$i]->TipDogadjaja; ?></a>
                     </div>
-                    <p>Ovde kratak opis i ispod link ka tom događaju</p>
-                    <a href="#" class="read_more">Otvori događaj <i class="fa fa-angle-double-right"></i></a>
-					<a href="#" class="read_more">Obriši događaj <i class="fa fa-angle-double-right"></i></a>
-					                   
+                    <p><?php echo $dogadjaji[$i]->Opis; ?></p>
+                    <a href="<?php echo base_url() ?>/DogadjajAdminModeratorController/index/<?php echo $dogadjaji[$i]->IdDogadjaj ?>" class="read_more">Otvori događaj <i class="fa fa-angle-double-right"></i></a>
+                    <a href="<?php echo base_url() ?>/DogadjajAdminModeratorController/obrisi_dogadjaj/<?php echo $dogadjaji[$i]->IdDogadjaj ?>" class="read_more">Obriši događaj <i class="fa fa-angle-double-right"></i></a>          
                   </div>
                 </div>
+                <?php } ?>
 
-                <!-- BEGIN SINGLE BLOG -->
-                <div class="col-lg-4 col-md-4 col-sm-4">
-                  <div class="single_post wow fadeInUp">
-                    <div class="blog_img">
-                      <img src="img/blog_img1.jpg" alt="img">
-                    </div>
-                    <h3>Događaj 2</h3>
-                    <div class="post_commentbox">
-                      <a href="#"><i class="fa fa-user"></i>Autor</a>
-                      <span><i class="fa fa-calendar"></i>00:00 AM vreme</span>
-                      <a href="#"><i class="fa fa-tags"></i>Tip događaja</a>
-                    </div>
-                    <p>Ovde kratak opis i ispod link ka tom događaju</p>
-                    <a href="#" class="read_more">Otvori događaj <i class="fa fa-angle-double-right"></i></a>
-					<a href="#" class="read_more">Obriši događaj <i class="fa fa-angle-double-right"></i></a>
-                  </div>
-                </div>
-                <!-- BEGIN SINGLE BLOG -->
-                <div class="col-lg-4 col-md-4 col-sm-4">
-                  <div class="single_post wow fadeInUp">
-                    <div class="blog_img">
-                      <img src="img/blog_img1.jpg" alt="img">
-                    </div>
-                    <h3>Događaj 3</h3>
-                    <div class="post_commentbox">
-                      <a href="#"><i class="fa fa-user"></i>Autor</a>
-                      <span><i class="fa fa-calendar"></i>00:00 AM vreme</span>
-                      <a href="#"><i class="fa fa-tags"></i>Tip događaja</a>
-                    </div>
-                    <p>Ovde kratak opis i ispod link ka tom događaju</p>
-                    <a href="#" class="read_more">Otvori događaj <i class="fa fa-angle-double-right"></i></a>
-					<a href="#" class="read_more">Obriši događaj <i class="fa fa-angle-double-right"></i></a>
-                  </div>
-                </div>
-                <!-- BEGIN SINGLE BLOG -->
-                <div class="col-lg-4 col-md-4 col-sm-4">
-                  <div class="single_post wow fadeInUp">
-                    <div class="blog_img">
-                      <img src="img/blog_img1.jpg" alt="img">
-                    </div>
-                    <h3>Događaj 4</h3>
-                    <div class="post_commentbox">
-                      <a href="#"><i class="fa fa-user"></i>Autor</a>
-                      <span><i class="fa fa-calendar"></i>00:00 AM vreme</span>
-                      <a href="#"><i class="fa fa-tags"></i>Tip događaja</a>
-                    </div>
-                    <p>Ovde kratak opis i ispod link ka tom događaju</p>
-                    <a href="#" class="read_more">Otvori događaj <i class="fa fa-angle-double-right"></i></a>
-					<a href="#" class="read_more">Obriši događaj <i class="fa fa-angle-double-right"></i></a>
-                  </div>
-                </div>
-                <!-- BEGIN SINGLE BLOG -->
-                <div class="col-lg-4 col-md-4 col-sm-4">
-                  <div class="single_post wow fadeInUp">
-                    <div class="blog_img">
-                      <img src="img/blog_img1.jpg" alt="img">
-                    </div>
-                    <h3>Događaj 5</h3>
-                    <div class="post_commentbox">
-                      <a href="#"><i class="fa fa-user"></i>Autor</a>
-                      <span><i class="fa fa-calendar"></i>00:00 AM vreme</span>
-                      <a href="#"><i class="fa fa-tags"></i>Tip događaja</a>
-                    </div>
-                    <p>Ovde kratak opis i ispod link ka tom događaju</p>
-                    <a href="#" class="read_more">Otvori događaj <i class="fa fa-angle-double-right"></i></a>
-					<a href="#" class="read_more">Obriši događaj <i class="fa fa-angle-double-right"></i></a>
-                  </div>
-                </div>
-                <!-- BEGIN SINGLE BLOG -->
-                <div class="col-lg-4 col-md-4 col-sm-4">
-                  <div class="single_post wow fadeInUp">
-                    <div class="blog_img">
-                      <img src="img/blog_img1.jpg" alt="img">
-                    </div>
-                    <h3>Događaj 6</h3>
-                    <div class="post_commentbox">
-                      <a href="#"><i class="fa fa-user"></i>Autor</a>
-                      <span><i class="fa fa-calendar"></i>00:00 AM vreme</span>
-                      <a href="#"><i class="fa fa-tags"></i>Tip događaja</a>
-                    </div>
-                    <p>Ovde kratak opis i ispod link ka tom događaju</p>
-                    <a href="#" class="read_more">Otvori događaj <i class="fa fa-angle-double-right"></i></a>					
-					<a href="#" class="read_more">Obriši događaj <i class="fa fa-angle-double-right"></i></a>
-                  </div>
-                </div>                
               </div>
             </div>
           </div>
@@ -329,18 +152,20 @@
             <div class="heading">
 				<h2 class="wow fadeInLeftBig">Moj nalog</h2>
 					<div class="team_img">
-						  <img src="img/team-1.jpg" alt="img">
+						  <img src="<?php echo base_url() ?>img/team-1.jpg" alt="img">
 					</div>
-					<p>	1. Korisničko ime: marko44 <br>
-						2. Ime i prezime: Marko Marković <br>
-						3. Email adresa: marko@gmail.com <br>
-						4. Datum rođenja: 01.01.1990. <br>
-						5. Adresa: Ruzveltova 3 <br>
-						6. Kontakt telefon: +3816000000 <br>
-						7. JMBG: 0101990710047 <br>
+					<p>	
+            <b>1. Korisničko ime:</b> <?php echo "$username"; ?> <br>
+						<b>2. Ime i prezime:</b> <?php echo "$imeprezime"; ?> <br>
+						<b>3. Email adresa:</b> <?php echo "$email"; ?> <br>
+						<b>4. JMBG:</b> <?php echo "$jmbg"; ?> <br>
+						<b>5. Adresa:</b> <?php echo "$adresa"; ?> <br>
+						<b>6. Kontakt telefon:</b> <?php echo "$telefon"; ?> <br>
+						<b>7. Pol:</b> <?php echo "$pol"; ?> <br>
+            <b>8. CV:</b> <?php echo "$cv"; ?> <br>
+            <b>9. Motivaciono pismo:</b> <?php echo "$motpismo"; ?> <br>
 					</p>
 					<div>
-						<input class="submit_btn" type="button" value="Izmeni podatke">
 					</div>
 					<br><br>
 					
