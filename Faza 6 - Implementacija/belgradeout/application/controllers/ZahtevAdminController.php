@@ -31,9 +31,23 @@ class ZahtevAdminController extends CI_Controller{
         $this->load->view('zahtev_admin', $data);
         $this->load->view('templates/footer');
     }
-    
-    
-    
+
+    public function prihvati_zahtev_za_moderatora($id){
+        $idkorisnika=$this->uri->segment(3);
+        $this->load->model('AdminModel');
+        $podaci=$this->AdminModel->DohvatiPodatkeIzZahtevaPostaniMod($idkorisnika);
+        $this->AdminModel->prihvati_zahtev_za_moderatora($podaci);
+        redirect('IndexController');
+    }
+
+    public function odbij_zahtev_za_moderatora($id){
+        $idkorisnika=$this->uri->segment(3);
+        $this->load->model('AdminModel');
+        $podaci=$this->AdminModel->DohvatiPodatkeIzZahtevaPostaniMod($idkorisnika);
+        $this->AdminModel->odbij_zahtev_za_moderatora($podaci);
+        redirect('IndexController');
+    }
+
     public function PrihvatiZahtevDogadjaj($id){
         $idDogadjaj = $this->uri->segment(3);
         $this->load->model('AdminModel');
