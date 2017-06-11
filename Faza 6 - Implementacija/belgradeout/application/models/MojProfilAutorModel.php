@@ -81,10 +81,14 @@ class MojProfilAutorModel extends CI_Model{
         $this->db->where('ocena.idObjekta',$array['idObjekta']);
         $this->db->limit(1);
          $query=$this->db->get('ocena');
+         if($query->num_rows()== 1){
          $row=$query->row();
          $ukupno = $row->Ocena;
          $br = $row->BrGlasova;
-         $array['ocena'] = $ukupno/$br;
+         $array['ocena'] = $ukupno/$br; 
+         
+         } else $array['ocena'] = 0;
+         
         return $array;
         
     }
@@ -93,29 +97,31 @@ class MojProfilAutorModel extends CI_Model{
     
     
     public function dohvatiPodatkeDogadjaj($id){
-            $podaci = array();
+            $res = array();
             
             $this->load->database();
-            
+            $this->db->flush_cache();
          $this->db->start_cache();
-         $this->db->where('idAutor',$id);
+         $this->db->where('objekat.IdAutor',$id);
          $query=$this->db->get('objekat');
+         $this->db->flush_cache();
+           if($query->num_rows()>0){
           $row=$query->row();
           $idObjekta = $row->IdObjekta;
            $this->db->flush_cache();
             $this->db->start_cache();
-           $this->db->where('idObjekta',$idObjekta);
+           $this->db->where('dogadjaj.IdObjekta',$idObjekta);
         $query1= $this->db->get('dogadjaj');
-         $this->db->flush_cache();
+         
           
         $res= array();
         $i=0;
         foreach ($query1->result() as $row){
            $res[$i]=$row; 
              $i++;
-       }
+           }  }
        return $res;
-
+       
     }
     
     
