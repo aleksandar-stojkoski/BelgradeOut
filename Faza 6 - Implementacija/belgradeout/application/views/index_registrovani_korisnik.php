@@ -20,7 +20,7 @@
             <!--a class="navbar-brand" href="#">Belgrade<span>Out</span></a> -->
             
             <!-- IMG BASED LOGO  -->
-            <a class="navbar-brand" href="#"><img src="img/logo.png" alt="logo"></a> 
+            <a class="navbar-brand" href="#"><img src="<?php echo base_url();?>img/logo.png" alt="logo"></a> 
 			
                    
           </div>
@@ -28,7 +28,6 @@
             <ul id="top-menu" class="nav navbar-nav navbar-right main_nav">
               <li class="active"><a href="#">Početna</a></li>
               <li><a href="#about">Pretraga</a></li>
-			  <li><a href="#contact">Kontakt</a></li>
 			  <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
 			  <li><a href="#">&nbsp;&nbsp;&nbsp;Moj profil</a></li>
 			  <li><a href="<?php echo base_url();?>LogoutController">Odjavi se</a></li>
@@ -50,7 +49,7 @@
               <!-- FIRST SLIDE OVERLAY -->
               <div class="slider_overlay"></div> 
               <!-- FIRST SLIDE MAIN IMAGE -->
-              <img src="img/slide1.jpg" alt="img">
+              <img src="<?php echo base_url();?>img/slide1.jpg" alt="img">
               <!-- FIRST SLIDE CAPTION-->
               <div class="slider_caption">
                 <h2>Ovde stoji nekoliko aktuelnih događaja</h2>
@@ -64,7 +63,7 @@
               <!-- SECOND SLIDE OVERLAY -->
               <div class="slider_overlay"></div> 
               <!-- SECOND SLIDE MAIN IMAGE -->
-              <img src="img/slide2.jpg" alt="img">
+              <img src="<?php echo base_url();?>img/slide2.jpg" alt="img">
               <!-- SECOND SLIDE CAPTION-->
               <div class="slider_caption">
                 <h2>Ovde stoji nekoliko aktuelnih događaja</h2>
@@ -78,7 +77,7 @@
               <!-- THIRD SLIDE OVERLAY -->
               <div class="slider_overlay"></div> 
               <!-- THIRD SLIDE MAIN IMAGE -->
-              <img src="img/slide3.jpg" alt="img">
+              <img src="<?php echo base_url();?>img/slide3.jpg" alt="img">
               <!-- THIRD SLIDE CAPTION-->
               <div class="slider_caption">
                 <h2>Ovde stoji nekoliko aktuelnih događaja</h2>
@@ -260,7 +259,7 @@
                 <div class="col-lg-3 col-md-3 col-sm-3">
                   <div class="counter wow fadeInUp">
                     <i class="fa fa-users fa-2x"></i>
-                    <h2 class="timer count-title" id="count-number" data-to="940" data-speed="1500">400</h2>
+                    <h2 class="timer count-title" id="count-number" data-to="940" data-speed="1500">134</h2>
                      <p class="count-text ">Korisnika</p>
                   </div>
                 </div>
@@ -268,7 +267,7 @@
                 <div class="col-lg-3 col-md-3 col-sm-3">
                   <div class="counter wow fadeInUp">
                     <i class="fa fa-tasks fa-2x"></i>
-                    <h2 class="timer count-title" id="count-number2" data-to="1750" data-speed="1500">300</h2>
+                    <h2 class="timer count-title" id="count-number2" data-to="1750" data-speed="1500">435</h2>
                      <p class="count-text ">Pregleda</p>
                   </div>
                 </div>
@@ -276,7 +275,7 @@
                 <div class="col-lg-3 col-md-3 col-sm-3">                 
                    <div class="counter wow fadeInUp">
                     <i class="fa fa-coffee fa-2x"></i>
-                    <h2 class="timer count-title" id="count-number3" data-to="300" data-speed="1500">200</h2>
+                    <h2 class="timer count-title" id="count-number3" data-to="300" data-speed="1500">112</h2>
                      <p class="count-text ">Objekata</p>
                   </div>
                 </div>
@@ -284,8 +283,8 @@
                 <div class="col-lg-3 col-md-3 col-sm-3">                 
                   <div class="counter wow fadeInUp">
                     <i class="fa fa-bullhorn fa-2x"></i>
-                    <h2 class="timer count-title" id="count-number4" data-to="875" data-speed="1500">100</h2>
-                     <p class="count-text ">Pratilaca</p>
+                    <h2 class="timer count-title" id="count-number4" data-to="875" data-speed="1500">547</h2>
+                     <p class="count-text ">Događaja</p>
                   </div>
                 </div>
               </div>
@@ -296,45 +295,6 @@
       <!-- END MILESTONE WORSK SECTION -->
 
     </section>
-
-    <!--=========== BEGIN CONTACT SECTION ================-->
-    <section id="contact">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 col-md-12 col-sm-12">
-            <!-- START CONTACT HEADING -->
-            <div class="heading">
-              <h2 class="wow fadeInLeftBig">Kontakt</h2>
-              <p>Ovde pišemo šta se inače piše na kontakt stranici. Ispod ima kontakt forma za mail i ispod ovoga ima za broj telefona i te informacije.
-			  </p>
-            </div>
-          </div>
-        </div>       
-        <div class="row">
-          <!-- BEGIN CONTACT CONTENT -->
-          <div class="contact_content">
-            <!-- BEGIN CONTACT FORM -->
-            <div class="col-lg-5 col-md-5 col-sm-5">
-              <div class="contact_form">
-
-                <!-- FOR CONTACT FORM MESSAGE -->
-                <div id="form-messages"></div>
-
-                <form>
-                  <input class="form-control" type="text" placeholder="Ime">
-                  <input class="form-control" type="email" placeholder="Email">
-                  <input class="form-control" type="text" placeholder="Naslov">
-                  <textarea class="form-control" cols="30" rows="10" placeholder="Vaša poruka.."></textarea>
-                   <input class="submit_btn" type="submit" value="Pošalji">  
-                </form>
-              </div>
-            </div>
-            
-          </div>
-        </div>      
-      </div>             
-    </section>
-    <!--=========== END CONTACT SECTION ================-->
 
     <!--=========== BEGIN CONTACT FEATURE SECTION ================-->
     <section id="contactFeature">
@@ -349,7 +309,7 @@
               <div class="single_contact_feaured wow fadeInUp">
                 <i class="fa fa-phone"></i>
                 <h4>Pozovite nas</h4>
-                <p>+38164-444-4444</p>                
+                <p>+381641157007</p>                
               </div>
             </div>
             
@@ -365,7 +325,7 @@
               <div class="single_contact_feaured wow fadeInUp">
                 <i class="fa fa-map-marker"></i>
                 <h4>Lokacija</h4>
-                <p>Stavimo adresu ETF-a</p>
+                <p>Bulevar kralja Aleksandra 73</p>
               </div>
             </div>
            
@@ -373,7 +333,7 @@
               <div class="single_contact_feaured wow fadeInUp">
                 <i class="fa fa-clock-o"></i>
                 <h4>Radno vreme</h4>
-                <p>Non-stop 00.00-24.00</p>
+                <p>00:00-24:00h</p>
               </div>
             </div>
           </div>

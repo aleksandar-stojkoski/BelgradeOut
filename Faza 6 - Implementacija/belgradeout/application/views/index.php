@@ -32,7 +32,6 @@
             <ul id="top-menu" class="nav navbar-nav navbar-right main_nav">
               <li class="active"><a href="#">Početna</a></li>
               <li><a href="#about">Pretraga</a></li>
-			  <li><a href="#contact">Kontakt</a></li>
 			  <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
 			  <li><a href="#subscribe">&nbsp;&nbsp;&nbsp;Prijava</a></li>
 			  
@@ -266,7 +265,7 @@
                 <div class="col-lg-3 col-md-3 col-sm-3">
                   <div class="counter wow fadeInUp">
                     <i class="fa fa-users fa-2x"></i>
-                    <h2 class="timer count-title" id="count-number" data-to="940" data-speed="1500">400</h2>
+                    <h2 class="timer count-title" id="count-number" data-to="940" data-speed="1500">134</h2>
                      <p class="count-text ">Korisnika</p>
                   </div>
                 </div>
@@ -274,7 +273,7 @@
                 <div class="col-lg-3 col-md-3 col-sm-3">
                   <div class="counter wow fadeInUp">
                     <i class="fa fa-tasks fa-2x"></i>
-                    <h2 class="timer count-title" id="count-number2" data-to="1750" data-speed="1500">300</h2>
+                    <h2 class="timer count-title" id="count-number2" data-to="1750" data-speed="1500">435</h2>
                      <p class="count-text ">Pregleda</p>
                   </div>
                 </div>
@@ -282,7 +281,7 @@
                 <div class="col-lg-3 col-md-3 col-sm-3">                 
                    <div class="counter wow fadeInUp">
                     <i class="fa fa-coffee fa-2x"></i>
-                    <h2 class="timer count-title" id="count-number3" data-to="300" data-speed="1500">200</h2>
+                    <h2 class="timer count-title" id="count-number3" data-to="300" data-speed="1500">112</h2>
                      <p class="count-text ">Objekata</p>
                   </div>
                 </div>
@@ -290,8 +289,8 @@
                 <div class="col-lg-3 col-md-3 col-sm-3">                 
                   <div class="counter wow fadeInUp">
                     <i class="fa fa-bullhorn fa-2x"></i>
-                    <h2 class="timer count-title" id="count-number4" data-to="875" data-speed="1500">100</h2>
-                     <p class="count-text ">Pratilaca</p>
+                    <h2 class="timer count-title" id="count-number4" data-to="875" data-speed="1500">547</h2>
+                     <p class="count-text ">Događaja</p>
                   </div>
                 </div>
               </div>
@@ -303,46 +302,6 @@
 
     </section>
     
-    
-    <!--=========== BEGIN CONTACT SECTION ================-->
-    <section id="contact">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 col-md-12 col-sm-12">
-            <!-- START CONTACT HEADING -->
-            <div class="heading">
-              <h2 class="wow fadeInLeftBig">Kontakt</h2>
-              <p>Ovde pišemo šta se inače piše na kontakt stranici. Ispod ima kontakt forma za mail i ispod ovoga ima za broj telefona i te informacije.
-			  </p>
-            </div>
-          </div>
-        </div>       
-        <div class="row">
-          <!-- BEGIN CONTACT CONTENT -->
-          <div class="contact_content">
-            <!-- BEGIN CONTACT FORM -->
-            <div class="col-lg-5 col-md-5 col-sm-5">
-              <div class="contact_form">
-
-                <!-- FOR CONTACT FORM MESSAGE -->
-                <div id="form-messages"></div>
-
-                <form>
-                  <input class="form-control" type="text" placeholder="Ime">
-                  <input class="form-control" type="email" placeholder="Email">
-                  <input class="form-control" type="text" placeholder="Naslov">
-                  <textarea class="form-control" cols="30" rows="10" placeholder="Vaša poruka.."></textarea>
-                   <input class="submit_btn" type="submit" value="Pošalji">  
-                </form>
-              </div>
-            </div>
-                      
-          </div>
-        </div>      
-      </div>             
-    </section>
-    <!--=========== END CONTACT SECTION ================-->
-
     
     <!--=========== BEGIN CONTACT FEATURE SECTION ================-->
     <section id="contactFeature">
