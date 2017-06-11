@@ -123,11 +123,11 @@ class AdminModel extends CI_Model{
     }
         
     public function DohvatiPodatkeIzZahtevaPostaniMod($idkorisnika){
-        $data= array();
-        $this->db->start_cache();
-         $this->load->database();
-         $this->db->where('IdKorisnika',$idkorisnika);
-         $query=$this->db->get('postanimoderator');
+          $data= array();
+          $this->db->start_cache();
+          $this->load->database();
+          $this->db->where('IdKorisnika',$idkorisnika);
+          $query=$this->db->get('postanimoderator');
           $row=$query->row();
           $data['idKorisnika'] = $row->IdKorisnika;
           $data['JMBG'] = $row->JMBG;
@@ -136,9 +136,53 @@ class AdminModel extends CI_Model{
           $data['pol'] = $row->JMBG;
           $data['CV'] = $row->CV;
           $data['motpismo'] = $row->MotPismo;
-          $this->db->flush_cache();   
+          
+          $this->db->flush_cache();
+          $this->db->start_cache();
+          $this->db->where('IdKorisnika',$idkorisnika);
+          $query=$this->db->get('korisnik');
+          $row=$query->row();   
+          $data['imeprezime']=$row->ImePrezime;
+          $data['username']=$row->UserName;
+          $data['email']=$row->email;
+
+          $this->db->flush_cache();
+
           return $data;
         
+    }
+
+    public function prihvati_zahtev_za_moderatora($podaci){
+        $this->load->database();
+        $data=array(
+            'idModeratora'=>$podaci['idKorisnika'],
+            'JMBG'=>$podaci['JMBG'],
+            'Adresa'=>$podaci['adresa'],
+            'Telefon'=>$podaci['telefon'],
+            'Pol'=>$podaci['pol'],
+            'CV'=>$podaci['CV'],
+            'MotPismo'=>$podaci['motpismo']
+        );
+        $this->db->insert('moderator',$data);
+        
+        $this->db->flush_cache();
+        $this->db->start_cache();
+        $this->db->where('IdKorisnika',$podaci['idKorisnika']);
+        $this->db->delete('postanimoderator');
+
+        $this->db->flush_cache();
+        $this->db->start_cache();
+        $this->db->where('IdKorisnika',$podaci['idKorisnika']);
+        $this->db->delete('regkorisnik');
+    }
+
+    public function odbij_zahtev_za_moderatora($podaci){
+        $this->load->database();
+        
+        $this->db->flush_cache();
+        $this->db->start_cache();
+        $this->db->where('IdKorisnika',$podaci['idKorisnika']);
+        $this->db->delete('postanimoderator');
     }
    
 }
