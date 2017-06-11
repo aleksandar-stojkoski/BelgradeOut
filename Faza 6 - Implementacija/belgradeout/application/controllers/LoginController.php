@@ -32,8 +32,11 @@ class LoginController extends CI_Controller{
         //odmah ucitam header jer je on isti za sve view-ove
         if ($this->form_validation->run()==FALSE){
             //neuspesno prijavljivanje
+			$this->load->model('IndexRegistrovaniKorisnikModel');
+			$res=$this->IndexRegistrovaniKorisnikModel->DohvatiDogadjajeIzBaze();
+			$data['dogadjaji']=$res;
             $this->load->view('templates/header');
-            $this->load->view('index');
+            $this->load->view('index',$data);
             $this->load->view('templates/footer');        
         }
         else{
