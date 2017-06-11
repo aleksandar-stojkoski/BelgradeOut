@@ -108,7 +108,7 @@
                                <li>Udaljenost (km)<strong><br> <?php echo $liste[$i]->maxUdaljenost ?> </strong></li>
                                <li>Prosečna ocena<strong><br> <?php echo $liste[$i]->prosecnaOcena ?> </strong></li>
                            </ul>
-                           <a href='#' class='price_btn'>Izmeni listu</a>
+                           <a href="<?php echo base_url();?>KreiranjeListeOmiljenihController/index/<?php echo $liste[$i]->NazivListe ?>" class='price_btn'>Izmeni listu</a>
                            <a class='price_btn' onclick="location.href='<?php echo base_url();?>MojProfilRegistrovaniKorisnikController/ObrisiListu/<?php echo $liste[$i]->NazivListe ?>'">Obriši listu</a>
                         </div>
                     </div>
