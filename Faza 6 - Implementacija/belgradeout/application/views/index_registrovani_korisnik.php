@@ -29,7 +29,7 @@
               <li class="active"><a href="#">Početna</a></li>
               <li><a href="#about">Pretraga</a></li>
 			  <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
-			  <li><a href="#">&nbsp;&nbsp;&nbsp;Moj profil</a></li>
+			  <li><a href="<?php echo base_url();?>MojProfilRegistrovaniKorisnikController">&nbsp;&nbsp;&nbsp;Moj profil</a></li>
 			  <li><a href="<?php echo base_url();?>LogoutController">Odjavi se</a></li>
             </ul>           
           </div>
@@ -117,30 +117,38 @@
               <div class="heading">
                 <h2 class="wow fadeInLeftBig">Pretraga događaja</h2>
                 <p>Molimo odaberite parametre za pretragu događaja:</p>
+                                <?php echo form_open('IndexRegistrovaniKorisnikController/Search'); ?>
+                                <form>
 				<p>Tip prostora:</p>
 				<div> 
-					<select>  
-						<option value="">Klub</option>
-						<option value="">Kafana</option>
-					</select>
+					<input list="objekat" name="objekat">
+                                        <datalist id="objekat">  
+                                                <option value="Svi">Svi</option>
+						<option value="Klub">Klub</option>
+						<option value="Kafana">Kafana</option>
+					</datalist>
 				</div>
 				<p>Tip događaja:</p>
 				<div> 
-					<select>  
-						<option value="">Svirka</option>
-						<option value="">Žurka</option>
-					</select>
+					<input list="dogadjaj" name="tip">
+                                        <datalist id="dogadjaj">  
+                                                <option value="Svi">Svi</option>
+						<option value="Svirka">Svirka</option>
+						<option value="Zurka">Žurka</option>
+					</datalist>
 				</div>
 				<p>Muzički žanr:</p>
 				<div> 
-					<select>  
-						<option value="">Rock</option>
-						<option value="">Pop</option>
-					</select>
+					<input list="zanr" name="zanr">
+                                        <datalist id="zanr">  
+                                                <option value="Svi">Svi</option>
+						<option value="Rock">Rock</option>
+						<option value="Pop">Pop</option>
+					</datalist>
 				</div>
 				<p>Trenutna adresa: </p>
 				<div>
-					<input type="text" placeholder=" Adresa">
+					<input type="text" placeholder=" Adresa" name="Adresa">
 				</div>
 				<p>Udaljenost: (km) </p>
 				<div>
@@ -154,8 +162,8 @@
 					<input class="submit_btn" type="submit" value="Pretraži">
 					<input class="submit_btn" type="reset" value="Obriši">
 				</div>
-				<p>*Sa leve strane je lista događaja koja će se filtrirati prema parametrima, a sa desne strane će se na mapi prikazati isto događaji filtrirani prema parametrima. Trenutno to nije odrađeno jer je ovo samo osnovni prikaz kako bi veb aplikacija trebalo da izgleda.*
-				</p>
+                                </form>
+                                <?php echo form_close(); ?> 
 			  </div>
 
               <!-- START ABOUT CONTENT -->
@@ -164,66 +172,39 @@
                   <div class="col-lg-6 col-md-6 col-sm-12">
                     <div class="about_featured">
                       <div class="panel-group" id="accordion">
-                        <!-- START SINGLE FEATURED ITEM #1-->
+<!--                         START SINGLE FEATURED I-->       
+                        
+                        <?php
+                       $br = count($dogadjaji);
+                       if ($br > 9) { $br = 9; }
+                       $number = "One";
+                       for ($i = 0; $i < $br; $i++){ ?>
                         <div class="panel panel-default wow fadeInLeft">
                           <div class="panel-heading">
                             <h4 class="panel-title">
-                              <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-                                 <span class="fa fa-check-square-o"></span>Dogadjaj 1
+                              <a data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo $number ?>">
+                                 <span class="fa fa-check-square-o"></span>
+                                     <?php echo $dogadjaji[$i]->Naziv ?>  <?php echo $dogadjaji[$i]->Datum ?> 
                               </a>
                             </h4>
                           </div>
-                          <div id="collapseOne" class="panel-collapse collapse in">
+                          <div id="collapse<?php echo $number ?>" class="panel-collapse collapse">
                             <div class="panel-body">
-                             Kratko o tom dogadjaju i link do njega.
+                             <?php echo $dogadjaji[$i]->Opis ?> <br> <br>
+                             <strong> <a a href="<?php echo base_url() ?>/DogadjajGostRegistrovaniKorisnikController/Index/<?php echo $dogadjaji[$i]->IdDogadjaj ?>"> Otvori dogadjaj </a> </strong>
                             </div>
                           </div>
                         </div>
-                        <!-- START SINGLE FEATURED ITEM #2 -->
-                        <div class="panel panel-default wow fadeInLeft">
-                          <div class="panel-heading">
-                            <h4 class="panel-title">
-                              <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-                                 <span class="fa fa-check-square-o"></span>Dogadjaj 2
-                              </a>
-                            </h4>
-                          </div>
-                          <div id="collapseTwo" class="panel-collapse collapse">
-                            <div class="panel-body">
-                            Kratko o tom dogadjaju i link do njega.
-                            </div>
-                          </div>
-                        </div>
-                        <!-- START SINGLE FEATURED ITEM #3 -->
-                        <div class="panel panel-default wow fadeInLeft">
-                          <div class="panel-heading">
-                            <h4 class="panel-title">
-                              <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-                                <span class="fa fa-check-square-o"></span>Dogadjaj 3
-                              </a>
-                            </h4>
-                          </div>
-                          <div id="collapseThree" class="panel-collapse collapse">
-                            <div class="panel-body">
-                             Kratko o tom dogadjaju i link do njega.
-                            </div>
-                          </div>
-                        </div>
-                        <!-- START SINGLE FEATURED ITEM #4 -->
-                        <div class="panel panel-default wow fadeInLeft">
-                          <div class="panel-heading">
-                            <h4 class="panel-title">
-                              <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
-                                <span class="fa fa-check-square-o"></span>Dogadjaj 4
-                              </a>
-                            </h4>
-                          </div>
-                          <div id="collapseFour" class="panel-collapse collapse">
-                            <div class="panel-body">
-                             Kratko o tom dogadjaju i link do njega.
-                            </div>
-                          </div>
-                        </div>
+                        <?php if ($i == 0) { $number= "Two"; }
+                        else if ($i == 1) { $number= "Three"; }
+                        else if ($i == 2) { $number= "Four"; }
+                        else if ($i == 3) { $number= "Five"; }
+                        else if ($i == 4) { $number= "Six"; }
+                        else if ($i == 5) { $number= "Seven"; }
+                        else if ($i == 6) { $number= "Eight"; }
+                        else if ($i == 7) { $number= "Nine"; }
+                        } ?> 
+
                       </div>
                     </div>
                   </div>

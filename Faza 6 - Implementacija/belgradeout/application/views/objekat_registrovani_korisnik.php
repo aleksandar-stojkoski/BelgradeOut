@@ -20,7 +20,7 @@
             <!--a class="navbar-brand" href="#">Belgrade<span>Out</span></a> -->
             
             <!-- IMG BASED LOGO  -->
-            <a class="navbar-brand" href="<?php echo base_url();?>IndexController"><img src="../../img/logo.png" alt="logo"></a> 
+            <a class="navbar-brand" href="<?php echo base_url();?>IndexController"><img src="../../../img/logo.png" alt="logo"></a> 
 			
                    
           </div>
@@ -46,7 +46,7 @@
               <div class="heading">
 					<h2 class="wow fadeInLeftBig"> <?php echo $Naziv ?></h2>
 					<div class="team_img">
-						  <img src="../../img/<?php echo $Slika ?>" alt="img">
+						  <img src="../../../img/<?php echo $Slika ?>" alt="img">
 					</div>
                                         <p>	<strong> Naziv objekta: </strong> <?php echo $Naziv ?> <br>
 						<strong> Adresa objekta: </strong> <?php echo $Adresa ?> <br>
@@ -58,10 +58,22 @@
 					</p>
 					<p>	
 						<br>
-						Ocena (od 1 do 5): &nbsp;&nbsp;&nbsp;
-						<input type="number" name="Ocena" min="1" max="5" required>
-						<br>
-						<input class="submit_btn" type="button" value="Oceni objekat">				
+						Oceni objekat: &nbsp;&nbsp;&nbsp;
+                                                <?php 
+                                                $Base= base_url();
+                                                $Base .= 'ObjekatRegistrovaniKorisnikController/Index/';
+                                                $Base .= $IdObjekta;
+                                                $Jedan = $Base ."/1";
+                                                $Dva = $Base ."/2";
+                                                $Tri = $Base ."/3";
+                                                $Cetiri = $Base ."/4";
+                                                $Pet = $Base ."/5";
+                                                ?>
+                                                <input class="submit_btn" type="button" value="1" onclick="location.href='<?php echo $Jedan?>'">
+                                                <input class="submit_btn" type="button" value="2" onclick="location.href='<?php echo $Dva?>'">
+                                                <input class="submit_btn" type="button" value="3" onclick="location.href='<?php echo $Tri?>'">
+                                                <input class="submit_btn" type="button" value="4" onclick="location.href='<?php echo $Cetiri?>'">
+                                                <input class="submit_btn" type="button" value="5" onclick="location.href='<?php echo $Pet?>'">
 					</p>
 				</div>
             </div>
@@ -95,7 +107,7 @@
                             <div class="col-lg-4 col-md-4 col-sm-4">
                                 <div class="single_post wow fadeInUp">
                                     <div class="blog_img">
-                                        <img src="../../img/<?php echo $dogadjaji[$i]->Slika ?>" alt="img">
+                                        <img src="../../../img/<?php echo $dogadjaji[$i]->Slika ?>" alt="img">
                                     </div>
                                     <h3> <?php echo $dogadjaji[$i]->Naziv ?> </h3>
                                     <div class="post_commentbox">
@@ -124,11 +136,15 @@
             <!-- START BLOG HEADING -->
             <div class="heading">
               <h2 class="wow fadeInLeftBig">Komentari</h2>
-				<p>	
-					<textarea class="form-control" cols="30" rows="5" placeholder="Vaš komentar.." required></textarea>
+                                <?php $temp = 'ObjekatRegistrovaniKorisnikController/DodajKomentar/'; $temp .= $IdObjekta; ?>
+              
+                                <?php echo form_open($temp); ?>
+                                <form>
+                                    <p> <textarea class="form-control" cols="30" rows="5" placeholder="Vaš komentar.." required name="komentar"></textarea> </p>
 					
-					<input class="submit_btn" type="button" value="Dodaj komentar">				
-				</p>
+					<input class="submit_btn" type="submit" value="Dodaj komentar">				
+                                </form> 
+                                <?php echo form_close(); ?> 
             </div>
           </div>
           <div class="col-lg-12 col-md-12 col-sm-12">

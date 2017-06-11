@@ -41,6 +41,18 @@
           <div class="col-lg-12 col-md-12">
             <div class="about_area">
               <!-- START ABOUT HEADING -->
+              <?php
+                    $this->load->library('session');
+                    $id= $this->session->id;
+                    $Base= base_url();
+                    if($id == null){
+                        $Base .= 'ObjekatGostController/Index/';
+                    } else{
+                        $Base .= 'ObjekatRegistrovaniKorisnikController/Index/';
+                    }
+                    $Base .= $Objekat;
+                    $Base .= '/';
+              ?>
                            <div class="heading">
 					<h2 class="wow fadeInLeftBig">Naziv događaja</h2>
 					<div class="team_img">
@@ -54,7 +66,7 @@
 						<strong> Trajanje događaja: </strong> <?php echo $Trajanje ?> <br><br>
 						<strong> Kratak opis događaja:  </strong> <?php echo $Opis ?>
 						<br><br><br><br><br>
-                                                <strong> Objekat: </strong> <a href="<?php echo base_url()?>ObjekatRegistrovaniKorisnikController/Index/<?php echo $Objekat ?>"> <?php echo $NazivObjekta ?> </a>
+                                                <strong> Objekat: </strong> <a href=<?php echo $Base ?>> <?php echo $NazivObjekta ?> </a>
 					</p>
 					
 				</div>
