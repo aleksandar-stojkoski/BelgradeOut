@@ -1,4 +1,3 @@
-
     <!--=========== BEGIN HEADER SECTION ================-->
     <header id="header">
       <!-- BEGIN MENU -->
@@ -49,22 +48,20 @@
 				<div class="heading">
 					<h2 class="wow fadeInLeftBig">Moj profil</h2>
 					<div class="team_img">
-						  <img src="img/team-1.jpg" alt="img">
+						  <img src="img/<?php echo $Slika; ?>" alt="img">
 					</div>
-					<p>	1. Korisničko ime: marko44 <br>
-						2. Ime i prezime: Marko Marković <br>
-						3. Email adresa: marko@gmail.com <br>
+                                        <p>	
+                                            <strong> Korisničko ime: </strong> <?php echo $KorisnickoIme; ?> <br>
+                                            <strong> Ime i prezime: </strong> <?php echo $ImePrezime; ?> <br>
+                                            <strong> Email adresa: </strong> <?php echo $EmailAdresa; ?> <br>
 					</p>
-					<div>
-						<input class="submit_btn" type="button" value="Izmeni podatke">
-					</div>
 					<br><br>
-					<p>	Niste/jeste prijavljeni na mailing listu: <br>
-						<input class="submit_btn" type="button" value="Prijavi se na listu">
-					</p>
+					<p>
+                                        <form> <input class="submit_btn" type="button" value="<?php echo $prijava; ?>" onclick="location.href='<?php echo base_url();?>MojProfilRegistrovaniKorisnikController/MejlLista'"> </form>
+                                        </p>
 					<br><br>
 					<p>	Želite da postanete moderator i doprinesete radu BelgradeOut sajta? Pošaljite zahtev: <br>
-						<input class="submit_btn" type="button" value="Zahtev za moderatora">
+						<input class="submit_btn" type="button" value="Zahtev za moderatora" onclick="location.href='<?php echo base_url();?>PrijavaZaModeratoraController'">
 					</p>
 					
 				</div>
@@ -88,75 +85,39 @@
           <div class="heading">
             <h2 class="wow fadeInLeftBig">Liste omiljenih parametara</h2>
             <p>Maksimalan broj dozvoljenih listi je 3. <br>
-			<input class="submit_btn" type="button" value="Dodaj listu"></p>
+			<input class="submit_btn" type="button" value="Dodaj listu" onclick="location.href='<?php echo base_url();?>MojProfilRegistrovaniKorisnikController/DodajListu'"></p>
           </div>
         </div>
         <div class="row col-lg-12 col-md-12">
           <div class="pricing_area">
             <div class="row">
-              <!-- BEGIN LISTA 1 -->
-              <div class="col-lg-3 col-md-3 col-sm-3">
-                <div class="single_price wow fadeInUp">
-                  <h3>Naziv liste</h3>
-                  <div class="price">
-                    <span><strong>BelgradeOut</strong></span>
-                  </div>
-                  <ul class="price_features">
-                    <li>Tip prostora <strong><br>Neki tip</strong></li>
-					<li>Tip događaja <strong><br>Neki tip</strong></li>
-                    <li>Muzički žanr <strong><br>Neki žanr</strong></li>
-                    <li>Adresa <strong><br>Neka adresa</strong></li>
-                    <li>Udaljenost (km)<strong><br>Neka udaljenost</strong></li>
-					<li>Prosečna ocena<strong><br>Neka ocena</strong></li>
-                  </ul>
-                  <a href="#" class="price_btn">Izmeni listu</a>
-				  <a href="#" class="price_btn">Obriši listu</a>
-                </div>
-              </div>
-              <!-- BEGIN LISTA 2 -->
-              <div class="col-lg-3 col-md-3 col-sm-3">
-                <div class="single_price wow fadeInUp">
-                  <h3>Naziv liste</h3>
-                  <div class="price">
-                    <span><strong>BelgradeOut</strong></span>
-                  </div>
-                  <ul class="price_features">
-                    <li>Tip prostora <strong><br>Neki tip</strong></li>
-					<li>Tip događaja <strong><br>Neki tip</strong></li>
-                    <li>Muzički žanr <strong><br>Neki žanr</strong></li>
-                    <li>Adresa <strong><br>Neka adresa</strong></li>
-                    <li>Udaljenost (km)<strong><br>Neka udaljenost</strong></li>
-					<li>Prosečna ocena<strong><br>Neka ocena</strong></li>
-                  </ul>
-                  <a href="#" class="price_btn">Izmeni listu</a>
-				  <a href="#" class="price_btn">Obriši listu</a>
-                </div>
-              </div>
-
-              <!-- BEGIN LISTA 3 -->
-              <div class="col-lg-3 col-md-3 col-sm-3">
-                <div class="single_price wow fadeInUp">
-                  <h3>Naziv liste</h3>
-                  <div class="price">
-                    <span><strong>BelgradeOut</strong></span>
-                  </div>
-                  <ul class="price_features">
-                    <li>Tip prostora <strong><br>Neki tip</strong></li>
-					<li>Tip događaja <strong><br>Neki tip</strong></li>
-                    <li>Muzički žanr <strong><br>Neki žanr</strong></li>
-                    <li>Adresa <strong><br>Neka adresa</strong></li>
-                    <li>Udaljenost (km)<strong><br>Neka udaljenost</strong></li>
-					<li>Prosečna ocena<strong><br>Neka ocena</strong></li>
-                  </ul>
-                  <a href="#" class="price_btn">Izmeni listu</a>
-				  <a href="#" class="price_btn">Obriši listu</a>
-                </div>
-              </div>
+                <?php 
+                $br= count($liste);
+                for($i= 0; $i<$br; $i++){ ?>
+                    <div class='col-lg-3 col-md-3 col-sm-3'>
+                       <div class='single_price wow fadeInUp'>
+                           <!--<h3>Naziv liste</h3>-->
+                           <div class='price'>
+                               <span><strong> <?php echo $liste[$i]->NazivListe ?> </strong></span>
+                           </div>
+                           <ul class='price_features'>
+                               <li>Tip prostora <strong><br> <?php echo $liste[$i]->TipProstora ?> </strong></li>
+                               <li>Tip događaja <strong><br> <?php echo $liste[$i]->TipDogadjaja ?> </strong></li>
+                               <li>Muzički žanr <strong><br> <?php echo $liste[$i]->Zanr ?> </strong></li>
+                               <li>Adresa <strong><br> <?php echo $liste[$i]->trenutnaAdresa ?> </strong></li>
+                               <li>Udaljenost (km)<strong><br> <?php echo $liste[$i]->maxUdaljenost ?> </strong></li>
+                               <li>Prosečna ocena<strong><br> <?php echo $liste[$i]->prosecnaOcena ?> </strong></li>
+                           </ul>
+                           <a href='#' class='price_btn'>Izmeni listu</a>
+                           <a class='price_btn' onclick="location.href='<?php echo base_url();?>MojProfilRegistrovaniKorisnikController/ObrisiListu/<?php echo $liste[$i]->NazivListe ?>'">Obriši listu</a>
+                        </div>
+                    </div>
+               <?php }
+              ?>
             </div>
           </div>
         </div>
       </div>
     </section>
-	
 	
     <!--=========== END PRICING SECTION ================-->
