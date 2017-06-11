@@ -93,11 +93,27 @@ class MojProfilRegistrovaniKorisnikModel extends CI_Model{
         $this->db->update('regkorisnik', $data);
     }
     
-    public function ObrisiListuOmiljenihParametara($naziv){
+    public function ObrisiListuOmiljenihParametara($Nnaziv){
         $this->load->library(array('session'));
         $this->load->database();
         
         $id= $this->session->id;
+        
+        $lenght= strlen($Nnaziv);
+        $naziv= "";
+        $B= 0;
+        
+        for($i = 0; $i < $length; $i++){
+            if (substr($Nnaziv, $i, 1) == '%'){
+                $C= $i - $B;
+                $naziv .= substr($Nnaziv, $B, $C);
+                $naziv .= " ";
+                $B= $i+2;
+            }
+        };
+        
+        $C= $lenght - $B;
+        $naziv .= substr($Nnaziv, $B, $C);
         
         $this->db->flush_cache();
         $this->db->start_cache();
@@ -105,33 +121,6 @@ class MojProfilRegistrovaniKorisnikModel extends CI_Model{
         $this->db->where('NazivListe', $naziv);
         
         $this->db->delete('omiljeniparametri');
-        
-        $this->db->flush_cache();
-        $this->db->start_cache();
-        $this->db->where('IdKorisnika',$id);
-        
-        $query= $this->db->get('omiljeniparametri');
-        $res= array();
-        $i=0;
-        foreach ($query->result() as $row){
-           $i++;
-           if ($i < $naziv){
-               $data= array(
-                'NazivListe' => $i
-               );
-           } else {
-               $data= array(
-                'NazivListe' => $naziv
-               ); 
-               $naziv++;
-           }
-           $this->db->flush_cache();
-           $this->db->start_cache();
-           $this->db->where('IdKorisnika', $id);
-           $this->db->where('NazivListe', $row->NazivListe);
-           
-           $this->db->update('omiljeniparametri', $data);
-        }
     }
     
     public function DodajListuOmiljenihParametara(){
@@ -147,11 +136,17 @@ class MojProfilRegistrovaniKorisnikModel extends CI_Model{
         $query= $this->db->get('omiljeniparametri');
         $res= array();
         $i=0;
+        $naziv= "";
         foreach ($query->result() as $row){
-           $res[$i]=$row; 
-             $i++;
+           $res[$i]=$row;
+           $k= $res[$i]->NazivListe;
+           $i++;
+           if ($i != $k){
+               $naziv .= $i;
+           }
         }
         $i++;
+        if ($naziv == "") {$naziv .= $i; }
         if ($i <= 3){
             $this->db->flush_cache();
             $this->db->start_cache();
@@ -164,7 +159,7 @@ class MojProfilRegistrovaniKorisnikModel extends CI_Model{
                 'trenutnaAdresa' => null,
                 'maxUdaljenost' => null,
                 'prosecnaOcena' => null,
-                'NazivListe' => "Lista" + $i
+                'NazivListe' => $naziv
             );
             $this->db->insert('omiljeniparametri', $data);
         }
