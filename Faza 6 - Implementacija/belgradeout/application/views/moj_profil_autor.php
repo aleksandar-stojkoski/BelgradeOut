@@ -47,7 +47,7 @@
               <div class="heading">
 					<h2 class="wow fadeInLeftBig">Moj profil</h2>
 					<div class="team_img">
-						  <img src="img/team-1.jpg" alt="img">
+						  <img src="data:image/jpeg;base64,<?php echo base64_encode($Slika); ?>"  alt="img"> 
 					</div>
 					<p>	1. Korisničko ime:  <?php echo "$UserName"; ?> <br>
 						2. Ime i prezime:  <?php echo "$ImePrezime"; ?> <br>
@@ -96,7 +96,7 @@
                 <div class="col-lg-4 col-md-4 col-sm-4">
                   <div class="single_post wow fadeInUp">
                     <div class="blog_img">
-                      <img src="img/blog_img1.jpg" alt="img">
+                     <img src="data:image/jpeg;base64,<?php echo base64_encode($dogadjaji[$i]->Slika); ?>" alt="img">
                     </div>
                     <h3><?php echo $naz = $dogadjaji[$i]->Naziv;?> - <?php      $this->load->model('MojProfilAutorModel'); $status = $this->MojProfilAutorModel->statusDogadjaja($dogadjaji[$i]->IdDogadjaj);
                                                              if($status == 0) echo  "nije odobren";
