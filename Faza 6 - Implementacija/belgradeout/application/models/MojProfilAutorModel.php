@@ -140,13 +140,16 @@ class MojProfilAutorModel extends CI_Model{
     
     
     public function dohvatiKomentareZaProfilAutora($idAutor){
-         $podaci = array();
+         $res = array();
             
             $this->load->database();
-            
+             $this->db->flush_cache();
          $this->db->start_cache();
          $this->db->where('idAutor',$idAutor);
          $query=$this->db->get('objekat');
+          $this->db->flush_cache();
+           if($query->num_rows()>0){
+          $row=$query->row();
           $row=$query->row();
           $idObjekta = $row->IdObjekta;
            $this->db->flush_cache();
@@ -160,7 +163,7 @@ class MojProfilAutorModel extends CI_Model{
         foreach ($query1->result() as $row){
            $res[$i]=$row;  
              $i++;
-       }
+           } }
        return $res;
     }
     
