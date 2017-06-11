@@ -1,4 +1,9 @@
-
+<?php /**
+ * Description of PrijavaZaModeratoraModel
+ *
+ * @author Aleksandar Stojkoski 14/0266
+ * @author Strahinja Milovanovic 14/0463
+ */ ?>
     <!--=========== BEGIN HEADER SECTION ================-->
     <header id="header">
       <!-- BEGIN MENU -->
@@ -45,64 +50,41 @@
           <ul class="slides-container">
 
             <!-- THE FIRST SLIDE-->
+            <?php 
+            $br = count($dogadjaji);
+            if ($br > 4) { $br = 4; }
+            $number = "One";
+            for ($i = 0; $i < $br; $i++){ ?>
             <li>
-              <!-- FIRST SLIDE OVERLAY -->
               <div class="slider_overlay"></div> 
-              <!-- FIRST SLIDE MAIN IMAGE -->
-              <img src="<?php echo base_url();?>img/slide1.jpg" alt="img">
-              <!-- FIRST SLIDE CAPTION-->
+              <img src="data:image/jpeg;base64,<?php echo base64_encode($dogadjaji[$i]->Slika); ?>" alt="img">
               <div class="slider_caption">
-                <h2>Ovde stoji nekoliko aktuelnih događaja</h2>
-                <p>Kratak opis istih i slika u pozadini, a ispod je dugme za link do tog događaja</p>
-                <a href="#" class="slider_btn">Vidi događaj</a>              
+                <h2><?php echo $dogadjaji[$i]->Naziv ?></h2>
+                <p><?php echo $dogadjaji[$i]->Opis ?></p>
+                <a href="<?php echo base_url() ?>/DogadjajGostRegistrovaniKorisnikController/Index/<?php echo $dogadjaji[$i]->IdDogadjaj ?>" class="slider_btn">Vidi događaj</a>              
               </div>
             </li>
+            <?php } ?>
+            
 
-            <!-- THE SECOND SLIDE-->
-            <li>
-              <!-- SECOND SLIDE OVERLAY -->
-              <div class="slider_overlay"></div> 
-              <!-- SECOND SLIDE MAIN IMAGE -->
-              <img src="<?php echo base_url();?>img/slide2.jpg" alt="img">
-              <!-- SECOND SLIDE CAPTION-->
-              <div class="slider_caption">
-                <h2>Ovde stoji nekoliko aktuelnih događaja</h2>
-                <p>Kratak opis istih i slika u pozadini, a ispod je dugme za link do tog događaja</p>
-                <a href="#" class="slider_btn">Vidi događaj</a>
-              </div>
-            </li>
-
-            <!-- THE THIRD SLIDE-->
-            <li>
-              <!-- THIRD SLIDE OVERLAY -->
-              <div class="slider_overlay"></div> 
-              <!-- THIRD SLIDE MAIN IMAGE -->
-              <img src="<?php echo base_url();?>img/slide3.jpg" alt="img">
-              <!-- THIRD SLIDE CAPTION-->
-              <div class="slider_caption">
-                <h2>Ovde stoji nekoliko aktuelnih događaja</h2>
-                <p>Kratak opis istih i slika u pozadini, a ispod je dugme za link do tog događaja</p>
-                <a href="#" class="slider_btn">Vidi događaj</a>                 
-              </div>
-            </li>
           </ul>
-          <!-- BEGIN SLIDER NAVIGATION -->
+           <!--BEGIN SLIDER NAVIGATION--> 
           <nav class="slides-navigation">
-            <!-- PREV IN THE SLIDE -->
+             <!--PREV IN THE SLIDE--> 
             <a class="prev" href="#">
               <span class="icon-wrap"></span>
               <h3><strong>Prethodni</strong></h3>
             </a>
-            <!-- NEXT IN THE SLIDE -->
+             <!--NEXT IN THE SLIDE--> 
             <a class="next" href="#">
               <span class="icon-wrap"></span>
               <h3><strong>Sledeći</strong></h3>
             </a>
           </nav>       
         </div>
-        <!-- END SLIDER-->          
+         <!--END SLIDER-->          
       </div>
-      <!-- END SLIDER AREA -->
+      <!-- END SLIDER AREA 
     </header>
     <!--=========== End HEADER SECTION ================--> 
 
@@ -117,7 +99,7 @@
               <div class="heading">
                 <h2 class="wow fadeInLeftBig">Pretraga događaja</h2>
                 <p>Molimo odaberite parametre za pretragu događaja:</p>
-                                <?php echo form_open('IndexRegistrovaniKorisnikController/Search'); ?>
+                                <?php echo form_open('IndexRegistrovaniKorisnikController'); ?>
                                 <form>
 				<p>Tip prostora:</p>
 				<div> 
@@ -126,6 +108,7 @@
                                                 <option value="Svi">Svi</option>
 						<option value="Klub">Klub</option>
 						<option value="Kafana">Kafana</option>
+                                                <option value="Pub">Pub</option>
 					</datalist>
 				</div>
 				<p>Tip događaja:</p>
@@ -144,6 +127,7 @@
                                                 <option value="Svi">Svi</option>
 						<option value="Rock">Rock</option>
 						<option value="Pop">Pop</option>
+                                                <option value="House">House</option>
 					</datalist>
 				</div>
 				<p>Trenutna adresa: </p>
@@ -321,5 +305,6 @@
           </div>         
         </div>
       </div>
+    
     </section>
     <!--=========== END CONTACT FEATURE SECTION ================-->

@@ -1,4 +1,9 @@
-
+<?php /**
+ * Description of PrijavaZaModeratoraModel
+ *
+ * @author Aleksandar Stojkoski 14/0266
+ * @author Strahinja Milovanovic 14/0463
+ */ ?>
     <!--=========== BEGIN HEADER SECTION ================-->
     <header id="header">
       <!-- BEGIN MENU -->
@@ -56,7 +61,8 @@
                            <div class="heading">
 					<h2 class="wow fadeInLeftBig">Naziv događaja</h2>
 					<div class="team_img">
-						  <img src="../../img/<?php echo $Slika ?>" alt="img">
+                                                   
+						  <img src="data:image/jpeg;base64,<?php echo base64_encode($Slika); ?>" alt="img">
 					</div>
                                         <p>	<strong> Naziv događaja: </strong> <?php echo $Naziv ?> <br>
 						<strong> Tip događaja: </strong> <?php echo $TipDogadjaja ?> <br>

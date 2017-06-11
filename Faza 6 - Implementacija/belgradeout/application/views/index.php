@@ -1,3 +1,10 @@
+<?php /**
+ * Description of PrijavaZaModeratoraModel
+ *
+ * @author Aleksandar Stojkoski 14/0266
+ * @author Strahinja Milovanovic 14/0463
+ */ ?>
+
 <body> 
     <!-- SCROLL TOP BUTTON -->
     <a class="scrollToTop" href="#"><img src="<?php echo base_url(); ?>img/scroll_icon.png"></a>
@@ -49,47 +56,23 @@
         <div id="slides">
           <ul class="slides-container">
 
-            <!-- THE FIRST SLIDE-->
+            <?php 
+            $br = count($dogadjaji);
+            if ($br > 4) { $br = 4; }
+            $number = "One";
+            for ($i = 0; $i < $br; $i++){ ?>
             <li>
-              <!-- FIRST SLIDE OVERLAY -->
               <div class="slider_overlay"></div> 
-              <!-- FIRST SLIDE MAIN IMAGE -->
-              <img src="<?php echo base_url(); ?>img/slide1.jpg" alt="img">
-              <!-- FIRST SLIDE CAPTION-->
+              <img src="data:image/jpeg;base64,<?php echo base64_encode($dogadjaji[$i]->Slika); ?>" alt="img">
               <div class="slider_caption">
-                <h2>Ovde stoji nekoliko aktuelnih događaja</h2>
-                <p>Kratak opis istih i slika u pozadini, a ispod je dugme za link do tog događaja</p>
-                <a href="#" class="slider_btn">Vidi događaj</a>              
+                <h2><?php echo $dogadjaji[$i]->Naziv ?></h2>
+                <p><?php echo $dogadjaji[$i]->Opis ?></p>
+                <a href="<?php echo base_url() ?>/DogadjajGostRegistrovaniKorisnikController/Index/<?php echo $dogadjaji[$i]->IdDogadjaj ?>" class="slider_btn">Vidi događaj</a>              
               </div>
             </li>
-
-            <!-- THE SECOND SLIDE-->
-            <li>
-              <!-- SECOND SLIDE OVERLAY -->
-              <div class="slider_overlay"></div> 
-              <!-- SECOND SLIDE MAIN IMAGE -->
-              <img src="<?php echo base_url(); ?>img/slide2.jpg" alt="img">
-              <!-- SECOND SLIDE CAPTION-->
-              <div class="slider_caption">
-                <h2>Ovde stoji nekoliko aktuelnih događaja</h2>
-                <p>Kratak opis istih i slika u pozadini, a ispod je dugme za link do tog događaja</p>
-                <a href="#" class="slider_btn">Vidi događaj</a>
-              </div>
-            </li>
-
-            <!-- THE THIRD SLIDE-->
-            <li>
-              <!-- THIRD SLIDE OVERLAY -->
-              <div class="slider_overlay"></div> 
-              <!-- THIRD SLIDE MAIN IMAGE -->
-              <img src="<?php echo base_url(); ?>img/slide3.jpg" alt="img">
-              <!-- THIRD SLIDE CAPTION-->
-              <div class="slider_caption">
-                <h2>Ovde stoji nekoliko aktuelnih događaja</h2>
-                <p>Kratak opis istih i slika u pozadini, a ispod je dugme za link do tog događaja</p>
-                <a href="#" class="slider_btn">Vidi događaj</a>                 
-              </div>
-            </li>
+            <?php } ?>
+            
+            
           </ul>
           <!-- BEGIN SLIDER NAVIGATION -->
           <nav class="slides-navigation">
@@ -122,46 +105,55 @@
               <div class="heading">
                 <h2 class="wow fadeInLeftBig">Pretraga događaja</h2>
                 <p>Molimo odaberite parametre za pretragu događaja:</p>
+				<?php echo form_open('IndexController'); ?>
+                                <form>
 				<p>Tip prostora:</p>
 				<div> 
-					<select>  
-                                                <option name="Prostor" value="Svi">Svi</option>
-						<option name="Prostor" value="Klub">Klub</option>
-						<option name="Prostor" value="Kafana">Kafana</option>
-					</select>
+					<input list="objekat" name="objekat">
+                                        <datalist id="objekat">  
+                                                <option value="Svi">Svi</option>
+						<option value="Klub">Klub</option>
+						<option value="Kafana">Kafana</option>
+                                                <option value="Pub">Pub</option>
+					</datalist>
 				</div>
 				<p>Tip događaja:</p>
 				<div> 
-					<select>  
-                                                <option name= "Tip" value="Svi">Svi</option>
-						<option name= "Tip" value="Svirka">Svirka</option>
-						<option name= "Tip" value="Žurka">Žurka</option>
-					</select>
+					<input list="dogadjaj" name="tip">
+                                        <datalist id="dogadjaj">  
+                                                <option value="Svi">Svi</option>
+						<option value="Svirka">Svirka</option>
+						<option value="Zurka">Žurka</option>
+					</datalist>
 				</div>
 				<p>Muzički žanr:</p>
 				<div> 
-					<select>  
-                                                <option name="Žanr" value="Svi">Svi</option>
-						<option name="Žanr" value="Rock">Rock</option>
-						<option name="Žanr" value="Pop">Pop</option>
-					</select>
+					<input list="zanr" name="zanr">
+                                        <datalist id="zanr">  
+                                                <option value="Svi">Svi</option>
+						<option value="Rock">Rock</option>
+						<option value="Pop">Pop</option>
+                                                <option value="House">House</option>
+					</datalist>
 				</div>
 				<p>Trenutna adresa: </p>
 				<div>
-					<input type="text" placeholder=" Adresa">
+					<input type="text" placeholder=" Adresa" name="Adresa">
 				</div>
 				<p>Udaljenost: (km) </p>
 				<div>
-					<input type="number" name="Udaljenost" min="0" max="10" placeholder="0">
+					<input type="number" name="Udaljenost" min="0" max="10">
 				</div>
 				<p>Prosečna ocena: </p>
 				<div>
-					<input type="number" name="Ocena" min="1" max="5" placeholder="5">
+					<input type="number" name="Ocena" min="1" max="5">
 				</div>
-                                <div>
+				<div>
 					<input class="submit_btn" type="submit" value="Pretraži">
 					<input class="submit_btn" type="reset" value="Obriši">
 				</div>
+                                </form>
+                                <?php echo form_close(); ?> 
 			  </div>
 
               <!-- START ABOUT CONTENT -->

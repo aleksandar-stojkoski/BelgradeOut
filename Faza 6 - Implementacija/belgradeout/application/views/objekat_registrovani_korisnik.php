@@ -1,4 +1,9 @@
-
+<?php /**
+ * Description of PrijavaZaModeratoraModel
+ *
+ * @author Aleksandar Stojkoski 14/0266
+ * @author Strahinja Milovanovic 14/0463
+ */ ?>
     <!--=========== BEGIN HEADER SECTION ================-->
     <header id="header">
       <!-- BEGIN MENU -->
@@ -46,7 +51,7 @@
               <div class="heading">
 					<h2 class="wow fadeInLeftBig"> <?php echo $Naziv ?></h2>
 					<div class="team_img">
-						  <img src="../../../img/<?php echo $Slika ?>" alt="img">
+						  <img src="data:image/jpeg;base64,<?php echo base64_encode($Slika); ?>" alt="img">
 					</div>
                                         <p>	<strong> Naziv objekta: </strong> <?php echo $Naziv ?> <br>
 						<strong> Adresa objekta: </strong> <?php echo $Adresa ?> <br>
@@ -107,7 +112,7 @@
                             <div class="col-lg-4 col-md-4 col-sm-4">
                                 <div class="single_post wow fadeInUp">
                                     <div class="blog_img">
-                                        <img src="../../../img/<?php echo $dogadjaji[$i]->Slika ?>" alt="img">
+                                        <img src="data:image/jpeg;base64,<?php echo base64_encode($dogadjaji[$i]->Slika); ?>" alt="img">
                                     </div>
                                     <h3> <?php echo $dogadjaji[$i]->Naziv ?> </h3>
                                     <div class="post_commentbox">

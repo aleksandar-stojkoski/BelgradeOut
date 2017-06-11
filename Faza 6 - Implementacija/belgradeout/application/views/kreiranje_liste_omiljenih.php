@@ -1,4 +1,9 @@
-
+<?php /**
+ * Description of PrijavaZaModeratoraModel
+ *
+ * @author Aleksandar Stojkoski 14/0266
+ * @author Strahinja Milovanovic 14/0463
+ */ ?>
     <!--=========== BEGIN HEADER SECTION ================-->
     <header id="header">
       <!-- BEGIN MENU -->
