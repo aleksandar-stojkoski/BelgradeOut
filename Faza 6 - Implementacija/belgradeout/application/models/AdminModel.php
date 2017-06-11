@@ -121,7 +121,25 @@ class AdminModel extends CI_Model{
 
         return 0;
     }
-
+        
+    public function DohvatiPodatkeIzZahtevaPostaniMod($idkorisnika){
+        $data= array();
+        $this->db->start_cache();
+         $this->load->database();
+         $this->db->where('IdKorisnika',$idkorisnika);
+         $query=$this->db->get('postanimoderator');
+          $row=$query->row();
+          $data['idKorisnika'] = $row->IdKorisnika;
+          $data['JMBG'] = $row->JMBG;
+          $data['adresa'] = $row->Adresa;
+          $data['telefon'] = $row->Telefon;  
+          $data['pol'] = $row->JMBG;
+          $data['CV'] = $row->CV;
+          $data['motpismo'] = $row->MotPismo;
+          $this->db->flush_cache();   
+          return $data;
+        
+    }
    
 }
 

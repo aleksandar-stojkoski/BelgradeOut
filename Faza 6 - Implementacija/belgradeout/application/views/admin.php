@@ -71,7 +71,7 @@
                              Tip zahteva: <b>Zahtev za događaj</b><br>
 							               Id autora koji je podneo zahtev: <b><?php echo $zahtevidog[$i]->IdAutor; ?></b><br>
                              Id dogadjaja: <b><?php echo $zahtevidog[$i]->IdDogadjaj; ?></b><br>
-							               <a href="#" class="read_more">Otvori zahtev <i class="fa fa-angle-double-right"></i></a> 
+							               <a href="<?php echo base_url() ?>/ZahtevAdminController/OtvoriZahtevDogadjaj/<?php echo $zahtevidog[$i]->IdDogadjaj ?>" class="read_more">Otvori zahtev <i class="fa fa-angle-double-right"></i></a> 
                             </div>
                           </div>
                         </div>
@@ -91,8 +91,8 @@
                             <div class="panel-body">
                               Tip zahteva: <b>Zahtev za moderatora</b><br>
                 							Id korisnika koji je podneo zahtev: <b><?php echo $zahtevimod[$j]->IdKorisnika; ?></b><br>
-                              Status: <b><?php echo $zahtevimod[$j]->Status_odobreno_nije_; ?></b><br>
-                							<a href="#" class="read_more">Otvori zahtev <i class="fa fa-angle-double-right"></i></a> 
+                            
+                							<a href="<?php echo base_url() ?>/ZahtevAdminController/OtvoriZahtevPostaniModerator/<?php echo $zahtevimod[$j]->IdKorisnika ?>" class="read_more">Otvori zahtev <i class="fa fa-angle-double-right"></i></a> 
                             </div>
                           </div>
                         </div>
