@@ -20,7 +20,7 @@
             <!--a class="navbar-brand" href="#">Belgrade<span>Out</span></a> -->
             
             <!-- IMG BASED LOGO  -->
-            <a class="navbar-brand" href="<?php echo base_url();?>IndexController"><img src="img/logo.png" alt="logo"></a> 
+            <a class="navbar-brand" href="<?php echo base_url();?>IndexController"><img src="<?php echo base_url();?>img/logo.png" alt="logo"></a> 
 			
                    
           </div>
@@ -49,17 +49,20 @@
 				<div class="heading">
 					<h2 class="wow fadeInLeftBig">Zahtev</h2>
 					<div class="team_img">
-						  <img src="img/team-1.jpg" alt="img">
+						  <img src="<?php echo base_url();?>img/team-1.jpg" alt="img">
 					</div>
-					<p>	1. Korisničko ime: marko44 <br>
-						2. Ime i prezime: Marko Marković <br>
-						3. Email adresa: marko@gmail.com <br>
-						..... <br>
-						Ove informacije se razlikuju od tipa zahteva.
+					<p>	
+            1. Naziv događaja:  <?php echo "$naziv"; ?> <br>
+            2. Tip događaja:  <?php echo "$tip"; ?> <br>
+            3. Muzički žanr:  <?php echo "$zanr"; ?> <br>
+            4. Izvođač:  <?php echo "$izvodjac"; ?> <br>
+            5. Datum:  <?php echo "$datum"; ?> <br>
+            6. Trajanje događaja:  <?php echo "$trajanje"; ?> <br><br>
+            Kratak opis događaja:  <?php echo "$opis"; ?>
 					</p>
 					<div>
-						<input class="submit_btn" type="button" value="Prihvati">
-						<input class="submit_btn" type="button" value="Odbij">
+						<input class="submit_btn" type="button" value="Prihvati" onclick="location.href='<?php echo base_url() ?>/ZahtevModeratorController/prihvati_zahtev_za_dogadjaj/<?php echo $iddogadjaja ?>'">
+            <input class="submit_btn" type="button" value="Odbij" onclick="location.href='<?php echo base_url() ?>/ZahtevModeratorController/odbij_zahtev_za_dogadjaj/<?php echo $iddogadjaja ?>'">
 					</div>
 					<br><br><br><br><br><br>
 				</div>
