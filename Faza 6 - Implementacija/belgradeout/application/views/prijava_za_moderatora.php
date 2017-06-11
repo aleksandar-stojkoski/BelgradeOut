@@ -46,6 +46,7 @@
             <!-- START CONTACT HEADING -->
             <div class="heading">
               <h2 class="wow fadeInLeftBig">Zahtev za moderatora</h2>
+              <p> <?php echo $greska ?> </p>
               <p>Popunite dodatne podatke:
 			  </p>
             </div>
@@ -60,24 +61,25 @@
 
                 <!-- FOR CONTACT FORM MESSAGE -->
                 <div id="form-messages"></div>
-
+                <?php echo form_open('PrijavaZaModeratoraController/PrijaviSeZaModeratora'); ?>
                 <form>
 				  
-                  <input class="form-control" type="password" placeholder="Lozinka" required>
-				  <input class="form-control" type="password" placeholder="Potvrda lozinke" required>
-				  <input class="form-control" type="text" placeholder="Datum rođenja" required>
-				  <input class="form-control" type="text" placeholder="JMBG" required>
-				  <input class="form-control" type="text" placeholder="Adresa" required>
-				  <input class="form-control" type="text" placeholder="Kontakt telefon" required>
-				  <input class="form-control" type="text" placeholder="Pol" required>	
+                  <input class="form-control" type="password" placeholder="Lozinka" required name= 'pass'>
+				  <input class="form-control" type="password" placeholder="Potvrda lozinke" required name='confpass'>
+				  <input class="form-control" type="text" placeholder="Datum rođenja" required name='datumRodjenja'>
+				  <input class="form-control" type="text" placeholder="JMBG" required name='jmbg'>
+				  <input class="form-control" type="text" placeholder="Adresa" required name='adresa'>
+				  <input class="form-control" type="text" placeholder="Kontakt telefon" required name='telefon'>
+				  <input class="form-control" type="text" placeholder="Pol" required name='pol'>	
 				  &nbsp;&nbsp;CV:
-				  <input class="form-control" type="file" placeholder="Slika" required>
-                  <textarea class="form-control" cols="30" rows="5" placeholder="Vaše motivaciono pismo.." required></textarea>
+				  <input class="form-control" type="file" placeholder="Slika" required name='cv'>
+                  <textarea class="form-control" cols="30" rows="5" placeholder="Vaše motivaciono pismo.." required name='pismo'></textarea>
 				  <br>
 					<input class="submit_btn" type="submit" value="Pošalji">
 					<input class="submit_btn" type="reset" value="Obriši">
-					<input class="submit_btn" type="button" value="Odustani">
+					<input class="submit_btn" type="button" value="Odustani" onclick="location.href='<?php echo base_url();?>MojProfilRegistrovaniKorisnikController'">
                 </form>
+                <?php echo form_close(); ?> 
               </div>
             </div>         
           </div>
