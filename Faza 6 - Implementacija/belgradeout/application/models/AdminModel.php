@@ -185,6 +185,35 @@ class AdminModel extends CI_Model{
         $this->db->delete('postanimoderator');
     }
    
+    public function PrihvatiZahtevDogadjajM($idDogadjaj){
+        $this->load->database();
+        $this->db->start_cache();
+        $this->db->where('IdDogadjaj', $idDogadjaj); 
+        $query=$this->db->get('zahtevzadogadjaj');
+        $this->db->flush_cache();
+        $row=$query->row();
+        $idAutor = $row->IdAutor;
+        $this->db->where('IdDogadjaj', $idDogadjaj); //brisemo iz tabele zahtevzadogadjaj
+        $this->db->delete('zahtevzadogadjaj');
+        $data = array(
+             'IdDogadjaj' => $idDogadjaj,
+              'IdAutor' => $idAutor     
+                );
+            
+            
+            $this->db->insert('odobrenjedogadjaja', $data); //ubacujemo u odobrene dogadjaje
+        
+    }
+    
+    public function OdbijZahtevDogadjajM($idDogadjaj){
+        
+        $this->load->database();
+        $this->db->where('IdDogadjaj', $idDogadjaj); //brisemo iz tabele zahtevzadogadjaj
+        $this->db->delete('zahtevzadogadjaj');
+        $this->db->where('IdDogadjaj', $idDogadjaj); //brisemo iz tabele dogadjaj
+        $this->db->delete('dogadjaj');
+        
+    }
 }
 
 ?>
