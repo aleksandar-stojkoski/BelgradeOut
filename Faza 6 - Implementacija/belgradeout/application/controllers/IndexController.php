@@ -31,8 +31,13 @@ class IndexController extends CI_Controller{
         	redirect('IndexRegistrovaniKorisnikController');
         }
         else {
+            $this->load->model('IndexModel');
+        
+            $res = $this->IndexModel->DohvatiDogadjajeIzBaze();
+            $data['dogadjaji']= $res;
+
             $this->load->view('templates/header');
-        	$this->load->view('index');	
+            $this->load->view('index', $data);
             $this->load->view('templates/footer');
         }
         
