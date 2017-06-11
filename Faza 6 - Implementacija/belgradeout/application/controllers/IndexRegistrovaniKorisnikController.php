@@ -10,12 +10,35 @@ class IndexRegistrovaniKorisnikController extends CI_Controller{
         $this->load->database();
         $this->load->model('IndexRegistrovaniKorisnikModel');
         
-        $res = $this->IndexRegistrovaniKorisnikModel->DohvatiDogadjajeIzBaze();
-        $data['dogadjaji']= $res;
+        $TipDogadjaja= $this->input->post('tip');
+        $TipObjekta= $this->input->post('objekat');
+        $Zanr= $this->input->post('zanr');
+        $Adresa= $this->input->post('Adresa');
+        $Udaljenost= $this->input->post('Udaljenost');
+        $Ocena= $this->input->post('Ocena');
         
-        $this->load->view('templates/header');
-        $this->load->view('index_registrovani_korisnik', $data);
-        $this->load->view('templates/footer');
+        
+        if (($TipDogadjaja == null) &&
+            ($TipObjekta == null) &&
+            ($Zanr == null) &&
+            ($Adresa == null) &&
+            ($Udaljenost == null) &&
+            ($Ocena == null)){
+            $res = $this->IndexRegistrovaniKorisnikModel->DohvatiDogadjajeIzBaze();
+            $data['dogadjaji']= $res;
+   
+            $this->load->view('templates/header');
+            $this->load->view('index_registrovani_korisnik', $data);
+            $this->load->view('templates/footer');
+        } else{
+            $res = $this->IndexRegistrovaniKorisnikModel->DohvatiRezultatePretrage($TipObjekta, $TipDogadjaja, $Zanr, $Adresa, $Udaljenost, $Ocena);
+            $data['dogadjaji']= $res;
+   
+            $this->load->view('templates/header');
+            $this->load->view('index_registrovani_korisnik', $data);
+            $this->load->view('templates/footer');
+        }
+
     }
     
     public function Search(){
@@ -34,7 +57,7 @@ class IndexRegistrovaniKorisnikController extends CI_Controller{
         $data['dogadjaji']= $rez;
         
         $this->load->view('templates/header');
-        $this->load->view('index_registrovani_korisnik',$data);
+        $this->load->view('index_registrovani_korisnik_search',$data);
         $this->load->view('templates/footer');
     }
 }

@@ -1,5 +1,10 @@
 <?php
-
+/**
+ * Description of PrijavaZaModeratoraModel
+ *
+ * @author Aleksandar Stojkoski 14/0266
+ * @author Strahinja Milovanovic 14/0463
+ */
 class IndexController extends CI_Controller{
 	private $flag=0;
 
@@ -31,14 +36,38 @@ class IndexController extends CI_Controller{
         	redirect('IndexRegistrovaniKorisnikController');
         }
         else {
-            $this->load->model('IndexModel');
-        
-            $res = $this->IndexModel->DohvatiDogadjajeIzBaze();
-            $data['dogadjaji']= $res;
+                $this->load->database();
+                $this->load->model('IndexRegistrovaniKorisnikModel');
 
-            $this->load->view('templates/header');
-            $this->load->view('index', $data);
-            $this->load->view('templates/footer');
+                $TipDogadjaja= $this->input->post('tip');
+                $TipObjekta= $this->input->post('objekat');
+                $Zanr= $this->input->post('zanr');
+                $Adresa= $this->input->post('Adresa');
+                $Udaljenost= $this->input->post('Udaljenost');
+                $Ocena= $this->input->post('Ocena');
+
+
+                if (($TipDogadjaja == null) &&
+                    ($TipObjekta == null) &&
+                    ($Zanr == null) &&
+                    ($Adresa == null) &&
+                    ($Udaljenost == null) &&
+                    ($Ocena == null)){
+                    $res = $this->IndexRegistrovaniKorisnikModel->DohvatiDogadjajeIzBaze();
+                    $data['dogadjaji']= $res;
+
+                    $this->load->view('templates/header');
+                    $this->load->view('index', $data);
+                    $this->load->view('templates/footer');
+                } else{
+                    $res = $this->IndexRegistrovaniKorisnikModel->DohvatiRezultatePretrage($TipObjekta, $TipDogadjaja, $Zanr, $Adresa, $Udaljenost, $Ocena);
+                    $data['dogadjaji']= $res;
+
+                    $this->load->view('templates/header');
+                    $this->load->view('index', $data);
+                    $this->load->view('templates/footer');
+                }
+
         }
         
 

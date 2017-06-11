@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * Description of PrijavaZaModeratoraModel
+ *
+ * @author Strahinja Milovanovic 14/0463
+ */
 class ObjekatGostController extends CI_Controller{
     public function index(){
         $idObjekat =  $this->uri->segment(3);
