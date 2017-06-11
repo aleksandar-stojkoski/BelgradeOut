@@ -46,15 +46,29 @@ class ObjekatRegistrovaniKorisnikModel extends CI_Model{
         $query= $this->db->get('ocena');
         $row= $query->row();
         
-        $Ocena= $row->Ocena;
-        $BrGlasova= $row->BrGlasova;
-        
-        $data = array(
-                 'Ocena' => $Ocena,
-                 'BrGlasova' => $BrGlasova,
-                );
-        
-        return $data;
+        if ($row != null){
+            $Ocena= $row->Ocena;
+            $BrGlasova= $row->BrGlasova;
+
+            $data = array(
+                     'Ocena' => $Ocena,
+                     'BrGlasova' => $BrGlasova,
+                    );
+
+            return $data;   
+        } else{
+            $data = array(
+                'IdObjekta' => $id,
+                'BrGlasova' => 0,
+                'Ocena' => 0
+            );
+            $this->db->flush_cache();
+            $this->db->start_cache();
+            
+            $this->db->insert('ocena', $data);
+            
+            return $data;
+        }
     }
     
     public function DohvatiDogadjajeIzBaze($id){
@@ -101,5 +115,59 @@ class ObjekatRegistrovaniKorisnikModel extends CI_Model{
         
         
         return $res;
+    }
+    
+    public function DodajKomentar($Komentar, $id, $idObjekat){
+        $this->load->database();
+        $this->db->flush_cache();
+        $this->db->start_cache();
+        $this->db->where('IdObjekta', $idObjekat);
+        $this->db->where('IdKorisnika', $id);
+        
+        $query= $this->db->get('komentar');
+        
+        if($query->row() == null){
+            $data= array(
+                'IdObjekta' => $idObjekat,
+                'Tekst' => $Komentar,
+                'IdKorisnika' => $id
+            );  
+            $this->db->insert('komentar', $data);
+        } else {
+            $data= array(
+                'Tekst' => $Komentar
+            );  
+            $this->db->update('komentar', $data);
+        }
+  
+    }
+    
+    public function DodajOcenu($Ocena, $IdObjekta, $id){
+        $this->load->database();
+        $this->db->flush_cache();
+        $this->db->start_cache();
+        
+        $this->db->where('IdObjekta',$IdObjekta);
+        $query= $this->db->get('ocena');
+        
+        $row= $query->row();
+        $VotesNum= $row->BrGlasova;
+        
+        $PrOcena= $row->Ocena;
+        $PrOcena *= $VotesNum;
+        $VotesNum++;
+        $PrOcena += $Ocena;
+        $PrOcena /= $VotesNum;
+        
+        $data= array(
+            'BrGlasova' => $VotesNum,
+            'Ocena' => $PrOcena
+        );
+        
+        $this->db->flush_cache();
+        $this->db->start_cache();
+        
+        $this->db->where('IdObjekta', $IdObjekta);
+        $this->db->update('ocena', $data);
     }
 }
