@@ -199,9 +199,7 @@
                     </div>
                   </div>
                   <div class="col-lg-6 col-md-6 col-sm-12">
-                    <div class="contact_map">
-						<div id="map_canvas"></div>
-					</div>
+                    <script src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script><div style='overflow:hidden;height:500px;width:600px;'><div id='gmap_canvas' style='height:500px;width:600px;'></div><div><small><a href="http://embedgooglemaps.com">Click here to generate your map!</a></small></div><div><small><a href="http://mrdiscountcode.hk/agoda/">Get your Agoda discount code now and save up to 70%</a></small></div><style>#gmap_canvas img{max-width:none!important;background:none!important}</style></div><script type='text/javascript'>function init_map(){var myOptions = {zoom:10,center:new google.maps.LatLng(44.8056046,20.476293299999952),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(44.8056046,20.476293299999952)});infowindow = new google.maps.InfoWindow({content:'<strong>Egressus</strong><br>Bulevar Kralja Aleksandra 73 Belgrade, Serbia<br>'});google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script>
                   </div>
                 </div>
               </div>
@@ -232,7 +230,7 @@
                 <div class="col-lg-3 col-md-3 col-sm-3">
                   <div class="counter wow fadeInUp">
                     <i class="fa fa-users fa-2x"></i>
-                    <h2 class="timer count-title" id="count-number" data-to="940" data-speed="1500">400</h2>
+                    <h2 class="timer count-title" id="count-number" data-to="134" data-speed="1500">134</h2>
                      <p class="count-text ">Korisnika</p>
                   </div>
                 </div>
@@ -240,7 +238,7 @@
                 <div class="col-lg-3 col-md-3 col-sm-3">
                   <div class="counter wow fadeInUp">
                     <i class="fa fa-tasks fa-2x"></i>
-                    <h2 class="timer count-title" id="count-number2" data-to="1750" data-speed="1500">300</h2>
+                    <h2 class="timer count-title" id="count-number2" data-to="435" data-speed="1500">435</h2>
                      <p class="count-text ">Pregleda</p>
                   </div>
                 </div>
@@ -248,7 +246,7 @@
                 <div class="col-lg-3 col-md-3 col-sm-3">                 
                    <div class="counter wow fadeInUp">
                     <i class="fa fa-coffee fa-2x"></i>
-                    <h2 class="timer count-title" id="count-number3" data-to="300" data-speed="1500">200</h2>
+                    <h2 class="timer count-title" id="count-number3" data-to="112" data-speed="1500">112</h2>
                      <p class="count-text ">Objekata</p>
                   </div>
                 </div>
@@ -256,7 +254,7 @@
                 <div class="col-lg-3 col-md-3 col-sm-3">                 
                   <div class="counter wow fadeInUp">
                     <i class="fa fa-bullhorn fa-2x"></i>
-                    <h2 class="timer count-title" id="count-number4" data-to="875" data-speed="1500">100</h2>
+                    <h2 class="timer count-title" id="count-number4" data-to="547" data-speed="1500">547</h2>
                      <p class="count-text ">Pratilaca</p>
                   </div>
                 </div>
@@ -268,46 +266,6 @@
       <!-- END MILESTONE WORSK SECTION -->
 
     </section>
-    
-    
-    <!--=========== BEGIN CONTACT SECTION ================-->
-    <section id="contact">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 col-md-12 col-sm-12">
-            <!-- START CONTACT HEADING -->
-            <div class="heading">
-              <h2 class="wow fadeInLeftBig">Kontakt</h2>
-              <p>Ovde pišemo šta se inače piše na kontakt stranici. Ispod ima kontakt forma za mail i ispod ovoga ima za broj telefona i te informacije.
-			  </p>
-            </div>
-          </div>
-        </div>       
-        <div class="row">
-          <!-- BEGIN CONTACT CONTENT -->
-          <div class="contact_content">
-            <!-- BEGIN CONTACT FORM -->
-            <div class="col-lg-5 col-md-5 col-sm-5">
-              <div class="contact_form">
-
-                <!-- FOR CONTACT FORM MESSAGE -->
-                <div id="form-messages"></div>
-
-                <form>
-                  <input class="form-control" type="text" placeholder="Ime">
-                  <input class="form-control" type="email" placeholder="Email">
-                  <input class="form-control" type="text" placeholder="Naslov">
-                  <textarea class="form-control" cols="30" rows="10" placeholder="Vaša poruka.."></textarea>
-                   <input class="submit_btn" type="submit" value="Pošalji">  
-                </form>
-              </div>
-            </div>
-                      
-          </div>
-        </div>      
-      </div>             
-    </section>
-    <!--=========== END CONTACT SECTION ================-->
 
     
     <!--=========== BEGIN CONTACT FEATURE SECTION ================-->

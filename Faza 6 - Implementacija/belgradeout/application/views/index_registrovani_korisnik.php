@@ -193,9 +193,12 @@
                     </div>
                   </div>
                   <div class="col-lg-6 col-md-6 col-sm-12">
-                    <div class="contact_map">
+<!--                    <div class="contact_map">
 						<div id="map_canvas"></div>
-					</div>
+					</div>-->
+
+                   <script src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script><div style='overflow:hidden;height:500px;width:600px;'><div id='gmap_canvas' style='height:500px;width:600px;'></div><div><small><a href="http://embedgooglemaps.com">Click here to generate your map!</a></small></div><div><small><a href="http://mrdiscountcode.hk/agoda/">Get your Agoda discount code now and save up to 70%</a></small></div><style>#gmap_canvas img{max-width:none!important;background:none!important}</style></div><script type='text/javascript'>function init_map(){var myOptions = {zoom:10,center:new google.maps.LatLng(44.8056046,20.476293299999952),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(44.8056046,20.476293299999952)});infowindow = new google.maps.InfoWindow({content:'<strong>Egressus</strong><br>Bulevar Kralja Aleksandra 73 Belgrade, Serbia<br>'});google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script>
+
                   </div>
                 </div>
               </div>
