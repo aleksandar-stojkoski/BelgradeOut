@@ -239,8 +239,8 @@ CREATE TABLE IF NOT EXISTS `omiljeniparametri` (
   `trenutnaAdresa` varchar(50) DEFAULT NULL,
   `maxUdaljenost` decimal(5,2) DEFAULT NULL,
   `prosecnaOcena` decimal(5,2) DEFAULT NULL,
-  `NazivListe` varchar(40) DEFAULT NULL,
-  PRIMARY KEY (`IdKorisnika`)
+  `NazivListe` varchar(40) NOT NULL,
+  PRIMARY KEY (`IdKorisnika`, `NazivListe`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
