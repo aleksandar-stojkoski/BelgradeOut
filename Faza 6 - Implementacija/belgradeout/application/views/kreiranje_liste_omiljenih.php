@@ -20,7 +20,7 @@
             <!--a class="navbar-brand" href="#">Belgrade<span>Out</span></a> -->
             
             <!-- IMG BASED LOGO  -->
-            <a class="navbar-brand" href="<?php echo base_url();?>IndexController"><img src="img/logo.png" alt="logo"></a> 
+            <a class="navbar-brand" href="<?php echo base_url();?>IndexController"><img src="../../img/logo.png" alt="logo"></a> 
 			
                    
           </div>
@@ -45,39 +45,43 @@
           <div class="col-lg-12 col-md-12 col-sm-12">
             <!-- START CONTACT HEADING -->
             <div class="heading">
-              <h2 class="wow fadeInLeftBig">Kreiranje liste omiljenih</h2>
-			  <p>Izaberite naziv za listu:
-			  </p>
-			  <div>
-					<input type="text" placeholder="  Naziv" required>
-			  </div>
-			  <br>
-              <p>Izaberite parametre koje želite da zapamtite:
-			  </p>
-			  <p>Tip prostora:</p>
+              <h2 class="wow fadeInLeftBig">Menjanje liste omiljenih parametara</h2>
+              <p>Izaberite parametre koje želite da zapamtite:   </p>
+
+              <?php echo form_open('KreiranjeListeOmiljenihController/Posalji'); ?>
+              <form>
+                  
+                  <p> Naziv liste (jedna rec): <input type="text" name="Naziv" value="<?php echo $naziv ?>"></p>
+                  <p>Tip prostora:</p>
 				<div> 
-					<select>  
-						<option value="">Klub</option>
-						<option value="">Kafana</option>
-					</select>
+					<input list="dogadjaj" name="dogadjaj">
+                                        <datalist id="dogadjaj">
+                                                <option value="Svi">Svi</option>
+						<option value="Klub">Klub</option>
+						<option value="Kafana">Kafana</option>
+					</datalist>
 				</div>
 				<p>Tip događaja:</p>
 				<div> 
-					<select>  
-						<option value="">Svirka</option>
-						<option value="">Žurka</option>
-					</select>
+					<input list="prostor" name="prostor">
+                                        <datalist id="prostor">  
+                                                <option value="Svi">Svi</option>
+						<option value="Svirka">Svirka</option>
+						<option value="Zurka">Žurka</option>
+					</datalist>
 				</div>
 				<p>Muzički žanr:</p>
 				<div> 
-					<select>  
-						<option value="">Rock</option>
-						<option value="">Pop</option>
-					</select>
+					<input list="zanr" name="zanr">
+                                        <datalist id="zanr">  
+                                                <option value="Svi">Svi</option>
+						<option value="Rock">Rock</option>
+						<option value="Pop">Pop</option>
+					</datalist>
 				</div>
 				<p>Trenutna adresa: </p>
 				<div>
-					<input type="text" placeholder=" Adresa">
+					<input type="text" name= "Adresa" placeholder=" Adresa">
 				</div>
 				<p>Udaljenost: (km) </p>
 				<div>
@@ -90,9 +94,12 @@
 				<div>
 					<input class="submit_btn" type="submit" value="Sačuvaj">
 					<input class="submit_btn" type="reset" value="Obriši">
-					<input class="submit_btn" type="button" value="Odustani">
+					<input class="submit_btn" type="button" value="Odustani" onclick="location.href= '<?php echo base_url();?>MojProfilRegistrovaniKorisnikController'">
 				</div>
+                                <input type="hidden" name="Staro" value="<?php echo $naziv ?>"
 				<br><br><br><br><br><br>
+              </form>
+              <?php echo form_close(); ?> 
             </div>
           </div>
         </div>       
