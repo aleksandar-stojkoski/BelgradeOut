@@ -20,7 +20,7 @@
             <!--a class="navbar-brand" href="#">Belgrade<span>Out</span></a> -->
             
             <!-- IMG BASED LOGO  -->
-          <a class="navbar-brand" href="<?php echo base_url();?>IndexController"><img src="img/logo.png" alt="logo"></a>
+          <a class="navbar-brand" href="<?php echo base_url();?>IndexController"><img src="../../img/logo.png" alt="logo"></a>
                    
           </div>
           <div id="navbar" class="navbar-collapse collapse">
@@ -44,16 +44,17 @@
                            <div class="heading">
 					<h2 class="wow fadeInLeftBig">Naziv događaja</h2>
 					<div class="team_img">
-						  <img src="img/team-1.jpg" alt="img">
+						  <img src="../../img/<?php echo $Slika ?>" alt="img">
 					</div>
-					<p>	1. Naziv događaja: Svirka - ETF bend <br>
-						2. Tip događaja: svirka <br>
-						3. Muzički žanr: rock <br>
-						4. Naziv benda: ETF bend <br>
-						5. Datum: 20.03.2017. <br>
-						6. Trajanje događaja: 21:00 - 01:00 <br><br>
-						Kratak opis događaja: ....
+                                        <p>	<strong> Naziv događaja: </strong> <?php echo $Naziv ?> <br>
+						<strong> Tip događaja: </strong> <?php echo $TipDogadjaja ?> <br>
+						<strong> Muzički žanr: </strong> <?php echo $Zanr ?> <br>
+						<strong> Naziv benda: </strong> <?php echo $Izvodjac ?> <br>
+						<strong> Datum: </strong> <?php echo $Datum ?> <br>
+						<strong> Trajanje događaja: </strong> <?php echo $Trajanje ?> <br><br>
+						<strong> Kratak opis događaja:  </strong> <?php echo $Opis ?>
 						<br><br><br><br><br>
+                                                <strong> Objekat: </strong> <a href="<?php echo base_url()?>ObjekatRegistrovaniKorisnikController/Index/<?php echo $Objekat ?>"> <?php echo $NazivObjekta ?> </a>
 					</p>
 					
 				</div>
