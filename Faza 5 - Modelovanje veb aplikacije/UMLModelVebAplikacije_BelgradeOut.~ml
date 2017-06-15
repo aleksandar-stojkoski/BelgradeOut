@@ -20633,7 +20633,7 @@
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="y50w/e4yWECb6khgeml+mwAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="0x+Hj8LKM06xVrGqO5nvUwAA">
 <XPD:ATTR name="FontStyle" type="integer">1</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">zahtev_admin.php</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">zahtev_admin.html</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="UX40PUfbJki0d+pH3bpTCwAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
@@ -20667,7 +20667,7 @@
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="QDFRXqY6h0SR+N11Rof3EgAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="W9GxkI+Ri0uB8/I0N5ngjgAA">
 <XPD:ATTR name="FontStyle" type="integer">1</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">korisnik_admin.php</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">korisnik_admin.html</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="iboBjlVErkSmp0lrhLtT1wAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
@@ -20701,7 +20701,7 @@
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="fznSZuValk2klHsS5vdOuwAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="Z9gaEQY5tESy6Rd7n/q7FAAA">
 <XPD:ATTR name="FontStyle" type="integer">1</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">dogadjaj_admin_moderator.php</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">dogadjaj_admin_moderator.html</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="gyndoHHMj0auX6YBban2VwAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
@@ -22352,7 +22352,7 @@
 <XPD:REF name="Associations[7]">s2eesdZwzEyfylGJW1zgfwAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedElements[2]" type="UMLClass" guid="oZsKmkQMEEa7I9Fcy1QhmQAA">
-<XPD:ATTR name="Name" type="string">zahtev_admin.php</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">zahtev_admin.html</XPD:ATTR>
 <XPD:ATTR name="StereotypeProfile" type="string">WAE</XPD:ATTR>
 <XPD:ATTR name="StereotypeName" type="string">client page (stereotype)</XPD:ATTR>
 <XPD:REF name="Namespace">9Exq3mTJI0u5qN3fQ0pwHQAA</XPD:REF>
@@ -22366,7 +22366,7 @@
 <XPD:REF name="Associations[1]">3Edxg/JpBUuiBFXeEke/CwAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedElements[3]" type="UMLClass" guid="BuUT4ua3EEmDgNC37yLiYgAA">
-<XPD:ATTR name="Name" type="string">korisnik_admin.php</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">korisnik_admin.html</XPD:ATTR>
 <XPD:ATTR name="StereotypeProfile" type="string">WAE</XPD:ATTR>
 <XPD:ATTR name="StereotypeName" type="string">client page (stereotype)</XPD:ATTR>
 <XPD:REF name="Namespace">9Exq3mTJI0u5qN3fQ0pwHQAA</XPD:REF>
@@ -22381,7 +22381,7 @@
 <XPD:REF name="Associations[2]">KOAg78vbMEmUwW0Hj5TwXwAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedElements[4]" type="UMLClass" guid="iIYvmkDw20y1zFPObUm1CwAA">
-<XPD:ATTR name="Name" type="string">dogadjaj_admin_moderator.php</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">dogadjaj_admin_moderator.html</XPD:ATTR>
 <XPD:ATTR name="StereotypeProfile" type="string">WAE</XPD:ATTR>
 <XPD:ATTR name="StereotypeName" type="string">client page (stereotype)</XPD:ATTR>
 <XPD:REF name="Namespace">9Exq3mTJI0u5qN3fQ0pwHQAA</XPD:REF>
