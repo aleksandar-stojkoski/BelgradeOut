@@ -15,6 +15,17 @@ class MojProfilRegistrovaniKorisnikController extends CI_Controller{
         $id= $this->session->id;
         $rez= $this->MojProfilRegistrovaniKorisnikModel->DohvatiKorisnikaIzBaze($id);
         
+        $this->db->flush_cache();
+        $this->db->start_cache();
+        
+        $this->db->where('IdKorisnika', $id);
+        $query= $this->db->get('postanimoderator');
+        if ($query->row() == null){
+            $data['ModeratorZahtev']= 0;
+        } else {
+            $data['ModeratorZahtev']= 1;
+        }
+        
         $data['KorisnickoIme'] = $rez['KorisnickoIme'];
         $data['ImePrezime'] = $rez['ImePrezime'];
         $data['EmailAdresa'] = $rez['Email'];

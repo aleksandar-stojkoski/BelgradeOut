@@ -57,32 +57,30 @@
               <form>
                   
                   <p> Naziv liste (jedna rec): <input type="text" name="Naziv" value="<?php echo $naziv ?>"></p>
-                  <p>Tip prostora:</p>
+                                <p>Tip prostora:</p>
 				<div> 
-					<input list="dogadjaj" name="dogadjaj">
-                                        <datalist id="dogadjaj">
+                                        <select name="prostor">
                                                 <option value="Svi">Svi</option>
 						<option value="Klub">Klub</option>
 						<option value="Kafana">Kafana</option>
-					</datalist>
+                                                <option value="Pub">Pub</option>
+					</select>
 				</div>
 				<p>Tip događaja:</p>
 				<div> 
-					<input list="prostor" name="prostor">
-                                        <datalist id="prostor">  
+                                        <select name="dogadjaj">  
                                                 <option value="Svi">Svi</option>
 						<option value="Svirka">Svirka</option>
 						<option value="Zurka">Žurka</option>
-					</datalist>
+					</select>
 				</div>
 				<p>Muzički žanr:</p>
 				<div> 
-					<input list="zanr" name="zanr">
-                                        <datalist id="zanr">  
+                                        <select name="zanr">  
                                                 <option value="Svi">Svi</option>
 						<option value="Rock">Rock</option>
 						<option value="Pop">Pop</option>
-					</datalist>
+					</select>
 				</div>
 				<p>Trenutna adresa: </p>
 				<div>

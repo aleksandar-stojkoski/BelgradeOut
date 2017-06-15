@@ -66,9 +66,16 @@
                                         <form> <input class="submit_btn" type="button" value="<?php echo $prijava; ?>" onclick="location.href='<?php echo base_url();?>MojProfilRegistrovaniKorisnikController/MejlLista'"> </form>
                                         </p>
 					<br><br>
-					<p>	Želite da postanete moderator i doprinesete radu BelgradeOut sajta? Pošaljite zahtev: <br>
-						<input class="submit_btn" type="button" value="Zahtev za moderatora" onclick="location.href='<?php echo base_url();?>PrijavaZaModeratoraController'">
-					</p>
+					
+                                            
+                                            <?php 
+                                                if ($ModeratorZahtev== 0) { ?>
+                                            <p>	Želite da postanete moderator i doprinesete radu BelgradeOut sajta? Pošaljite zahtev: <br>
+                                                    <input class="submit_btn"  type="button" value="Zahtev za moderatora" onclick="location.href='<?php echo base_url();?>PrijavaZaModeratoraController'">
+                                            </p>    
+                                             <?php }
+                                            ?>
+					
 					
 				</div>
 				

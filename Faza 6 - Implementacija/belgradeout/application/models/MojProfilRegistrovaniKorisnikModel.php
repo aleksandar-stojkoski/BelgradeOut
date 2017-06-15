@@ -162,6 +162,12 @@ class MojProfilRegistrovaniKorisnikModel extends CI_Model{
                 'NazivListe' => $naziv
             );
             $this->db->insert('omiljeniparametri', $data);
+        
+            $res = 'KreiranjeListeOmiljenihController/index/';
+            $res .= $naziv;
+            redirect($res);
+        } else {
+            redirect('MojProfilRegistrovaniKorisnikController');
         }
     }
 }

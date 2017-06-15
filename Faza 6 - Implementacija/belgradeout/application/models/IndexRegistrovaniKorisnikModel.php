@@ -22,6 +22,37 @@ class IndexRegistrovaniKorisnikModel extends CI_Model{
         return $res;
     }
     
+    public function DohvatiListeOmiljenihParametara($id){
+        $this->load->database();
+        
+        $this->db->flush_cache();
+        $this->db->start_cache();
+        $this->db->where('IdKorisnika',$id);
+        
+        $query= $this->db->get('omiljeniparametri');
+         $res= array();
+        $i=0;
+        foreach ($query->result() as $row){
+           $res[$i]=$row; 
+             $i++;
+        }
+        return $res;
+    }
+    
+    public function DohvatiNazivObjekta($idObjekta){
+        $this->load->database();
+        
+        $this->db->flush_cache();
+        $this->db->start_cache();
+        $this->db->where('IdObjekta', $idObjekta);
+        
+        $query= $this->db->get('objekat');
+        $row= $query->row();
+        
+        $naziv= $row->Naziv;
+        return $naziv;
+    }
+    
     public function DohvatiRezultatePretrage($TipProstora, $TipDogadjaja, $Zanr, $trenutnaAdresa, $maxUdaljenost, $prosecnaOcena){
         $this->load->database();
         

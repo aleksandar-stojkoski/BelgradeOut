@@ -44,6 +44,10 @@
       <!-- END MENU -->
 
       <!-- BEGIN SLIDER AREA-->
+      <?php 
+        $br= count($dogadjaji);
+        if ($br != 0){
+      ?>
       <div class="slider_area">
         <!-- BEGIN SLIDER-->          
         <div id="slides">
@@ -51,7 +55,6 @@
 
             <!-- THE FIRST SLIDE-->
             <?php 
-            $br = count($dogadjaji);
             if ($br > 4) { $br = 4; }
             $number = "One";
             for ($i = 0; $i < $br; $i++){ ?>
@@ -84,6 +87,7 @@
         </div>
          <!--END SLIDER-->          
       </div>
+        <?php } ?>
       <!-- END SLIDER AREA 
     </header>
     <!--=========== End HEADER SECTION ================--> 
@@ -98,41 +102,49 @@
               <!-- START ABOUT HEADING -->
               <div class="heading">
                 <h2 class="wow fadeInLeftBig">Pretraga događaja</h2>
+                <p>Pretraga po listi omiljenih parametara: <br>
+                
+                    <?php 
+                $br= count($liste);
+                for($i= 0; $i<$br; $i++){ ?>
+                    <input class="submit_btn" type="button" value='<?php echo $liste[$i]->NazivListe ?>' onclick="location.href='<?php echo base_url();?>IndexRegistrovaniKorisnikController/CustomSearch/<?php echo $liste[$i]->NazivListe ?>/'">
+                <?php }
+                if ($br == 0){
+                    echo "Nemate liste omiljenih parametara";
+                }
+                ?>
+                </p> <br>
                 <p>Molimo odaberite parametre za pretragu događaja:</p>
                                 <?php echo form_open('IndexRegistrovaniKorisnikController'); ?>
                                 <form>
 				<p>Tip prostora:</p>
 				<div> 
-					<input list="objekat" name="objekat">
-                                        <datalist id="objekat">  
+                                        <select name="prostor">
                                                 <option value="Svi">Svi</option>
 						<option value="Klub">Klub</option>
 						<option value="Kafana">Kafana</option>
                                                 <option value="Pub">Pub</option>
-					</datalist>
+					</select>
 				</div>
 				<p>Tip događaja:</p>
 				<div> 
-					<input list="dogadjaj" name="tip">
-                                        <datalist id="dogadjaj">  
+                                        <select name="dogadjaj">  
                                                 <option value="Svi">Svi</option>
 						<option value="Svirka">Svirka</option>
 						<option value="Zurka">Žurka</option>
-					</datalist>
+					</select>
 				</div>
 				<p>Muzički žanr:</p>
 				<div> 
-					<input list="zanr" name="zanr">
-                                        <datalist id="zanr">  
+                                        <select name="zanr">  
                                                 <option value="Svi">Svi</option>
 						<option value="Rock">Rock</option>
 						<option value="Pop">Pop</option>
-                                                <option value="House">House</option>
-					</datalist>
+					</select>
 				</div>
 				<p>Trenutna adresa: </p>
 				<div>
-					<input type="text" placeholder=" Adresa" name="Adresa">
+					<input type="text" name= "Adresa" placeholder=" Adresa">
 				</div>
 				<p>Udaljenost: (km) </p>
 				<div>
@@ -197,8 +209,87 @@
 						<div id="map_canvas"></div>
 					</div>-->
 
-                   <script src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script><div style='overflow:hidden;height:500px;width:600px;'><div id='gmap_canvas' style='height:500px;width:600px;'></div><div><small><a href="http://embedgooglemaps.com">Click here to generate your map!</a></small></div><div><small><a href="http://mrdiscountcode.hk/agoda/">Get your Agoda discount code now and save up to 70%</a></small></div><style>#gmap_canvas img{max-width:none!important;background:none!important}</style></div><script type='text/javascript'>function init_map(){var myOptions = {zoom:10,center:new google.maps.LatLng(44.8056046,20.476293299999952),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(44.8056046,20.476293299999952)});infowindow = new google.maps.InfoWindow({content:'<strong>Egressus</strong><br>Bulevar Kralja Aleksandra 73 Belgrade, Serbia<br>'});google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script>
+                   <script 
+                    src='https://maps.googleapis.com/maps/api/js?v=3.exp'>
+                    </script>
 
+                    <div style='overflow:hidden;height:440px;width:700px;'>
+                            <div id='gmap_canvas' style='height:440px;width:700px;'>
+                            </div>
+                            <style>
+                                    #gmap_canvas img{max-width:none!important;background:none!important}
+                            </style>
+                    </div>
+
+                    <script type='text/javascript'>
+                            function init_map(){
+                            var myOptions = {
+                                    zoom:15,
+                                    center:new google.maps.LatLng(44.8056046, 20.4762933),
+                                    mapTypeId: google.maps.MapTypeId.ROADMAP};
+
+                                    map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);
+                                    marker = new google.maps.Marker({
+                                                    map: map,
+                                                    position: new google.maps.LatLng(44.8094452, 20.4757208)});
+                                                
+                                    <?php 
+                                            $this->load->model("IndexRegistrovaniKorisnikModel");
+                                            $br = count($dogadjaji);
+                                            $EventList= "";
+                                            for ($i = 0; $i < $br; $i++){
+                                                $naziv_objekta= $this->IndexRegistrovaniKorisnikModel->DohvatiNazivObjekta($dogadjaji[$i]->IdObjekta);
+                                                if ($naziv_objekta == "Jolly Roger Pub"){
+                                                    $EventList .= "<br>";
+                                                    $EventList .= $dogadjaji[$i]->Naziv; 
+                                                }
+                                            } ?>
+                                    infowindow = new google.maps.InfoWindow({
+                                    content:'<strong>Jolly Roger Pub</strong><?php echo $EventList; ?>'});
+                                    google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});
+                                    infowindow.open(map,marker);
+                                    
+                                    <?php 
+                                            $this->load->model("IndexRegistrovaniKorisnikModel");
+                                            $br = count($dogadjaji);
+                                            $EventList= "";
+                                            for ($i = 0; $i < $br; $i++){
+                                                $naziv_objekta= $this->IndexRegistrovaniKorisnikModel->DohvatiNazivObjekta($dogadjaji[$i]->IdObjekta);
+                                                if ($naziv_objekta == "Etf Klub"){
+                                                    $EventList .= "<br>";
+                                                    $EventList .= $dogadjaji[$i]->Naziv; 
+                                                }
+                                            } ?>
+                                    marker = new google.maps.Marker({
+                                                    map: map,
+                                                    position: new google.maps.LatLng(44.8056046, 20.4762933)});
+                                    infowindow = new google.maps.InfoWindow({
+                                    content:'<strong>Etf Klub</strong><br><?php echo $EventList; ?><br>'});
+                                    google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});
+                                    infowindow.open(map,marker);
+                                    
+                                    <?php 
+                                            $this->load->model("IndexRegistrovaniKorisnikModel");
+                                            $br = count($dogadjaji);
+                                            $EventList= "";
+                                            for ($i = 0; $i < $br; $i++){
+                                                $naziv_objekta= $this->IndexRegistrovaniKorisnikModel->DohvatiNazivObjekta($dogadjaji[$i]->IdObjekta);
+                                                if ($naziv_objekta == "Kafana Ona Moja"){
+                                                    $EventList .= "<br>";
+                                                    $EventList .= $dogadjaji[$i]->Naziv; 
+                                                }
+                                            } ?>
+                                    marker = new google.maps.Marker({
+                                                    map: map,
+                                                    position: new google.maps.LatLng(44.8003933, 20.485252)});
+
+                                    infowindow = new google.maps.InfoWindow({
+                                    content:'<strong>Kafana Ona Moja</strong><br><?php echo $EventList; ?><br>'});
+                                    google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});
+                                    infowindow.open(map,marker);
+                            }
+
+                    google.maps.event.addDomListener(window, 'load', init_map);</script>
                   </div>
                 </div>
               </div>
