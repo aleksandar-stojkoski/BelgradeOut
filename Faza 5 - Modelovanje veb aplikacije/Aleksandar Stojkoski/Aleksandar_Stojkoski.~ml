@@ -7894,8 +7894,8 @@
 <XPD:OBJ name="OwnedViews[3]" type="UMLSeqObjectView" guid="nzuhEif4C0algRw1u617xgAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">76</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">88</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">120</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">96</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">138</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">350</XPD:ATTR>
 <XPD:REF name="Model">SJHq93JEzEWJBNNAyQN03AAA</XPD:REF>
@@ -7943,7 +7943,7 @@
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">145,206;361,206</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">189,206;361,206</XPD:ATTR>
 <XPD:REF name="Model">2lZ0lGKWEkq04SsHfqKOHQAA</XPD:REF>
 <XPD:REF name="Head">840QdJN0XkqGCHhjdh4VYAAA</XPD:REF>
 <XPD:REF name="Tail">b+9D9BNeYkeGlVLJKjl9sAAA</XPD:REF>
@@ -8198,7 +8198,7 @@
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">361,330;145,330</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">361,330;189,330</XPD:ATTR>
 <XPD:REF name="Model">ACnH6SN4SEKhgN8NXTodewAA</XPD:REF>
 <XPD:REF name="Head">b+9D9BNeYkeGlVLJKjl9sAAA</XPD:REF>
 <XPD:REF name="Tail">840QdJN0XkqGCHhjdh4VYAAA</XPD:REF>
@@ -8225,7 +8225,7 @@
 </XPD:OBJ>
 <XPD:OBJ name="Activation" type="UMLActivationView" guid="6iD+9+X540CzCcoElY1iiAAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">145</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">189</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">330</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">14</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">29</XPD:ATTR>
