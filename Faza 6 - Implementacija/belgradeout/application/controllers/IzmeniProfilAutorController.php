@@ -23,7 +23,7 @@ class IzmeniProfilAutorController extends CI_Controller{
     
       public function IzmeniProfillozinka(){  //morala ovako da bih mola da prikazem tekst greske
         
-           $id =  $this->session->userdata('id');
+         $id =  $this->session->userdata('id');
         $this->load->model('MojProfilAutorModel');
         $data=$this->MojProfilAutorModel->dohvatiPodatke($id);
         
@@ -48,6 +48,17 @@ class IzmeniProfilAutorController extends CI_Controller{
     
     public function izmenaProfila(){
                        // $data['greska'];
+        
+                $config['upload_path']    = './img/';
+                $config['allowed_types']  = 'gif|jpg|png';
+                $config['max_size']       = 10000;
+                $config['max_width']      = 2000;
+                $config['max_height']     = 2000;
+
+                $this->load->library('upload', $config);
+
+                $this->upload->do_upload('picture');
+                
                          $id =  $this->session->userdata('id');
                          $stariUserName = $this->session->userdata('username'); //ukoliko je korisnik promenio username moramo da proverimo a li je novi username slobodan
                          $username=$this->input->post('username');
@@ -74,9 +85,9 @@ class IzmeniProfilAutorController extends CI_Controller{
                                          $tip =  $this->input->post('tip');
                                          $kap =  $this->input->post('kap');
                                         $opis = $this->input->post('opis');
-                                         $picture= $this->input->post('picture');
+                                        // $picture= $this->input->post('picture');
                                          //   echo "$name, $username. $pass, $email";
-                                        
+                                         $picture=$this->upload->data();
                                          $this->load->model('IzmeniProfilAutorModel');
                                          $result =  $this->IzmeniProfilAutorModel->izmenaProfila($id,$name, $picture, $username, $pass, $email, $phone, $nobjekat, $adr, $time, $tip, $kap, $opis);
                                              $this->session->set_userdata('username', $username);

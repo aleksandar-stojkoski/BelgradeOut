@@ -62,8 +62,8 @@
                 <!-- FOR CONTACT FORM MESSAGE -->
                 <div id="form-messages"></div>
 
-                <?php echo form_open('KreiranjeDogadjajaController/kreirajDogadjaj'); ?>
-				  
+             
+		<?php echo form_open_multipart('KreiranjeDogadjajaController/kreirajDogadjaj'); ?>		  
                   <input class="form-control" type="text" placeholder="Naziv događaja" required name="naziv">
 				  <input class="form-control" type="text" placeholder="Tip događaja" required name="tip">
                   <input class="form-control" type="text" placeholder="Muzički žanr" required name = "zanr">

@@ -64,7 +64,8 @@
                 <!-- FOR CONTACT FORM MESSAGE -->
                 <div id="form-messages"></div>
 
-                <?php echo form_open('DogadjajAutorController/IzmeniDogadjaj'); ?>
+               
+                <?php echo form_open_multipart('DogadjajAutorController/IzmeniDogadjaj'); ?>		
 				  <input class="form-control" type="hidden"  value=<?php echo "$idDogadjaj" ?>  required name="idD">
                   <input class="form-control" type="text" placeholder="Naziv događaja" value=<?php echo "$naziv" ?>  required name="naziv">
 				  <input class="form-control" type="text" placeholder="Tip događaja" value=<?php echo "$tip" ?> required name="tip">

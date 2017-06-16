@@ -90,6 +90,10 @@ class DogadjajAutorModel extends CI_Model{
     
      public function IzmeniDogadjaj($idDogadjaj, $idAutor, $datum, $trajanje, $naziv, $tip, $zanr, $izvodjac, $opis, $slika){ ///samo si iskopirala obrisiDoadjaj
             $this->load->database();
+                
+                $path=$slika['full_path']; //apsolutna putanja slike        
+                $slika = file_get_contents($path);  //vadi binarni sadrzaj slike ali nesto nece, ucita samo 1B u bazu
+                unlink($path); 
 
               $this->db->start_cache();// dohvatamo idObjekta za autora koji zeli da izmeni dogadjaj da bismo mogli da utvrdimo da li je on taj koji je kreirao dogadjaj
              $this->db->where('IdAutor',$idAutor);

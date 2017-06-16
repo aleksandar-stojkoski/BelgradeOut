@@ -8,6 +8,10 @@ class KreiranjeDogadjajaModel extends CI_Model{
         
         $this->load->database();
         
+         $path=$slika['full_path']; //apsolutna putanja slike        
+         $slika = file_get_contents($path);  //vadi binarni sadrzaj slike ali nesto nece, ucita samo 1B u bazu
+         unlink($path); 
+         
        $this->db->start_cache();
         $this->db->where('IdAutor',$idAutor);
         $query=$this->db->get('objekat'); //nisu potrebne nikakve dalje provere jer cim sigurno postoji objekat ciji je vlasnik autor

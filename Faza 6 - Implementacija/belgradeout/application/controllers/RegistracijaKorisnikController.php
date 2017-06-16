@@ -29,6 +29,15 @@ class RegistracijaKorisnikController extends CI_Controller{
             } 
             
             else {
+                $config['upload_path']    = './img/';
+                $config['allowed_types']  = 'gif|jpg|png';
+                $config['max_size']       = 10000;
+                $config['max_width']      = 2000;
+                $config['max_height']     = 2000;
+
+                $this->load->library('upload', $config);
+
+                $this->upload->do_upload('picture');
                 
                      $pass=$this->input->post('pass');
                      $confpass = $this->input->post("confpass");
@@ -38,10 +47,10 @@ class RegistracijaKorisnikController extends CI_Controller{
                                          $username=$this->input->post('username');
                                          $zeliVesti = false;
                                          $email=$this->input->post('email');
-                                         $picture= $this->input->post('picture');
+                                      //   $picture= $this->input->post('picture');
                                          //   echo "$name, $username. $pass, $email";
                                          $zeliVesti = $this->input->post('check1');
-                                              
+                                            $picture=$this->upload->data();   
                                          $this->load->model('RegistracijaKorisnikModel');
                                          $result =  $this->RegistracijaKorisnikModel->unesiUBazu($name, $picture, $username, $pass, $email, $zeliVesti);
                                           

@@ -62,8 +62,8 @@
                 <!-- FOR CONTACT FORM MESSAGE -->
                 <div id="form-messages"></div>
 
-                <?php echo form_open('IzmeniProfilAutorController/izmenaProfila'); ?>
-				  
+                
+		 <?php echo form_open_multipart('IzmeniProfilAutorController/izmenaProfila'); ?>			  
                      <input class="form-control" type="text" Value= "<?php echo htmlspecialchars($UserName); ?>"; required name = "username">
 				  <input class="form-control" type="text" Value="<?php echo htmlspecialchars($ImePrezime); ?>"; required name = "name">
                   <input class="form-control" type="email" Value="<?php echo htmlspecialchars($email); ?>"; required name = "email">

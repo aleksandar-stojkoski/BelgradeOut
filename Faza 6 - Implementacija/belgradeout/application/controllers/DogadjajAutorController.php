@@ -30,7 +30,15 @@ class DogadjajAutorController extends CI_Controller{
         
      
       //  echo "$idDogadjaj";
-        
+           $config['upload_path']    = './img/';
+                $config['allowed_types']  = 'gif|jpg|png';
+                $config['max_size']       = 10000;
+                $config['max_width']      = 2000;
+                $config['max_height']     = 2000;
+
+                $this->load->library('upload', $config);
+
+                $this->upload->do_upload('slika');
         $idAutor =  $this->session->userdata('id');
          $idDogadjaj =  $this->input->post('idD');
          $datum = $this->input->post('datum');
@@ -40,9 +48,9 @@ class DogadjajAutorController extends CI_Controller{
          $zanr = $this->input->post('zanr');
          $izvodjac = $this->input->post('izvodjac');
          $opis = $this->input->post('opis');
-         $slika = $this->input->post('slika');
+       //  $slika = $this->input->post('slika');
          
-         
+          $slika=$this->upload->data();
          $this->load->model('DogadjajAutorModel');
          $res=$this->DogadjajAutorModel->IzmeniDogadjaj($idDogadjaj, $idAutor, $datum, $trajanje, $naziv, $tip, $zanr, $izvodjac, $opis, $slika);
      

@@ -62,7 +62,7 @@
                 <!-- FOR CONTACT FORM MESSAGE -->
                 <div id="form-messages"></div>
 
-                  <?php echo form_open('RegistracijaKorisnikController/register'); ?>
+                   <?php echo form_open_multipart('RegistracijaKorisnikController/register'); ?>
 				  
                   <input class="form-control" type="text" placeholder="Korisničko ime" required name = "username">
 				  <input class="form-control" type="text" placeholder="Ime i prezime" required name="NameSurname">
