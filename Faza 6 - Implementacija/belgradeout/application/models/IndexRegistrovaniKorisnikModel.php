@@ -39,6 +39,23 @@ class IndexRegistrovaniKorisnikModel extends CI_Model{
         return $res;
     }
     
+    public function DohvatiListuObjekata(){
+        $this->load->database();
+        $this->db->flush_cache();
+        $this->db->start_cache();
+        
+        $res= array();
+        $i= 0;
+        
+        $query= $this->db->get('objekat');
+        foreach($query->result() as $row){
+            $res[$i]= $row;
+            $i++;
+        }
+        
+        return $res;
+    }
+    
     public function DohvatiNazivObjekta($idObjekta){
         $this->load->database();
         
@@ -66,6 +83,7 @@ class IndexRegistrovaniKorisnikModel extends CI_Model{
         if($TipDogadjaja == "Zurka") { $this->db->where('TipDogadjaja', 'Zurka'); }
         else if ($TipDogadjaja == "Svirka") { $this->db->where('TipDogadjaja', 'Svirka'); }
         
+        $MojTip= "Svi";
         if ($TipProstora == "Pub") { $MojTip= 'Pub'; }
         else if ($TipProstora == "Klub") { $MojTip= 'Klub'; }
         else if ($TipProstora == "Kafana") { $MojTip= 'Kafana'; }
@@ -85,14 +103,14 @@ class IndexRegistrovaniKorisnikModel extends CI_Model{
             
             $this->db->where('IdObjekta', $row->IdObjekta);
             
+            $MojaOcena= 5;
             $newquery= $this->db->get('ocena');
-            $MojaOcena= $newquery->row()->Ocena;
-            $BrojGlasova= $newquery->row()->BrGlasova;
-            $MojaOcena /= $BrojGlasova;
-            
-            if (($TipProstora == "Pub") ||
-                ($TipProstora == "Klub") ||
-                ($TipProstora == "Kafana")){
+            if($newquery->row() != null){
+                $MojaOcena= $newquery->row()->Ocena;
+                $BrojGlasova= $newquery->row()->BrGlasova;
+                $MojaOcena /= $BrojGlasova;
+            }
+            if ($MojTip != "Svi"){
                 if ($newQuery->row()->TipObjekta == $MojTip){
                     if ($MojaOcena >= $prosecnaOcena){
                         $res[$i]= $row;
