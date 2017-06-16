@@ -55,6 +55,8 @@ class IndexController extends CI_Controller{
                     ($Ocena == null)){
                     $res = $this->IndexRegistrovaniKorisnikModel->DohvatiDogadjajeIzBaze();
                     $data['dogadjaji']= $res;
+                    $anotherNewRes= $this->IndexRegistrovaniKorisnikModel->DohvatiListuObjekata();
+                    $data['ListaObjekata']= $anotherNewRes;
 
                     $this->load->view('templates/header');
                     $this->load->view('index', $data);
@@ -62,6 +64,8 @@ class IndexController extends CI_Controller{
                 } else{
                     $res = $this->IndexRegistrovaniKorisnikModel->DohvatiRezultatePretrage($TipObjekta, $TipDogadjaja, $Zanr, $Adresa, $Udaljenost, $Ocena);
                     $data['dogadjaji']= $res;
+                    $anotherNewRes= $this->IndexRegistrovaniKorisnikModel->DohvatiListuObjekata();
+                    $data['ListaObjekata']= $anotherNewRes;
 
                     $this->load->view('templates/header');
                     $this->load->view('index', $data);

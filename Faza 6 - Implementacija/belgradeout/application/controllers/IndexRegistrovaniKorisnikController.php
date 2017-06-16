@@ -56,6 +56,9 @@ class IndexRegistrovaniKorisnikController extends CI_Controller{
         }
         $newRes= $this->IndexRegistrovaniKorisnikModel->DohvatiListeOmiljenihParametara($id);
         $data['liste']= $newRes;
+        $anotherNewRes= $this->IndexRegistrovaniKorisnikModel->DohvatiListuObjekata();
+        $data['ListaObjekata']= $anotherNewRes;
+        
         $this->session->set_userdata('FlagPretrage',0);
         $this->load->view('templates/header');
         $this->load->view('index_registrovani_korisnik',$data);
