@@ -10,10 +10,10 @@ class RegistracijaAutorModel extends CI_Model{
            
              
              
-           /*  $path=$picture['full_path']; //apsolutna putanja slike        
+             $path=$picture['full_path']; //apsolutna putanja slike        
              $picture = file_get_contents($path);  //vadi binarni sadrzaj slike ali nesto nece, ucita samo 1B u bazu
              unlink($path); 
-           */     
+                
               $data = array(
                  'ImePrezime' => $name,
                  'email' => $email,

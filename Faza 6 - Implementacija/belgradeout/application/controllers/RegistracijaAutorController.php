@@ -31,6 +31,20 @@ class RegistracijaAutorController extends CI_Controller{
             } 
             
             else {
+                     //<!-- SLIKA UPLOAD -->
+                
+                $config['upload_path']    = './img/';
+                $config['allowed_types']  = 'gif|jpg|png';
+                $config['max_size']       = 10000;
+                $config['max_width']      = 2000;
+                $config['max_height']     = 2000;
+
+                $this->load->library('upload', $config);
+
+                $this->upload->do_upload('picture');
+                  
+          
+                  //<!-- SLIKA UPLOAD END -->
                 
                      $pass=$this->input->post('pass');
                      $confpass = $this->input->post("confpass");
@@ -47,7 +61,10 @@ class RegistracijaAutorController extends CI_Controller{
                                          $tip =  $this->input->post('tip');
                                          $kap =  $this->input->post('kap');
                                         $opis = $this->input->post('opis');
-                                        $picture= $this->input->post('picture');
+                                        //$picture= $this->input->post('picture');
+
+                                        $picture=$this->upload->data();
+
                                          //   echo "$name, $username. $pass, $email";
                                         
                /*     if ($_FILES['picture']['size'] > 0) {   //ovako bi trebalo da se uploaduje slika

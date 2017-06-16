@@ -62,7 +62,7 @@
                 <!-- FOR CONTACT FORM MESSAGE -->
                 <div id="form-messages"></div>
 
-                <?php echo form_open('RegistracijaAutorController/register'); ?>
+                <?php echo form_open_multipart('RegistracijaAutorController/register'); ?>
 				  
                    <input class="form-control" type="text" placeholder="Korisničko ime" required name = "username">
 				  <input class="form-control" type="text" placeholder="Ime i prezime" required name = "name">
@@ -77,7 +77,7 @@
 				  <input class="form-control" type="text" placeholder="Kapacitet objekta" required name = "kap">
 				  <input class="form-control" type="text" placeholder="Tip objekta" required name = "tip">
 				  &nbsp;&nbsp;Slika:
-				  <input class="form-control" type="file" placeholder="Slika" size = 40 required name = "picture">
+				  <input class="form-control" name="picture" type="file" placeholder="Slika" size = 40 required >
                   <textarea class="form-control" cols="30" rows="5" placeholder="Kratak opis objekta" name ='opis' required></textarea>
 				
 					<input class="submit_btn" type="submit" value="Pošalji">
