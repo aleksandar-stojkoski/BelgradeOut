@@ -140,6 +140,7 @@
                                                 <option value="Svi">Svi</option>
 						<option value="Rock">Rock</option>
 						<option value="Pop">Pop</option>
+                                                <option value="House">House</option>
 					</select>
 				</div>
 				<p>Trenutna adresa: </p>
@@ -210,7 +211,7 @@
 					</div>-->
 
                    <script 
-                    src='https://maps.googleapis.com/maps/api/js?v=3.exp'>
+                    src='https://maps.googleapis.com/maps/api/js?sensor=false'>
                     </script>
 
                     <div style='overflow:hidden;height:440px;width:700px;'>
@@ -222,73 +223,97 @@
                     </div>
 
                     <script type='text/javascript'>
+                        
+                            //Ovako bi trebao da izgleda geocoding
+//                            function getLatLng(){
+//                                    var addressInput = "Bulevar Kralja Aleksandra 220, Belgrade, Serbia";
+//
+//                                    var geocoder = new google.maps.Geocoder();
+//
+//                                    geocoder.geocode({address: addressInput}, function(results, status) {
+//
+//                                        if (status == google.maps.GeocoderStatus.OK) {
+//
+//                                            var myResult = results[0].geometry.location;
+//
+//                                            CreateMarker(myResult);
+//                                        }   else{
+//                                                alert("The Geocode was not successful for the following reason: " + status);
+//                                    }
+//                                });
+//                            }
+//                        
+//                            function CreateMarker(latlng){
+//                                marker = new google.maps.Marker({
+//                                    icon: './img/logo_small.png',
+//                                    map: map,
+//                                    position: new google.maps.LatLng(latlng)});
+//                                infowindow = new google.maps.InfoWindow({
+//                                content:'<strong></strong>'});
+//                                google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});
+//                                infowindow.open(map,marker);
+//                            }
+                        
                             function init_map(){
                             var myOptions = {
-                                    zoom:15,
+                                    zoom:14,
                                     center:new google.maps.LatLng(44.8056046, 20.4762933),
                                     mapTypeId: google.maps.MapTypeId.ROADMAP};
 
                                     map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);
-                                    marker = new google.maps.Marker({
-                                                    map: map,
-                                                    position: new google.maps.LatLng(44.8094452, 20.4757208)});
+                                    
+                                    <?php
+                                            $br= count($ListaObjekata);
+                                            for ( $i= 0; $i < $br; $i++){
+                                                $this->load->model("IndexRegistrovaniKorisnikModel");
+                                                $EventList= "";
+                                                $EventsNum= 0;
+                                                $brDog= count($dogadjaji);
+                                                $Lat= 0;
+                                                $Long= 0;
+                                                if ($ListaObjekata[$i]->IdObjekta == 4){
+                                                    $Lat= 44.8117362;
+                                                    $Long= 20.4659615;
+                                                } else if ($ListaObjekata[$i]->IdObjekta == 5){
+                                                    $Lat= 44.8056046;
+                                                    $Long= 20.4762933;
+                                                } else if ($ListaObjekata[$i]->IdObjekta == 6){
+                                                    $Lat= 44.8003933;
+                                                    $Long= 20.485252;
+                                                } else if ($ListaObjekata[$i]->IdObjekta == 7){
+                                                    $Lat= 44.8156388;
+                                                    $Long= 20.4842609;
+                                                } else if ($ListaObjekata[$i]->IdObjekta == 8){
+                                                    $Lat= 44.8154914;
+                                                    $Long= 20.4512724;
+                                                } else if ($ListaObjekata[$i]->IdObjekta == 9){
+                                                    $Lat= 44.7966601;
+                                                    $Long= 20.4696549;
+                                                }
+                                                for($j= 0; $j < $brDog; $j++){
+                                                    $FirstInt= $ListaObjekata[$i]->IdObjekta;
+                                                    $SecondInt= $dogadjaji[$j]->IdObjekta;
+                                                    if ($FirstInt == $SecondInt){
+                                                        $EventList .= "<br>";
+                                                        $EventList .= $dogadjaji[$j]->Naziv; 
+                                                        $EventsNum++;
+                                                    }
+                                                }
+                                                if ($EventsNum != 0){ ?>
+                                                    marker = new google.maps.Marker({
+                                                        icon: './img/MapsPin.png',
+                                                        map: map,
+                                                        position: new google.maps.LatLng(<?php echo $Lat ?>, <?php echo $Long ?>)});
+                                                    infowindow = new google.maps.InfoWindow({
+                                                    content:'<strong><?php echo $ListaObjekata[$i]->Naziv ?></strong><?php echo $EventList; ?>'});
+                                                    google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});
+                                                    infowindow.open(map,marker);
                                                 
-                                    <?php 
-                                            $this->load->model("IndexRegistrovaniKorisnikModel");
-                                            $br = count($dogadjaji);
-                                            $EventList= "";
-                                            for ($i = 0; $i < $br; $i++){
-                                                $naziv_objekta= $this->IndexRegistrovaniKorisnikModel->DohvatiNazivObjekta($dogadjaji[$i]->IdObjekta);
-                                                if ($naziv_objekta == "Jolly Roger Pub"){
-                                                    $EventList .= "<br>";
-                                                    $EventList .= $dogadjaji[$i]->Naziv; 
+                                            <?php        
                                                 }
-                                            } ?>
-                                    infowindow = new google.maps.InfoWindow({
-                                    content:'<strong>Jolly Roger Pub</strong><?php echo $EventList; ?>'});
-                                    google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});
-                                    infowindow.open(map,marker);
-                                    
-                                    <?php 
-                                            $this->load->model("IndexRegistrovaniKorisnikModel");
-                                            $br = count($dogadjaji);
-                                            $EventList= "";
-                                            for ($i = 0; $i < $br; $i++){
-                                                $naziv_objekta= $this->IndexRegistrovaniKorisnikModel->DohvatiNazivObjekta($dogadjaji[$i]->IdObjekta);
-                                                if ($naziv_objekta == "Etf Klub"){
-                                                    $EventList .= "<br>";
-                                                    $EventList .= $dogadjaji[$i]->Naziv; 
-                                                }
-                                            } ?>
-                                    marker = new google.maps.Marker({
-                                                    map: map,
-                                                    position: new google.maps.LatLng(44.8056046, 20.4762933)});
-                                    infowindow = new google.maps.InfoWindow({
-                                    content:'<strong>Etf Klub</strong><br><?php echo $EventList; ?><br>'});
-                                    google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});
-                                    infowindow.open(map,marker);
-                                    
-                                    <?php 
-                                            $this->load->model("IndexRegistrovaniKorisnikModel");
-                                            $br = count($dogadjaji);
-                                            $EventList= "";
-                                            for ($i = 0; $i < $br; $i++){
-                                                $naziv_objekta= $this->IndexRegistrovaniKorisnikModel->DohvatiNazivObjekta($dogadjaji[$i]->IdObjekta);
-                                                if ($naziv_objekta == "Kafana Ona Moja"){
-                                                    $EventList .= "<br>";
-                                                    $EventList .= $dogadjaji[$i]->Naziv; 
-                                                }
-                                            } ?>
-                                    marker = new google.maps.Marker({
-                                                    map: map,
-                                                    position: new google.maps.LatLng(44.8003933, 20.485252)});
-
-                                    infowindow = new google.maps.InfoWindow({
-                                    content:'<strong>Kafana Ona Moja</strong><br><?php echo $EventList; ?><br>'});
-                                    google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});
-                                    infowindow.open(map,marker);
+                                            }
+                                    ?>      
                             }
-
                     google.maps.event.addDomListener(window, 'load', init_map);</script>
                   </div>
                 </div>
