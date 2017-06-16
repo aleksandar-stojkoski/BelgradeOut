@@ -49,7 +49,7 @@
 				<div class="heading">
 					<h2 class="wow fadeInLeftBig">Zahtev</h2>
 					<div class="team_img">
-						  <img src="<?php echo base_url();?>img/team-1.jpg" alt="img">
+						  <img src="data:image/jpeg;base64,<?php echo base64_encode($slika); ?>" alt="img">
 					</div>
 					<p>	
             1. Naziv događaja:  <?php echo "$naziv"; ?> <br>
